@@ -1,0 +1,131 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{ae,aecompl}
+\usepackage{pslatex}
+\usepackage{epsfig}
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{ae}
+\usepackage{subfig}
+\usepackage{indentfirst}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{verbatim}
+
+
+
+%Definindo as margens para 2cm e o espaçamento entre linhas para 1.5
+% Relatório parcial deve ter espaçamento simples
+%\linespread{1.5}
+
+\geometry{ 
+	a4paper,	% Formato do papel
+	tmargin=25mm,	% Margem superior
+	bmargin=25mm,	% Margem inferior
+	lmargin=20mm,	% Margem esquerda
+	rmargin=20mm,	% Margem direita
+	footskip=20mm	% Espaço entre o rodapé e o fim do texto
+}
+\include{abaco} 
+\renewcommand{\thetable}{\Roman{table}}
+\newcommand{\x} {$\bullet$}
+
+
+\begin{document}
+
+% CAPA
+\begin{titlepage}
+\thispagestyle{empty}
+  \begin{center} {\large \textbf{UNIVERSIDADE~ESTADUAL~DE~CAMPINAS}} \end{center}
+  \begin{center} {\large INSTITUTO~DE~COMPUTAÇÃO}                    \end{center}
+  \vspace{0.1cm}
+  \begin{center}
+  \begin{minipage}[tl]{31mm}
+    \ABACO{1}{9}{6}{9}{1}
+  \end{minipage}
+  \end{center}
+  \vspace{0.3cm}
+  \begin{center} 
+    {\large \textsc{Estudo da cache através de simulações
+               }} 
+    \\\vspace{0.5cm}
+    {\textsl{Relatório do primeiro laboratório de MC723}}
+    \\\vspace{1cm}
+    \begin{tabular}{rl}
+	  \textbf{Aluno}:       & Tiago~Chedraoui~Silva \\
+	\end{tabular}
+  \end{center}
+  \vspace{0.5cm}
+
+  \begin{abstract}
+O princípio de funcionamento da memória cache é duplicar parte dos dados contidos na memória
+principal (a memória lenta, neste caso) em um módulo menor (o cache) composto por dispositivos
+de memória mais rápidos.
+Quando o processador solicita um item de dado (gerando uma referência para seu endereço, que
+pode ser físico ou virtual), o gerenciador de memória requisita este item do cache. Duas situações
+podem ocorrer:
+cache hit: item está presente no cache, é retornado para o processador praticamente sem período de
+latência;
+cache miss: item não está presente no cache, processador deve aguardar item ser buscado da memó-
+ria principal.
+Nesse laboratório, estudaremos a melhor organização de uma memória
+cache para a execução de um determinado programa.
+
+  \end{abstract}
+
+  % Sumário
+  \tableofcontents
+\end{titlepage} 
+
+
+% Guia para o relatório
+%Quais são os principais parâmetros a serem definidos em uma cache?
+%Quais são os valores típicos para esses parâmetros?
+%Quais devem ser os limites mínimos e máximos desses valores?
+%Olhe no manual do dinero e descubra quais desses parâmetros ele
+%permite configurar -- Done
+%Como podemos dizer que uma determinada configuração de cache é melhor que outra?
+%O que é um trace de execução? -- Done +-
+%Por que utilizar um trace de execução para achar a melhor configuração de cache para um programa?
+%Por que escolher a melhor configuração de cache para um dado programa? A configuração de cache não é específica do processador?
+%Olhe aqui qual o programa e número de arquivos você deve usar
+
+%-----------------------------------------------------------------------------%
+\section{Resumo das atividades}
+%-----------------------------------------------------------------------------%
+
+\subsection{Dinero}
+%Olhe no manual do dinero e descubra quais desses parâmetros ele permite configurar
+
+O Software Dinero é um silmulador de cache para traces de memória
+(registro de execução de um programa).
+
+Dentre as opções de configuração da memória cache, o dinero nos
+fornece as seguintes possibilidades:
+tamanho da memória chace, tamanho do bloco da memória
+cache, tamanho do sub-bloco, associatividade, política de
+substituição, política de escrita se occorer um hit (write-back, write
+through), política de escrita se occorer um
+miss (write-allocate,no-write-allocate,fectch,non-fetch).
+
+% -lN-Tsize P       Size
+% -lN-Tbsize P      Block size
+% -lN-Tsbsize P     Sub-block size (default same as block size)
+% -lN-Tassoc U      Associativity (default 1)
+% -lN-Trepl C       Replacement policy
+%                   (l=LRU, f=FIFO, r=random) (default l)
+% -lN-Tfetch C      Fetch policy
+%                   (d=demand, a=always, m=miss, t=tagged,
+%                    l=load forward, s=subblock) (default d)
+% -lN-Twalloc C     Write allocate policy
+%                   (a=always, n=never, f=nofetch) (default a)
+% -lN-Twback C      Write back policy
+%                   (a=always, n=never, f=nofetch) (default a)
+
+\end{document}
