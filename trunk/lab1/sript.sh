@@ -17,14 +17,14 @@ do
 done
 
 # Teste 2
-# Alteramos incialmente a associatividade
+# Alteramos incialmente a politica de replacement para fifo
 # Usamos uma cache diferenciada para Dados e Instrucao
 # Consideramos a divisao do espaco em 50%
  
 for ((i=1;i<=512;i=i*2))
 do
     echo -e "Associatividade:$i\nTamanho das Caches:8k\nTamanho Bloco:32\n" >> ../testes/teste2.txt    
-    ./dineroIV -informat s -trname applu_f2b -trname ammp_m2b -maxtrace 13 -l1-uassoc $i -l1-isize 8k  -l1-ibsize 32 -l1-dsize 8k  -l1-dbsize 32 -l1-uccc| grep "Metrics\|-----------------\|Demand Fetches\|Fraction of total\|Demand Misses\|Demand miss rate\|Compulsory misses\|Capacity misses\|Conflict misses\|Compulsory fraction\|Capacity fraction\|Conflict fraction" | grep -v "( / Demand Fetches)"  >> ../testes/teste2.txt
+    ./dineroIV -informat s -trname applu_f2b -trname ammp_m2b -maxtrace 13 -l1-uassoc $i -l1-isize 8k  -l1-ibsize 32 -l1-dsize 8k  -l1-dbsize 32 -l1-uccc -lN-Trepl f | grep "Metrics\|-----------------\|Demand Fetches\|Fraction of total\|Demand Misses\|Demand miss rate\|Compulsory misses\|Capacity misses\|Conflict misses\|Compulsory fraction\|Capacity fraction\|Conflict fraction" | grep -v "( / Demand Fetches)"  >> ../testes/teste2.txt
     echo -e "\n"
     echo -e "\n">> ../testes/teste2.txt
 done
