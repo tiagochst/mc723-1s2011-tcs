@@ -97,10 +97,9 @@ cache para a execução de um determinado programa.
 %Olhe aqui qual o programa e número de arquivos você deve usar
 
 %-----------------------------------------------------------------------------%
-\section{Resumo das atividades}
+\section{Dinero}
 %-----------------------------------------------------------------------------%
 
-\subsection{Dinero}
 %Olhe no manual do dinero e descubra quais desses parâmetros ele permite configurar
 
 O Software Dinero é um silmulador de cache para traces de memória
@@ -110,9 +109,15 @@ Dentre as opções de configuração da memória cache, o dinero nos
 fornece as seguintes possibilidades:
 tamanho da memória chace, tamanho do bloco da memória
 cache, tamanho do sub-bloco, associatividade, política de
-substituição, política de escrita se occorer um hit (write-back, write
-through), política de escrita se occorer um
-miss (write-allocate,no-write-allocate,fectch,non-fetch).
+substituição (LRU\footnote{Least recently used: substitui a página na memória cuja última referência é a mais antiga.
+}, FIFO\footnote{First-in, first-out: substitui a página mais antiga na memória} ou aletório), política de escrita se occorer um hit (write-back\footnote{Quando um ciclo de escrita ocorre para uma palavra, ela é atualizada
+apenas no cache.}, write-through\footnote{Quando um ciclo de escrita ocorre para uma palavra, ela é escrita
+no cache e na memória principal simultaneamente.}), política de escrita se occorer um
+miss ( write-allocate, no-write-allocate, fetch on write\footnote{Com
+  alocação em escrita: no caso de um miss para escrita, item é trazido
+  para o cache após atualizado;}, no fetch on write\footnote{Sem
+  alocação em escrita: no caso de um miss para a  escrita, item é
+  atualizado apenas na memória principal, não sendo trazido para o cache.}).
 
 % -lN-Tsize P       Size
 % -lN-Tbsize P      Block size
@@ -127,5 +132,35 @@ miss (write-allocate,no-write-allocate,fectch,non-fetch).
 %                   (a=always, n=never, f=nofetch) (default a)
 % -lN-Twback C      Write back policy
 %                   (a=always, n=never, f=nofetch) (default a)
+
+%-----------------------------------------------------------------------------%
+\section{Simulação}
+%-----------------------------------------------------------------------------%
+
+\subsection{Tamanho do bloco, associatividade, tamanho da cache}
+
+\subsection{Uma Cache:  dados/instrução }
+
+\subsection{Duas caches:  dados e  instrução}
+A memória cache pode ser separada em cache de instruções e para cache de dados,
+de forma que dados e instruções poderiam ser acessados em paralelo. 
+
+\subsection{Políticas de substituição}
+Simulou-se a utilização das três políticas de substituição fornecida
+pelo Dinero.
+Para uma mesma configuração a política LRU foi a que apresentou um
+melhor resultado.
+\subsection{Políticas de escrita se ocorrer um hit}
+Simulou-se a utilização das duas políticas de escrita se ocorrer um
+hit fornecida pelo Dinero.
+Para uma mesma configuração a política write-back foi a que apresentou um
+melhor resultado.
+
+\subsection{Políticas de escrita se ocorrer um miss}
+Simulou-se a utilização das duas políticas de escrita se ocorrer um
+miss fornecida pelo Dinero.
+Para uma mesma configuração a política no fetch on write foi a que apresentou um
+melhor resultado.
+
 
 \end{document}
