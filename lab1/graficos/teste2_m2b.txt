@@ -1,0 +1,272 @@
+Associatividade:1
+Tamanho das Caches:8k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   259999829	   259999829	           0	           0	           0	           0
+  Fraction of total	      1.0000	      1.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Demand Misses		     5824943	     5824943	           0	           0	           0	           0
+  Demand miss rate	      0.0224	      0.0224	      0.0000	      0.0000	      0.0000	      0.0000
+   Compulsory misses	        4845	        4845	           0	           0	           0	           0
+   Capacity misses	     5819620	     5819620	           0	           0	           0	           0
+   Conflict misses	         478	         478	           0	           0	           0	           0
+   Compulsory fraction	      0.0008	      0.0008	      0.0000	      0.0000	      0.0000	      0.0000
+   Capacity fraction	      0.9991	      0.9991	      0.0000	      0.0000	      0.0000	      0.0000
+   Conflict fraction	      0.0001	      0.0001	      0.0000	      0.0000	      0.0000	      0.0000
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   100302837	           0	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.0000	      1.0000	      0.6984	      0.3016	      0.0000
+ Demand Misses		    16632278	           0	    16632278	    12705578	     3926700	           0
+  Demand miss rate	      0.1658	      0.0000	      0.1658	      0.1814	      0.1298	      0.0000
+   Compulsory misses	     3199837	           0	     3199837	     1300114	     1899723	           0
+   Capacity misses	     9725347	           0	     9725347	     8766121	      959226	           0
+   Conflict misses	     3707094	           0	     3707094	     2639343	     1067751	           0
+   Compulsory fraction	      0.1924	      0.0000	      0.1924	      0.1023	      0.4838	      0.0000
+   Capacity fraction	      0.5847	      0.0000	      0.5847	      0.6899	      0.2443	      0.0000
+   Conflict fraction	      0.2229	      0.0000	      0.2229	      0.2077	      0.2719	      0.0000
+
+
+Associatividade:2
+Tamanho das Caches:8k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   259999829	   259999829	           0	           0	           0	           0
+  Fraction of total	      1.0000	      1.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Demand Misses		     5837534	     5837534	           0	           0	           0	           0
+  Demand miss rate	      0.0225	      0.0225	      0.0000	      0.0000	      0.0000	      0.0000
+   Compulsory misses	        4845	        4845	           0	           0	           0	           0
+   Capacity misses	     5832371	     5832371	           0	           0	           0	           0
+   Conflict misses	         318	         318	           0	           0	           0	           0
+   Compulsory fraction	      0.0008	      0.0008	      0.0000	      0.0000	      0.0000	      0.0000
+   Capacity fraction	      0.9991	      0.9991	      0.0000	      0.0000	      0.0000	      0.0000
+   Conflict fraction	      0.0001	      0.0001	      0.0000	      0.0000	      0.0000	      0.0000
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   100302837	           0	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.0000	      1.0000	      0.6984	      0.3016	      0.0000
+ Demand Misses		    15365901	           0	    15365901	    12242222	     3123679	           0
+  Demand miss rate	      0.1532	      0.0000	      0.1532	      0.1748	      0.1033	      0.0000
+   Compulsory misses	     3199837	           0	     3199837	     1300114	     1899723	           0
+   Capacity misses	    10279902	           0	    10279902	     9346641	      933261	           0
+   Conflict misses	     1886162	           0	     1886162	     1595467	      290695	           0
+   Compulsory fraction	      0.2082	      0.0000	      0.2082	      0.1062	      0.6082	      0.0000
+   Capacity fraction	      0.6690	      0.0000	      0.6690	      0.7635	      0.2988	      0.0000
+   Conflict fraction	      0.1227	      0.0000	      0.1227	      0.1303	      0.0931	      0.0000
+
+
+Associatividade:4
+Tamanho das Caches:8k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   259999829	   259999829	           0	           0	           0	           0
+  Fraction of total	      1.0000	      1.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Demand Misses		     5837563	     5837563	           0	           0	           0	           0
+  Demand miss rate	      0.0225	      0.0225	      0.0000	      0.0000	      0.0000	      0.0000
+   Compulsory misses	        4845	        4845	           0	           0	           0	           0
+   Capacity misses	     5832514	     5832514	           0	           0	           0	           0
+   Conflict misses	         204	         204	           0	           0	           0	           0
+   Compulsory fraction	      0.0008	      0.0008	      0.0000	      0.0000	      0.0000	      0.0000
+   Capacity fraction	      0.9991	      0.9991	      0.0000	      0.0000	      0.0000	      0.0000
+   Conflict fraction	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   100302837	           0	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.0000	      1.0000	      0.6984	      0.3016	      0.0000
+ Demand Misses		    14716384	           0	    14716384	    11700010	     3016374	           0
+  Demand miss rate	      0.1467	      0.0000	      0.1467	      0.1670	      0.0997	      0.0000
+   Compulsory misses	     3199837	           0	     3199837	     1300114	     1899723	           0
+   Capacity misses	    10332494	           0	    10332494	     9397419	      935075	           0
+   Conflict misses	     1184053	           0	     1184053	     1002477	      181576	           0
+   Compulsory fraction	      0.2174	      0.0000	      0.2174	      0.1111	      0.6298	      0.0000
+   Capacity fraction	      0.7021	      0.0000	      0.7021	      0.8032	      0.3100	      0.0000
+   Conflict fraction	      0.0805	      0.0000	      0.0805	      0.0857	      0.0602	      0.0000
+
+
+Associatividade:8
+Tamanho das Caches:8k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   259999829	   259999829	           0	           0	           0	           0
+  Fraction of total	      1.0000	      1.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Demand Misses		     5837522	     5837522	           0	           0	           0	           0
+  Demand miss rate	      0.0225	      0.0225	      0.0000	      0.0000	      0.0000	      0.0000
+   Compulsory misses	        4845	        4845	           0	           0	           0	           0
+   Capacity misses	     5832516	     5832516	           0	           0	           0	           0
+   Conflict misses	         161	         161	           0	           0	           0	           0
+   Compulsory fraction	      0.0008	      0.0008	      0.0000	      0.0000	      0.0000	      0.0000
+   Capacity fraction	      0.9991	      0.9991	      0.0000	      0.0000	      0.0000	      0.0000
+   Conflict fraction	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   100302837	           0	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.0000	      1.0000	      0.6984	      0.3016	      0.0000
+ Demand Misses		    14868427	           0	    14868427	    11852118	     3016309	           0
+  Demand miss rate	      0.1482	      0.0000	      0.1482	      0.1692	      0.0997	      0.0000
+   Compulsory misses	     3199837	           0	     3199837	     1300114	     1899723	           0
+   Capacity misses	    10578303	           0	    10578303	     9614850	      963453	           0
+   Conflict misses	     1090287	           0	     1090287	      937154	      153133	           0
+   Compulsory fraction	      0.2152	      0.0000	      0.2152	      0.1097	      0.6298	      0.0000
+   Capacity fraction	      0.7115	      0.0000	      0.7115	      0.8112	      0.3194	      0.0000
+   Conflict fraction	      0.0733	      0.0000	      0.0733	      0.0791	      0.0508	      0.0000
+
+
+Associatividade:16
+Tamanho das Caches:8k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   259999829	   259999829	           0	           0	           0	           0
+  Fraction of total	      1.0000	      1.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Demand Misses		     5837611	     5837611	           0	           0	           0	           0
+  Demand miss rate	      0.0225	      0.0225	      0.0000	      0.0000	      0.0000	      0.0000
+   Compulsory misses	        4845	        4845	           0	           0	           0	           0
+   Capacity misses	     5832602	     5832602	           0	           0	           0	           0
+   Conflict misses	         164	         164	           0	           0	           0	           0
+   Compulsory fraction	      0.0008	      0.0008	      0.0000	      0.0000	      0.0000	      0.0000
+   Capacity fraction	      0.9991	      0.9991	      0.0000	      0.0000	      0.0000	      0.0000
+   Conflict fraction	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   100302837	           0	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.0000	      1.0000	      0.6984	      0.3016	      0.0000
+ Demand Misses		    14685197	           0	    14685197	    11683751	     3001446	           0
+  Demand miss rate	      0.1464	      0.0000	      0.1464	      0.1668	      0.0992	      0.0000
+   Compulsory misses	     3199837	           0	     3199837	     1300114	     1899723	           0
+   Capacity misses	    10660907	           0	    10660907	     9692823	      968084	           0
+   Conflict misses	      824453	           0	      824453	      690814	      133639	           0
+   Compulsory fraction	      0.2179	      0.0000	      0.2179	      0.1113	      0.6329	      0.0000
+   Capacity fraction	      0.7260	      0.0000	      0.7260	      0.8296	      0.3225	      0.0000
+   Conflict fraction	      0.0561	      0.0000	      0.0561	      0.0591	      0.0445	      0.0000
+
+
+Associatividade:32
+Tamanho das Caches:8k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   259999829	   259999829	           0	           0	           0	           0
+  Fraction of total	      1.0000	      1.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Demand Misses		     5837986	     5837986	           0	           0	           0	           0
+  Demand miss rate	      0.0225	      0.0225	      0.0000	      0.0000	      0.0000	      0.0000
+   Compulsory misses	        4845	        4845	           0	           0	           0	           0
+   Capacity misses	     5833079	     5833079	           0	           0	           0	           0
+   Conflict misses	          62	          62	           0	           0	           0	           0
+   Compulsory fraction	      0.0008	      0.0008	      0.0000	      0.0000	      0.0000	      0.0000
+   Capacity fraction	      0.9992	      0.9992	      0.0000	      0.0000	      0.0000	      0.0000
+   Conflict fraction	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   100302837	           0	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.0000	      1.0000	      0.6984	      0.3016	      0.0000
+ Demand Misses		    14613174	           0	    14613174	    11603868	     3009306	           0
+  Demand miss rate	      0.1457	      0.0000	      0.1457	      0.1656	      0.0995	      0.0000
+   Compulsory misses	     3199837	           0	     3199837	     1300114	     1899723	           0
+   Capacity misses	    10726874	           0	    10726874	     9743755	      983119	           0
+   Conflict misses	      686463	           0	      686463	      559999	      126464	           0
+   Compulsory fraction	      0.2190	      0.0000	      0.2190	      0.1120	      0.6313	      0.0000
+   Capacity fraction	      0.7341	      0.0000	      0.7341	      0.8397	      0.3267	      0.0000
+   Conflict fraction	      0.0470	      0.0000	      0.0470	      0.0483	      0.0420	      0.0000
+
+
+Associatividade:64
+Tamanho das Caches:8k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   259999829	   259999829	           0	           0	           0	           0
+  Fraction of total	      1.0000	      1.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Demand Misses		     5837957	     5837957	           0	           0	           0	           0
+  Demand miss rate	      0.0225	      0.0225	      0.0000	      0.0000	      0.0000	      0.0000
+   Compulsory misses	        4845	        4845	           0	           0	           0	           0
+   Capacity misses	     5833096	     5833096	           0	           0	           0	           0
+   Conflict misses	          16	          16	           0	           0	           0	           0
+   Compulsory fraction	      0.0008	      0.0008	      0.0000	      0.0000	      0.0000	      0.0000
+   Capacity fraction	      0.9992	      0.9992	      0.0000	      0.0000	      0.0000	      0.0000
+   Conflict fraction	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   100302837	           0	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.0000	      1.0000	      0.6984	      0.3016	      0.0000
+ Demand Misses		    14629753	           0	    14629753	    11617162	     3012591	           0
+  Demand miss rate	      0.1459	      0.0000	      0.1459	      0.1658	      0.0996	      0.0000
+   Compulsory misses	     3199837	           0	     3199837	     1300114	     1899723	           0
+   Capacity misses	    10754236	           0	    10754236	     9764375	      989861	           0
+   Conflict misses	      675680	           0	      675680	      552673	      123007	           0
+   Compulsory fraction	      0.2187	      0.0000	      0.2187	      0.1119	      0.6306	      0.0000
+   Capacity fraction	      0.7351	      0.0000	      0.7351	      0.8405	      0.3286	      0.0000
+   Conflict fraction	      0.0462	      0.0000	      0.0462	      0.0476	      0.0408	      0.0000
+
+
+Associatividade:128
+Tamanho das Caches:8k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   259999829	   259999829	           0	           0	           0	           0
+  Fraction of total	      1.0000	      1.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Demand Misses		     5837961	     5837961	           0	           0	           0	           0
+  Demand miss rate	      0.0225	      0.0225	      0.0000	      0.0000	      0.0000	      0.0000
+   Compulsory misses	        4845	        4845	           0	           0	           0	           0
+   Capacity misses	     5833102	     5833102	           0	           0	           0	           0
+   Conflict misses	          14	          14	           0	           0	           0	           0
+   Compulsory fraction	      0.0008	      0.0008	      0.0000	      0.0000	      0.0000	      0.0000
+   Capacity fraction	      0.9992	      0.9992	      0.0000	      0.0000	      0.0000	      0.0000
+   Conflict fraction	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   100302837	           0	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.0000	      1.0000	      0.6984	      0.3016	      0.0000
+ Demand Misses		    14161672	           0	    14161672	    11183133	     2978539	           0
+  Demand miss rate	      0.1412	      0.0000	      0.1412	      0.1596	      0.0985	      0.0000
+   Compulsory misses	     3199837	           0	     3199837	     1300114	     1899723	           0
+   Capacity misses	    10886724	           0	    10886724	     9834066	     1052658	           0
+   Conflict misses	       75111	           0	       75111	       48953	       26158	           0
+   Compulsory fraction	      0.2260	      0.0000	      0.2260	      0.1163	      0.6378	      0.0000
+   Capacity fraction	      0.7687	      0.0000	      0.7687	      0.8794	      0.3534	      0.0000
+   Conflict fraction	      0.0053	      0.0000	      0.0053	      0.0044	      0.0088	      0.0000
+
+
+Associatividade:256
+Tamanho das Caches:8k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   259999829	   259999829	           0	           0	           0	           0
+  Fraction of total	      1.0000	      1.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Demand Misses		     5837954	     5837954	           0	           0	           0	           0
+  Demand miss rate	      0.0225	      0.0225	      0.0000	      0.0000	      0.0000	      0.0000
+   Compulsory misses	        4845	        4845	           0	           0	           0	           0
+   Capacity misses	     5833109	     5833109	           0	           0	           0	           0
+   Conflict misses	           0	           0	           0	           0	           0	           0
+   Compulsory fraction	      0.0008	      0.0008	      0.0000	      0.0000	      0.0000	      0.0000
+   Capacity fraction	      0.9992	      0.9992	      0.0000	      0.0000	      0.0000	      0.0000
+   Conflict fraction	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   100302837	           0	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.0000	      1.0000	      0.6984	      0.3016	      0.0000
+ Demand Misses		    14109933	           0	    14109933	    11149841	     2960092	           0
+  Demand miss rate	      0.1407	      0.0000	      0.1407	      0.1592	      0.0979	      0.0000
+   Compulsory misses	     3199837	           0	     3199837	     1300114	     1899723	           0
+   Capacity misses	    10910096	           0	    10910096	     9849727	     1060369	           0
+   Conflict misses	           0	           0	           0	           0	           0	           0
+   Compulsory fraction	      0.2268	      0.0000	      0.2268	      0.1166	      0.6418	      0.0000
+   Capacity fraction	      0.7732	      0.0000	      0.7732	      0.8834	      0.3582	      0.0000
+   Conflict fraction	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000
+
+
+
+
