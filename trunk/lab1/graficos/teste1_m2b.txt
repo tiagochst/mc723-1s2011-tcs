@@ -1,0 +1,180 @@
+Associatividade:1
+Tamanho Cache:16k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   360302666	   259999829	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.7216	      0.2784	      0.1944	      0.0840	      0.0000
+ Demand Misses		    23480088	     7350953	    16129135	    12026877	     4102258	           0
+  Demand miss rate	      0.0652	      0.0283	      0.1608	      0.1717	      0.1356	      0.0000
+   Compulsory misses	     3204682	        4845	     3199837	     1300114	     1899723	           0
+   Capacity misses	    12584129	     3981609	     8602520	     7504986	     1097534	           0
+   Conflict misses	     7691277	     3364499	     4326778	     3221777	     1105001	           0
+   Compulsory fraction	      0.1365	      0.0007	      0.1984	      0.1081	      0.4631	      0.0000
+   Capacity fraction	      0.5359	      0.5416	      0.5334	      0.6240	      0.2675	      0.0000
+   Conflict fraction	      0.3276	      0.4577	      0.2683	      0.2679	      0.2694	      0.0000
+
+
+Associatividade:2
+Tamanho Cache:16k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   360302666	   259999829	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.7216	      0.2784	      0.1944	      0.0840	      0.0000
+ Demand Misses		    19541951	     5622814	    13919137	    10673622	     3245515	           0
+  Demand miss rate	      0.0542	      0.0216	      0.1388	      0.1524	      0.1073	      0.0000
+   Compulsory misses	     3204682	        4845	     3199837	     1300114	     1899723	           0
+   Capacity misses	    14304653	     5231899	     9072754	     8002747	     1070007	           0
+   Conflict misses	     2032616	      386070	     1646546	     1370761	      275785	           0
+   Compulsory fraction	      0.1640	      0.0009	      0.2299	      0.1218	      0.5853	      0.0000
+   Capacity fraction	      0.7320	      0.9305	      0.6518	      0.7498	      0.3297	      0.0000
+   Conflict fraction	      0.1040	      0.0687	      0.1183	      0.1284	      0.0850	      0.0000
+
+
+Associatividade:4
+Tamanho Cache:16k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   360302666	   259999829	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.7216	      0.2784	      0.1944	      0.0840	      0.0000
+ Demand Misses		    19511351	     5880078	    13631273	    10507409	     3123864	           0
+  Demand miss rate	      0.0542	      0.0226	      0.1359	      0.1500	      0.1033	      0.0000
+   Compulsory misses	     3204682	        4845	     3199837	     1300114	     1899723	           0
+   Capacity misses	    15227758	     5871696	     9356062	     8303091	     1052971	           0
+   Conflict misses	     1078911	        3537	     1075374	      904204	      171170	           0
+   Compulsory fraction	      0.1642	      0.0008	      0.2347	      0.1237	      0.6081	      0.0000
+   Capacity fraction	      0.7805	      0.9986	      0.6864	      0.7902	      0.3371	      0.0000
+   Conflict fraction	      0.0553	      0.0006	      0.0789	      0.0861	      0.0548	      0.0000
+
+
+Associatividade:8
+Tamanho Cache:16k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   360302666	   259999829	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.7216	      0.2784	      0.1944	      0.0840	      0.0000
+ Demand Misses		    19632207	     5955682	    13676525	    10654093	     3022432	           0
+  Demand miss rate	      0.0545	      0.0229	      0.1364	      0.1521	      0.0999	      0.0000
+   Compulsory misses	     3204682	        4845	     3199837	     1300114	     1899723	           0
+   Capacity misses	    15712000	     5950420	     9761580	     8727974	     1033606	           0
+   Conflict misses	      715525	         417	      715108	      626005	       89103	           0
+   Compulsory fraction	      0.1632	      0.0008	      0.2340	      0.1220	      0.6285	      0.0000
+   Capacity fraction	      0.8003	      0.9991	      0.7137	      0.8192	      0.3420	      0.0000
+   Conflict fraction	      0.0364	      0.0001	      0.0523	      0.0588	      0.0295	      0.0000
+
+
+Associatividade:16
+Tamanho Cache:16k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   360302666	   259999829	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.7216	      0.2784	      0.1944	      0.0840	      0.0000
+ Demand Misses		    20018051	     5959672	    14058379	    11020592	     3037787	           0
+  Demand miss rate	      0.0556	      0.0229	      0.1402	      0.1573	      0.1004	      0.0000
+   Compulsory misses	     3204682	        4845	     3199837	     1300114	     1899723	           0
+   Capacity misses	    16121673	     5954614	    10167059	     9093874	     1073185	           0
+   Conflict misses	      691696	         213	      691483	      626604	       64879	           0
+   Compulsory fraction	      0.1601	      0.0008	      0.2276	      0.1180	      0.6254	      0.0000
+   Capacity fraction	      0.8054	      0.9992	      0.7232	      0.8252	      0.3533	      0.0000
+   Conflict fraction	      0.0346	      0.0000	      0.0492	      0.0569	      0.0214	      0.0000
+
+
+Associatividade:32
+Tamanho Cache:16k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   360302666	   259999829	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.7216	      0.2784	      0.1944	      0.0840	      0.0000
+ Demand Misses		    20162969	     5959479	    14203490	    11146231	     3057259	           0
+  Demand miss rate	      0.0560	      0.0229	      0.1416	      0.1591	      0.1011	      0.0000
+   Compulsory misses	     3204682	        4845	     3199837	     1300114	     1899723	           0
+   Capacity misses	    16291928	     5954626	    10337302	     9240575	     1096727	           0
+   Conflict misses	      666359	           8	      666351	      605542	       60809	           0
+   Compulsory fraction	      0.1589	      0.0008	      0.2253	      0.1166	      0.6214	      0.0000
+   Capacity fraction	      0.8080	      0.9992	      0.7278	      0.8290	      0.3587	      0.0000
+   Conflict fraction	      0.0330	      0.0000	      0.0469	      0.0543	      0.0199	      0.0000
+
+
+Associatividade:64
+Tamanho Cache:16k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   360302666	   259999829	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.7216	      0.2784	      0.1944	      0.0840	      0.0000
+ Demand Misses		    20185264	     5959473	    14225791	    11144034	     3081757	           0
+  Demand miss rate	      0.0560	      0.0229	      0.1418	      0.1591	      0.1019	      0.0000
+   Compulsory misses	     3204682	        4845	     3199837	     1300114	     1899723	           0
+   Capacity misses	    16357674	     5954625	    10403049	     9278029	     1125020	           0
+   Conflict misses	      622908	           3	      622905	      565891	       57014	           0
+   Compulsory fraction	      0.1588	      0.0008	      0.2249	      0.1167	      0.6164	      0.0000
+   Capacity fraction	      0.8104	      0.9992	      0.7313	      0.8326	      0.3651	      0.0000
+   Conflict fraction	      0.0309	      0.0000	      0.0438	      0.0508	      0.0185	      0.0000
+
+
+Associatividade:128
+Tamanho Cache:16k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   360302666	   259999829	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.7216	      0.2784	      0.1944	      0.0840	      0.0000
+ Demand Misses		    20190343	     5959495	    14230848	    11148124	     3082724	           0
+  Demand miss rate	      0.0560	      0.0229	      0.1419	      0.1591	      0.1019	      0.0000
+   Compulsory misses	     3204682	        4845	     3199837	     1300114	     1899723	           0
+   Capacity misses	    16380739	     5954647	    10426092	     9295642	     1130450	           0
+   Conflict misses	      604922	           3	      604919	      552368	       52551	           0
+   Compulsory fraction	      0.1587	      0.0008	      0.2249	      0.1166	      0.6162	      0.0000
+   Capacity fraction	      0.8113	      0.9992	      0.7326	      0.8338	      0.3667	      0.0000
+   Conflict fraction	      0.0300	      0.0000	      0.0425	      0.0495	      0.0170	      0.0000
+
+
+Associatividade:256
+Tamanho Cache:16k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   360302666	   259999829	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.7216	      0.2784	      0.1944	      0.0840	      0.0000
+ Demand Misses		    19696836	     5959493	    13737343	    10635806	     3101537	           0
+  Demand miss rate	      0.0547	      0.0229	      0.1370	      0.1518	      0.1025	      0.0000
+   Compulsory misses	     3204682	        4845	     3199837	     1300114	     1899723	           0
+   Capacity misses	    16461667	     5954645	    10507022	     9319535	     1187487	           0
+   Conflict misses	       30487	           3	       30484	       16157	       14327	           0
+   Compulsory fraction	      0.1627	      0.0008	      0.2329	      0.1222	      0.6125	      0.0000
+   Capacity fraction	      0.8358	      0.9992	      0.7649	      0.8762	      0.3829	      0.0000
+   Conflict fraction	      0.0015	      0.0000	      0.0022	      0.0015	      0.0046	      0.0000
+
+
+Associatividade:512
+Tamanho Cache:16k
+Tamanho Bloco:32
+
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		   360302666	   259999829	   100302837	    70054130	    30248707	           0
+  Fraction of total	      1.0000	      0.7216	      0.2784	      0.1944	      0.0840	      0.0000
+ Demand Misses		    19702635	     5959495	    13743140	    10634295	     3108845	           0
+  Demand miss rate	      0.0547	      0.0229	      0.1370	      0.1518	      0.1028	      0.0000
+   Compulsory misses	     3204682	        4845	     3199837	     1300114	     1899723	           0
+   Capacity misses	    16497953	     5954650	    10543303	     9334181	     1209122	           0
+   Conflict misses	           0	           0	           0	           0	           0	           0
+   Compulsory fraction	      0.1627	      0.0008	      0.2328	      0.1223	      0.6111	      0.0000
+   Capacity fraction	      0.8373	      0.9992	      0.7672	      0.8777	      0.3889	      0.0000
+   Conflict fraction	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000	      0.0000
+
+
