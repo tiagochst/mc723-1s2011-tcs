@@ -140,11 +140,19 @@ miss ( write-allocate, no-write-allocate, fetch on write\footnote{Com
 \subsection{Tamanho do bloco, associatividade, tamanho da cache}
 O tamanho total de uma cache pode ser calculado pela multiplicação do
 número de linhas, número de blocos por linha e tamanho dos blocos.
-Uma cache L1 possui geralmente um tamanho entre 16KB e 128KB.
+Uma cache L1 possui geralmente um tamanho entre 16KB e 128KB, podendo chegar, em algumas caches, a 8MB.
 
 Para um determinado tamanho de cache e blocos, alterou-se a sua
 associatividade. No qual percebe-se que o totalmente associado é o que
 apresentou a melhor performance.
+
+Posteriormente, aumentou-se o tamanho da memória cache total, deixando-a totalmente associada.
+Percebeu-se que quanto maior a memória cache, menor é a taxa de miss. Contudo, vale ressaltar que
+em certos momentos há uma estabilidade, ou seja, por mais que a cache cresça, a taxa de miss rate fica quase
+constante.
+
+Já o tamanho do bloco é relativo, para cada valor de associatividade, um tamanho de bloco maior que 32
+tende a ser melhor, porém após passar determinado valor ele tende a aumentar o valor de miss rate.
 
 \subsection{Uma Cache:  dados/instrução }
 
