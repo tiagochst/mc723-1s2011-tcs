@@ -113,10 +113,12 @@ substituição (LRU\footnote{Least recently used: substitui a página na memóri
 }, FIFO\footnote{First-in, first-out: substitui a página mais antiga na memória} ou aletório), política de escrita se occorer um hit (write-back\footnote{Quando um ciclo de escrita ocorre para uma palavra, ela é atualizada
 apenas no cache.}, write-through\footnote{Quando um ciclo de escrita ocorre para uma palavra, ela é escrita
 no cache e na memória principal simultaneamente.}), política de escrita se occorer um
-miss ( write-allocate, no-write-allocate, fetch on write\footnote{Com
-  alocação em escrita: no caso de um miss para escrita, item é trazido
-  para o cache após atualizado;}, no fetch on write\footnote{Sem
-  alocação em escrita: no caso de um miss para a  escrita, item é
+miss ( write-allocate\footnote{Com
+  alocação em escrita:Se ocorrer um miss é alocado na cache
+  uma linha para o dado escrito. Usando, na mairoria das vezes, com a política write-back}, no-write-allocate\footnote{Sem
+  alocação em escrita:Se ocorrer um miss de
+  escrita, uma linha não é alocada na cache para o dado escrito. Usado, na maioria das vezes, com a política write-through.}, fetch on write\footnote{No caso de um miss para escrita, item é trazido
+  para o cache após atualizado, se foi alocado espaço para ele na cache.}, no fetch on write\footnote{No caso de um miss para a  escrita, item é
   atualizado apenas na memória principal, não sendo trazido para o cache.}).
 
 % -lN-Tsize P       Size
@@ -195,11 +197,11 @@ melhor resultado.
 \subsection{Políticas de escrita se ocorrer um miss}
 Simulou-se a utilização das duas políticas de escrita se ocorrer um
 miss fornecida pelo Dinero.
-Para uma mesma configuração a política no fetch on write foi a que apresentou um
+Para uma mesma configuração, a política padrão, sempre usar Write allocate policy foi a que apresentou um
 melhor resultado.
 
 \begin{figure}[h!]
-\subfloat[Alteração de associatividade para diferentes políticas]{\includegraphics[scale=0.45]{graficos/grafico1}\label{difPol}}
+\subfloat[Alteração de associatividade para diferentes políticas]{\includegraphics[scale=0.50]{graficos/grafico1}\label{difPol}}
 \subfloat[Alteração de associativade para vários tamanhos de bloco]{\includegraphics[scale=0.45]{graficos/grafico2}\label{tamBloco}}
 \caption{Caches unificadas de 16KB com diversas configurações}
 \end{figure}

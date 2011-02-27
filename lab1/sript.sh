@@ -141,3 +141,16 @@ do
     echo -e "\n"
     echo -e "\n">> ../testes/teste8_m2b.txt
 done
+
+
+# Teste 9 - m2b
+# Alteramos incialmente a associatividade com a politica  Write allocate policy para nofecth
+# Usamos uma cache unificada para Dados e Instrucao
+ 
+for ((i=1;i<=512;i=i*2))
+do
+    echo -e "Associatividade:$i\nTamanho Cache:16k\nTamanho Bloco:32\n" >> ../testes/teste9_m2b.txt    
+    ./dineroIV -informat s  -trname applu_m2b -maxtrace 13 -l1-uassoc $i -l1-usize 16k  -l1-ubsize 32 -l1-uccc -l1-uwalloc f | grep "Metrics\|-----------------\|Demand Fetches\|Fraction of total\|Demand Misses\|Demand miss rate\|Compulsory misses\|Capacity misses\|Conflict misses\|Compulsory fraction\|Capacity fraction\|Conflict fraction" | grep -v "( / Demand Fetches)"  >> ../testes/teste9_m2b.txt
+    echo -e "\n"
+    echo -e "\n">> ../testes/teste9_m2b.txt
+done
