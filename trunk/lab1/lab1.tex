@@ -138,6 +138,7 @@ miss ( write-allocate, no-write-allocate, fetch on write\footnote{Com
 %-----------------------------------------------------------------------------%
 
 \subsection{Tamanho do bloco, associatividade, tamanho da cache}
+\label{sec1}
 O tamanho total de uma cache pode ser calculado pela multiplicação do
 número de linhas, número de blocos por linha e tamanho dos blocos.
 Uma cache L1 possui geralmente um tamanho entre 16KB e 128KB, podendo chegar, em algumas caches, a 8MB.
@@ -148,27 +149,47 @@ apresentou a melhor performance.
 
 Posteriormente, aumentou-se o tamanho da memória cache total, deixando-a totalmente associada.
 Percebeu-se que quanto maior a memória cache, menor é a taxa de miss. Contudo, vale ressaltar que
-em certos momentos há uma estabilidade, ou seja, por mais que a cache cresça, a taxa de miss rate fica quase
+em certos momentos há uma estabilidade, ou seja, por mais que a cache cresça, a taxa de miss fica quase
 constante.
 
-Já o tamanho do bloco é relativo, para cada valor de associatividade, um tamanho de bloco maior que 32
+Já o tamanho do bloco é relativo. De acordo com a figura \ref{tamBloco}, para cada valor de associatividade, um tamanho de bloco maior que 32
 tende a ser melhor, porém após passar determinado valor ele tende a aumentar o valor de miss rate.
 
-\subsection{Uma Cache:  dados/instrução }
+%\begin{figure}[H]
+%\begin{centering}
+%\includegraphics[scale=0.50]{graficos/grafico2}
+%\par\end{centering}
+%\caption{Alteração de associativade para vários tamanhos de bloco}
+%\end{figure}
+
+%\subsection{Uma Cache:  dados/instrução }
 
 \subsection{Duas caches:  dados e  instrução}
 A memória cache pode ser separada em cache de instruções e para cache de dados,
 de forma que dados e instruções poderiam ser acessados em paralelo. 
+Vale ressaltar que o valor da taxa de miss será maior nas caches
+separadas, contudo o tempo de acesso é menor.
+Portanto, em uma análise de caches separadas, o tempo é o fator de
+escolha e não o miss rate.
 
 \subsection{Políticas de substituição}
 Simulou-se a utilização das três políticas de substituição fornecida
-pelo Dinero.
-Para uma mesma configuração a política LRU foi a que apresentou um
+pelo Dinero (Random, LRU e FIFO).
+De acordo com a figura \ref{difPol}, para uma mesma configuração a política LRU foi a que apresentou um
 melhor resultado.
+
+%\begin{figure}[h!]
+%\begin{centering}
+%\includegraphics[scale=0.50]{graficos/grafico1}
+%\par\end{centering}
+%\caption{Diferentes políticas X Associatividade}
+%\end{figure}
+
+
 \subsection{Políticas de escrita se ocorrer um hit}
 Simulou-se a utilização das duas políticas de escrita se ocorrer um
 hit fornecida pelo Dinero.
-Para uma mesma configuração a política write-back foi a que apresentou um
+De acordo com a figura \ref{difPol}, para uma mesma configuração a política write-back foi a que apresentou um
 melhor resultado.
 
 \subsection{Políticas de escrita se ocorrer um miss}
@@ -177,5 +198,32 @@ miss fornecida pelo Dinero.
 Para uma mesma configuração a política no fetch on write foi a que apresentou um
 melhor resultado.
 
+\begin{figure}[h!]
+\subfloat[Alteração de associatividade para diferentes políticas]{\includegraphics[scale=0.45]{graficos/grafico1}\label{difPol}}
+\subfloat[Alteração de associativade para vários tamanhos de bloco]{\includegraphics[scale=0.45]{graficos/grafico2}\label{tamBloco}}
+\caption{Caches unificadas de 16KB com diversas configurações}
+\end{figure}
+
+
+\section{Conclusão}
+De acordo com nossas simulações, se considerarmos como fator de
+escolha a taxa de miss rate e o custo de uma memória
+cache\footnote{Queremos otimizar uma cache pequena em vez de possuir
+  uma muito grande, o que teria uma eficiência melhor de acordo com a
+seção \ref{sec1}}, escolheremos uma chace de 16KB, tamanho
+de bloco 1024B, associatividade 16, política de substituição LRU.
+o que nos proporcionou um valor de miss rate próximo a 1,01\%
+
+Por outro lado, se quisermos um tempo de acesso menor, dividiremos nossa cache
+em uma de dados e outra de instrução.
+
+% ******************************************************
+% 		REFERENCIAS BIBLIOGRÁFICAS
+% ******************************************************
+%\section{Referências}
+\bibliographystyle{plain}
+\begin{small}
+  \bibliography{referencias}
+\end{small}
 
 \end{document}
