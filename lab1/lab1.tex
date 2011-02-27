@@ -121,6 +121,12 @@ miss ( write-allocate\footnote{Com
   para o cache após atualizado, se foi alocado espaço para ele na cache.}, no fetch on write\footnote{No caso de um miss para a  escrita, item é
   atualizado apenas na memória principal, não sendo trazido para o cache.}).
 
+Utilizamos dois tipos de traces, o F2B, que executa 2 bilhões de
+instruções e o M2B que executa 2 bilhões de instruções depois de pular
+50 bilhões. Logo os traces F2B tendem a ser mais rapidamente
+executados e com um miss rate diferente do M2B, já que ambos
+acessam posições diferentes da memória durante a execução das instruções. 
+
 % -lN-Tsize P       Size
 % -lN-Tbsize P      Block size
 % -lN-Tsbsize P     Sub-block size (default same as block size)
@@ -214,7 +220,8 @@ cache\footnote{Queremos otimizar uma cache pequena em vez de possuir
   uma muito grande, o que teria uma eficiência melhor de acordo com a
 seção \ref{sec1}}, escolheremos uma chace de 16KB, tamanho
 de bloco 1024B, associatividade 16, política de substituição LRU.
-o que nos proporcionou um valor de miss rate próximo a 1,01\%
+o que nos proporcionou um valor de miss rate próximo a 1,01\% para o
+trace m2b e 0.84\% para o trace f2b.
 
 Por outro lado, se quisermos um tempo de acesso menor, dividiremos nossa cache
 em uma de dados e outra de instrução.

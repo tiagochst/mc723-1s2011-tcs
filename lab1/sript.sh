@@ -111,7 +111,7 @@ done
 for ((i=1;i<=512;i=i*2))
 do
     echo -e "Associatividade:$i\nTamanho das Caches:8k\nTamanho Bloco:32\n" >> ../testes/teste6_f2b.txt    
-    ./dineroIV -informat s  -trname applu_m2b -maxtrace 13 -l1-dassoc $i -l1-iassoc $i -l1-isize 8k  -l1-ibsize 32 -l1-dsize 8k  -l1-dbsize 32 -l1-dccc -l1-iccc  | grep "Metrics\|-----------------\|Demand Fetches\|Fraction of total\|Demand Misses\|Demand miss rate\|Compulsory misses\|Capacity misses\|Conflict misses\|Compulsory fraction\|Capacity fraction\|Conflict fraction" | grep -v "( / Demand Fetches)"  >> ../testes/teste6_f2b.txt
+    ./dineroIV -informat s  -trname applu_m2b -maxtrace 13 -l1-dassoc $i -l1-iassoc $i -l1-isize 8k  -l1-ibsize 32 -l1-dsize 8k  -l1-dbsize 32 -l1-dccc -l1-iccc-stat-idcombine  | grep "Metrics\|-----------------\|Demand Fetches\|Fraction of total\|Demand Misses\|Demand miss rate\|Compulsory misses\|Capacity misses\|Conflict misses\|Compulsory fraction\|Capacity fraction\|Conflict fraction" | grep -v "( / Demand Fetches)"  >> ../testes/teste6_f2b.txt
     echo -e "\n"
     echo -e "\n">> ../testes/teste6_f2b.txt
 done
@@ -154,3 +154,36 @@ do
     echo -e "\n"
     echo -e "\n">> ../testes/teste9_m2b.txt
 done
+
+## Teste final! Comparando F2B e M2B para cache unificada
+ 
+    ./dineroIV -informat s  -trname applu_f2b -maxtrace 13 -l1-uassoc 16 -l1-usize 16k  -l1-ubsize 1024 -l1-uccc
+#0.84%
+
+    ./dineroIV -informat s  -trname applu_m2b -maxtrace 13 -l1-uassoc 16 -l1-usize 16k  -l1-ubsize 1024 -l1-uccc
+# 1.01%
+
+
+
+
+
+
+
+# Teste 12 - m2b
+# alteramos a associatividade 
+# Usamos uma cache diferenciada para Dados e Instrucao
+# Consideramos a divisao do espaco em 50%
+# i tamanho bloco
+# j associatividade
+ 
+for ((i=1;i<=4096;i=i*2))
+do
+for ((j=1;i<=512;j=i*2))
+do
+   echo -e "Associatividade:$i\nTamanho das Caches:8k\nTamanho Bloco:32\n" >> ../testes/teste12_m2b.txt    
+    ./dineroIV -informat s  -trname applu_f2b -maxtrace 13 -l1-dassoc $j -l1-iassoc $j -l1-isize 8k  -l1-ibsize $i -l1-dsize 8k  -l1-dbsize $i -l1-dccc -l1-iccc  | grep "Metrics\|-----------------\|Demand Fetches\|Fraction of total\|Demand Misses\|Demand miss rate\|Compulsory misses\|Capacity misses\|Conflict misses\|Compulsory fraction\|Capacity fraction\|Conflict fraction" | grep -v "( / Demand Fetches)"  >> ../testes/teste12_m2b.txt
+    echo -e "\n"
+    echo -e "\n">> ../testes/teste12_m2b.txt
+done
+done
+
