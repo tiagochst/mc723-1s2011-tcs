@@ -59,21 +59,22 @@
     \\\vspace{1cm}
     \begin{tabular}{rl}
 	  \textbf{Aluno}:       & Tiago~Chedraoui~Silva \\
+	  \textbf{RA}:       & 082941 \\
+	  \textbf{Turma}:       & A \\
+
 	\end{tabular}
   \end{center}
   \vspace{0.5cm}
 
   \begin{abstract}
 O princípio de funcionamento da memória cache é duplicar parte dos dados contidos na memória
-principal (a memória lenta, neste caso) em um módulo menor (o cache) composto por dispositivos
-de memória mais rápidos.
-Quando o processador solicita um item de dado (gerando uma referência para seu endereço, que
-pode ser físico ou virtual), o gerenciador de memória requisita este item do cache. Duas situações
-podem ocorrer:
-cache hit: item está presente no cache, é retornado para o processador praticamente sem período de
-latência;
-cache miss: item não está presente no cache, processador deve aguardar item ser buscado da memó-
-ria principal.
+principal, que é mais lenta, em um módulo menor composto por
+dispositivos de memória mais rápidos chamado de memória cache.
+Quando o processador solicita um item de dado, o gerenciador de
+memória requisita este item da memória cache. Se o item de dado estiver presente na
+cache é dito que ocorreu um hit e ele é retornado para o processador praticamente sem período de
+latência, porém caso o item de dado não esteja presente na memória cache, é
+dito que ocorreu um miss, logo o processador deve aguardar o dado ser buscado da memória principal.
 Nesse laboratório, estudaremos a melhor organização de uma memória
 cache para a execução de um determinado programa.
 
