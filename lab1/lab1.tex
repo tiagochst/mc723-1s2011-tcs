@@ -172,13 +172,6 @@ tende a ser melhor, porém após passar determinado valor ele tende a aumentar o
 
 %\subsection{Uma Cache:  dados/instrução }
 
-\subsection{Duas caches:  dados e  instrução}
-A memória cache pode ser separada em cache de instruções e para cache de dados,
-de forma que dados e instruções poderiam ser acessados em paralelo. 
-Vale ressaltar que o valor da taxa de miss será maior nas caches
-separadas, contudo o tempo de acesso é menor.
-Portanto, em uma análise de caches separadas, o tempo é o fator de
-escolha e não o miss rate.
 
 \subsection{Políticas de substituição}
 Simulou-se a utilização das três políticas de substituição fornecida
@@ -213,6 +206,24 @@ melhor resultado.
 \end{figure}
 
 
+
+\subsection{Duas caches:  dados e  instrução}
+A memória cache pode ser separada em cache de instruções e para cache de dados,
+de forma que dados e instruções poderiam ser acessados em paralelo. 
+Vale ressaltar que o valor da taxa de miss será maior nas caches
+separadas, contudo o tempo de acesso é menor.
+Portanto, em uma comparação entre caches separadas e unificada, o tempo deve o fator de
+escolha e não o miss rate. 
+No entanto, para determinar-se a melhor configuração da cache, o miss
+rate é essencial.
+
+
+\begin{figure}[h!]
+\subfloat[Cache de dados]{\includegraphics[scale=0.45]{graficos/grafico3}\label{cacheDados}}
+\subfloat[Cache de instrução]{\includegraphics[scale=0.45]{graficos/grafico4}\label{cacheIns}}
+\caption{Caches separadas:  Alteração de associativade para vários tamanhos de bloco}
+\end{figure}
+
 \section{Conclusão}
 De acordo com nossas simulações, se considerarmos como fator de
 escolha a taxa de miss rate e o custo de uma memória
@@ -225,6 +236,30 @@ trace m2b e 0.84\% para o trace f2b.
 
 Por outro lado, se quisermos um tempo de acesso menor, dividiremos nossa cache
 em uma de dados e outra de instrução.
+
+De acordo com nossas simulações, se considerarmos a taxa de miss rate e o custo de uma memória
+cache\footnote{Queremos otimizar uma cache pequena em vez de possuir
+  uma muito grande, o que teria uma eficiência melhor de acordo com a
+seção \ref{sec1}}, escolheremos uma cache de instrução de 16KB, tamanho
+de bloco 4096B, associatividade 4 ou 2\footnote{Ambos valores de
+  associatividade apresentaram mesma taxa de miss rate}, política de substituição LRU.
+o que nos proporcionou um valor de miss rate próximo a 0.02\% para o
+trace m2b e 0.04\% para o trace f2b.
+E  escolheremos uma cache de dados de 16KB, tamanho
+de bloco 128B, associatividade 128, política de substituição LRU.
+o que nos proporcionou um valor de miss rate próximo a 4.48\% para o
+trace m2b e 1.22\% para o trace f2b.
+
+Se consideramos só possuirmos espaço para um total de 16KB de cache, 
+escolheremos uma cache de instrução de 8KB, tamanho
+de bloco 4096B, associatividade  2, política de substituição LRU.
+o que nos proporcionou um valor de miss rate próximo a 0.03\% para o
+trace m2b e 0.05\% para o trace f2b e uma cache de dados de 8KB, tamanho
+de bloco 512B, associatividade 8, política de substituição LRU.
+o que nos proporcionou um valor de miss rate próximo a 3.85\% para o
+trace m2b e 3.12\% para o trace f2b.
+
+
 
 % ******************************************************
 % 		REFERENCIAS BIBLIOGRÁFICAS
