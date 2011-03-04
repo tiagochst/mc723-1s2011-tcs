@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[10pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
@@ -18,7 +18,10 @@
 \usepackage{setspace}
 \usepackage{verbatim}
 
-
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
 
 %Definindo as margens para 2cm e o espaçamento entre linhas para 1.5
 % Relatório parcial deve ter espaçamento simples
@@ -26,8 +29,8 @@
 
 \geometry{ 
 	a4paper,	% Formato do papel
-	tmargin=25mm,	% Margem superior
-	bmargin=25mm,	% Margem inferior
+	tmargin=20mm,	% Margem superior
+	bmargin=20mm,	% Margem inferior
 	lmargin=20mm,	% Margem esquerda
 	rmargin=20mm,	% Margem direita
 	footskip=20mm	% Espaço entre o rodapé e o fim do texto
@@ -39,6 +42,14 @@
 
 \begin{document}
 
+
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\topmargin}{0pt}
+\setlength{\topsep}{0pt}
+\setlength{\partopsep}{0pt}
 % CAPA
 \begin{titlepage}
 \thispagestyle{empty}
@@ -96,6 +107,26 @@ cache para a execução de um determinado programa.
 %Por que utilizar um trace de execução para achar a melhor configuração de cache para um programa?
 %Por que escolher a melhor configuração de cache para um dado programa? A configuração de cache não é específica do processador?
 %Olhe aqui qual o programa e número de arquivos você deve usar
+\begin{minipage}{5cm}
+\makebox[5cm][l]{\rule{4cm}{1mm}{\hspace{4mm}\bf Tiago Chedraoui Silva \hspace{2mm}RA:082941
+ \hspace{2mm} Turma: A}\hspace{4mm} \rule{4cm}{1mm} }
+\vspace{2mm}
+\end{minipage}
+
+  \begin{abstract}
+O princípio de funcionamento da memória cache é duplicar parte dos dados contidos na memória
+principal, que é mais lenta, em um módulo menor composto por
+dispositivos de memória mais rápidos chamado de memória cache.
+Quando o processador solicita um item de dado, o gerenciador de
+memória requisita este item da memória cache. Se o item de dado estiver presente na
+cache é dito que ocorreu um hit e ele é retornado para o processador praticamente sem período de
+latência, porém caso o item de dado não esteja presente na memória cache, é
+dito que ocorreu um miss, logo o processador deve aguardar o dado ser buscado da memória principal.
+Nesse laboratório, estudaremos a melhor organização de uma memória
+cache para a execução de um determinado programa.
+
+\end{abstract}
+\vspace{2mm}
 
 %-----------------------------------------------------------------------------%
 \section{Dinero}
