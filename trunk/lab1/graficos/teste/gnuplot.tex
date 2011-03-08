@@ -1,0 +1,54 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{ae,aecompl}
+\usepackage{pslatex}
+\usepackage{epsfig}
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{ae}
+\usepackage{subfig}
+\usepackage{indentfirst}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{verbatim}
+
+%Definindo as margens para 2cm e o espaçamento entre linhas para 1.5
+% Relatório parcial deve ter espaçamento simples
+%\linespread{1.5}
+
+\geometry{ 
+	a4paper,	% Formato do papel
+	tmargin=20mm,	% Margem superior
+	bmargin=20mm,	% Margem inferior
+	lmargin=20mm,	% Margem esquerda
+	rmargin=20mm,	% Margem direita
+	footskip=20mm	% Espaço entre o rodapé e o fim do texto
+}
+\renewcommand{\thetable}{\Roman{table}}
+\newcommand{\x} {$\bullet$}
+
+% Graficos
+\usepackage[miktex]{gnuplottex}
+\usepackage{tikz}
+\usepackage{gnuplot-lua-tikz}
+\usepackage{mathpazo}
+
+\begin{document}
+%\input{graph1.tex}
+ \begin{gnuplot}[scale=0.95,terminal=lua tikz]
+     set parametric
+     set angle degree
+     set urange [0:360]
+     set vrange [-90:90]
+     fx(u,v)=cos(u)*cos(v)
+     fy(u,v)=sin(u)*cos(v)
+     fz(v)=sin(v)
+     splot fx(u,v),fy(u,v),fz(v)
+ \end{gnuplot}
+\end{document}
