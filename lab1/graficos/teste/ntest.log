@@ -1,5 +1,6 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.5.29)  8 MAR 2011 06:54
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.5.29)  8 MAR 2011 08:03
 entering extended mode
+\write18 enabled.
  %&-line parsing enabled.
 **ntest.tex
 (./ntest.tex
@@ -467,34 +468,118 @@ Package: preview 2010/02/14 11.86 (AUCTeX/preview-latex)
 \pr@snippet=\count108
 \pr@box=\box37
 \pr@output=\toks29
+)
+(/usr/share/texmf/tex/latex/pgfplots/pgfplots.sty
+(/usr/share/texmf/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2010/07/14 Version 1.4.1 (git show 1.4.1-1-g64c9e95 )
+
+(/usr/share/texmf/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/share/texmf/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks30
+\t@pgfplots@tokb=\toks31
+\t@pgfplots@tokc=\toks32
+\pgfplots@tmpa=\dimen154
+\c@pgfplots@coordindex=\count109
+\c@pgfplots@scanlineindex=\count110
+)
+(/usr/share/texmf/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex)
+(/usr/share/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader
+.code.tex (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryfpu.code.tex))
+(/usr/share/texmf/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+(/usr/share/texmf/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code
+.tex)
+(/usr/share/texmf/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.c
+ode.tex)
+(/usr/share/texmf/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count111
+)
+(/usr/share/texmf/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count112
+\t@pgfplotstable@a=\toks33
+\pgfplotstable@outfile=\write4
+)
+(/usr/share/texmf/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex)
+(/usr/share/texmf/tex/generic/pgfplots/util/pgfplotsbinary.code.tex)
+(/usr/share/texmf/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code
+.tex
+(/usr/share/texmf/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsy
+s-pdftex.def)))
+(/usr/share/texmf/tex/generic/pgfplots/util/pgfplotscolormap.code.tex)
+(/usr/share/texmf/tex/generic/pgfplots/pgfplotsstackedplots.code.tex)
+(/usr/share/texmf/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex)
+(/usr/share/texmf/tex/generic/pgfplots/pgfplotsticks.code.tex)
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
+ations.code.tex
+(/usr/share/texmf/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen155
+\pgfdecoratedremainingdistance=\dimen156
+\pgfdecoratedinputsegmentcompleteddistance=\dimen157
+\pgfdecoratedinputsegmentremainingdistance=\dimen158
+\pgf@decorate@distancetomove=\dimen159
+\pgf@decorate@repeatstate=\count113
+\pgfdecorationsegmentamplitude=\dimen160
+\pgfdecorationsegmentlength=\dimen161
+)
+\tikz@lib@dec@box=\box38
+)
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
+ations.pathmorphing.code.tex
+(/usr/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.p
+athmorphing.code.tex))
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
+ations.pathreplacing.code.tex
+(/usr/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.p
+athreplacing.code.tex))
+\pgfplots@numplots=\count114
+\pgfplots@xmin@reg=\dimen162
+\pgfplots@xmax@reg=\dimen163
+\pgfplots@ymin@reg=\dimen164
+\pgfplots@ymax@reg=\dimen165
+\pgfplots@zmin@reg=\dimen166
+\pgfplots@zmax@reg=\dimen167
+))
+(/usr/share/texmf/tex/generic/pgfplots/libs/tikzlibrarypgfplots.groupplots.code
+.tex
+\pgfplots@group@current@plot=\count115
+\pgfplots@group@current@row=\count116
+\pgfplots@group@current@column=\count117
+
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.
+code.tex
+File: tikzlibrarycalc.code.tex 2009/09/04 v2.10 (rcs-revision 1.6)
+))
+(/usr/share/texmf/tex/generic/pgfplots/libs/tikzlibrarypgfplots.groupplots.code
+.tex
+\pgfplots@group@current@plot=\count118
+\pgfplots@group@current@row=\count119
+\pgfplots@group@current@column=\count120
 ) (./ntest.aux)
 \openout1 = `ntest.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 12.
-LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 12
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 22.
+LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 22
 .
-
-(/usr/share/texmf/tex/latex/psnfss/omspzccm.fd
+ (/usr/share/texmf/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 12.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 22.
 
 (/usr/share/texmf/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    ... okay on input line 22.
 
 (/usr/share/texmf/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2003/11/29 Fixes to fontencodings LGR, T3
@@ -502,48 +587,66 @@ File: ucsencs.def 2003/11/29 Fixes to fontencodings LGR, T3
 ABD: EveryShipout initializing macros
 Preview: Fontsize 10pt
 Preview: PDFoutput 1
-LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 83
+LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 67
 .
 (/usr/share/texmf/tex/latex/psnfss/ot1ptmcm.fd
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 83
+LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 67
 .
 
 (/usr/share/texmf/tex/latex/psnfss/omlptmcm.fd
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+psycm on input line 83
+LaTeX Font Info:    Try loading font information for OMX+psycm on input line 67
 .
 
 (/usr/share/texmf/tex/latex/psnfss/omxpsycm.fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 67.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 67.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 67.
 
 Preview: Tightpage 0 0 0 0
-[1{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./ntest.aux) ) 
+[1{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+\openout3 = `ntest.parable.gnuplot'.
+
+system(gnuplot ntest.parable.gnuplot)...executed.
+
+PGFPlots: reading {ntest.parable.table}
+ [2]
+PGFPlots: reading {pgfplots_scatter4.dat}
+ [3] [4] [5]
+[6] [7]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 198.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 198.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 198.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 198.
+ [8] (./ntest.aux) ) 
 Here is how much of TeX's memory you used:
- 11318 strings out of 256216
- 217896 string characters out of 1917072
- 268152 words of memory out of 1500000
- 14378 multiletter control sequences out of 10000+200000
- 16613 words of font info for 37 fonts, out of 1200000 for 2000
+ 16398 strings out of 256216
+ 389795 string characters out of 1917072
+ 603190 words of memory out of 1500000
+ 19342 multiletter control sequences out of 10000+200000
+ 40380 words of font info for 78 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 63i,7n,57p,413b,966s stack positions out of 5000i,500n,6000p,200000b,15000s
-{/usr/s
-hare/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/bluesky/cm
-/cmmi10.pfb></usr/share/texmf/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf
-/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri
-8a.pfb>
-Output written on ntest.pdf (1 page, 31114 bytes).
+ 63i,18n,93p,8361b,1701s stack positions out of 5000i,500n,6000p,200000b,15000s
+{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/t
+exmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm
+/cmr10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texm
+f/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr
+i8a.pfb>
+Output written on ntest.pdf (8 pages, 66703 bytes).
 PDF statistics:
- 26 PDF objects out of 1000 (max. 8388607)
+ 53 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
