@@ -1,6 +1,6 @@
 file=ntest
 make:
-	pdflatex  $(file).tex
+	pdflatex -shell-escape $(file).tex
 #	latex  $(file).tex
 #	dvips $(file).dvi -o
 #	ps2pdf13 $(file).ps
