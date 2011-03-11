@@ -178,7 +178,7 @@ done
  
 for ((i=1;i<=4096;i=i*2))
 do
-for ((j=1;i<=512;j=i*2))
+for ((j=1;j<=512;j=j*2))
 do
    echo -e "Associatividade:$i\nTamanho das Caches:8k\nTamanho Bloco:32\n" >> ../testes/teste12_m2b.txt    
     ./dineroIV -informat s  -trname applu_f2b -maxtrace 13 -l1-dassoc $j -l1-iassoc $j -l1-isize 8k  -l1-ibsize $i -l1-dsize 8k  -l1-dbsize $i -l1-dccc -l1-iccc  | grep "Metrics\|-----------------\|Demand Fetches\|Fraction of total\|Demand Misses\|Demand miss rate\|Compulsory misses\|Capacity misses\|Conflict misses\|Compulsory fraction\|Capacity fraction\|Conflict fraction" | grep -v "( / Demand Fetches)"  >> ../testes/teste12_m2b.txt
