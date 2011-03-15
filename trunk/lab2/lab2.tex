@@ -1,0 +1,86 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{ae,aecompl}
+\usepackage{pslatex}
+\usepackage{epsfig}
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{ae}
+\usepackage{subfig}
+\usepackage{indentfirst}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{verbatim}
+
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+%Definindo as margens para 2cm e o espaçamento entre linhas para 1.5
+% Relatório parcial deve ter espaçamento simples
+%\linespread{1.5}
+
+\geometry{ 
+	a4paper,	% Formato do papel
+	tmargin=20mm,	% Margem superior
+	bmargin=20mm,	% Margem inferior
+	lmargin=20mm,	% Margem esquerda
+	rmargin=20mm,	% Margem direita
+	footskip=20mm	% Espaço entre o rodapé e o fim do texto
+}
+\renewcommand{\thetable}{\Roman{table}}
+\newcommand{\x} {$\bullet$}
+
+
+\begin{document}
+
+
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\topmargin}{0pt}
+\setlength{\topsep}{0pt}
+\setlength{\partopsep}{0pt}
+
+
+% Guia para o relatório
+%Quais são os principais parâmetros a serem definidos em uma cache?
+%Quais são os valores típicos para esses parâmetros?
+%Quais devem ser os limites mínimos e máximos desses valores?
+%Olhe no manual do dinero e descubra quais desses parâmetros ele
+%permite configurar -- Done
+%Como podemos dizer que uma determinada configuração de cache é melhor que outra?
+%O que é um trace de execução? -- Done +-
+%Por que utilizar um trace de execução para achar a melhor configuração de cache para um programa?
+%Por que escolher a melhor configuração de cache para um dado programa? A configuração de cache não é específica do processador?
+%Olhe aqui qual o programa e número de arquivos você deve usar
+\begin{minipage}{5cm}
+\makebox[5cm][l]{\rule{4cm}{1mm}{\hspace{4mm}\bf Tiago Chedraoui Silva \hspace{2mm}RA:082941
+ \hspace{2mm} Turma: A}\hspace{4mm} \rule{4cm}{1mm} }
+\vspace{2mm}
+\end{minipage}
+
+
+
+\section{Conclusão}
+
+
+
+% ******************************************************
+% 		REFERENCIAS BIBLIOGRÁFICAS
+% ******************************************************
+%\section{Referências}
+\bibliographystyle{plain}
+\begin{small}
+  \bibliography{referencias}
+\end{small}
+
+\end{document}
