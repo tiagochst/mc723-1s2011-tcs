@@ -5,7 +5,7 @@
 
 int main() {
    pthread_t *thread;
-   int nthreads = 20, ntimes = 20000;
+   int nthreads = 20, ntimes = 40000;
    int i;
 
    srand(time(NULL));
