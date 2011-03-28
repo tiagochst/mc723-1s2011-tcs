@@ -18,22 +18,29 @@
 \usepackage{setspace}
 \usepackage{verbatim}
 
+
+% Gráficos
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.3}
+\usepgfplotslibrary{groupplots}
+
+
 \usepackage[compact]{titlesec}
 \titlespacing{\section}{0pt}{*0}{*0}
 \titlespacing{\subsection}{0pt}{*0}{*0}
 \titlespacing{\subsubsection}{0pt}{*0}{*0}
 
-%Definindo as margens para 2cm e o espaçamento entre linhas para 1.5
+% Definindo as margens para 2cm e o espaçamento entre linhas para 1.5
 % Relatório parcial deve ter espaçamento simples
-%\linespread{1.5}
+% \linespread{1.5}
 
 \geometry{ 
-	a4paper,	% Formato do papel
-	tmargin=20mm,	% Margem superior
-	bmargin=20mm,	% Margem inferior
-	lmargin=20mm,	% Margem esquerda
-	rmargin=20mm,	% Margem direita
-	footskip=20mm	% Espaço entre o rodapé e o fim do texto
+  a4paper,	% Formato do papel
+  tmargin=20mm,	% Margem superior
+  bmargin=20mm,	% Margem inferior
+  lmargin=20mm,	% Margem esquerda
+  rmargin=20mm,	% Margem direita
+  footskip=20mm	% Espaço entre o rodapé e o fim do texto
 }
 \renewcommand{\thetable}{\Roman{table}}
 \newcommand{\x} {$\bullet$}
@@ -52,32 +59,124 @@
 
 
 % Guia para o relatório
-%Quais são os principais parâmetros a serem definidos em uma cache?
-%Quais são os valores típicos para esses parâmetros?
-%Quais devem ser os limites mínimos e máximos desses valores?
-%Olhe no manual do dinero e descubra quais desses parâmetros ele
-%permite configurar -- Done
-%Como podemos dizer que uma determinada configuração de cache é melhor que outra?
-%O que é um trace de execução? -- Done +-
-%Por que utilizar um trace de execução para achar a melhor configuração de cache para um programa?
-%Por que escolher a melhor configuração de cache para um dado programa? A configuração de cache não é específica do processador?
-%Olhe aqui qual o programa e número de arquivos você deve usar
+% Quais são os principais parâmetros a serem definidos em uma cache?
+% Quais são os valores típicos para esses parâmetros?
+% Quais devem ser os limites mínimos e máximos desses valores?
+% Olhe no manual do dinero e descubra quais desses parâmetros ele
+% permite configurar -- Done
+% Como podemos dizer que uma determinada configuração de cache é melhor que outra?
+% O que é um trace de execução? -- Done +-
+% Por que utilizar um trace de execução para achar a melhor configuração de cache para um programa?
+% Por que escolher a melhor configuração de cache para um dado programa? A configuração de cache não é específica do processador?
+% Olhe aqui qual o programa e número de arquivos você deve usar
 \begin{minipage}{5cm}
-\makebox[5cm][l]{\rule{4cm}{1mm}{\hspace{4mm}\bf Tiago Chedraoui Silva \hspace{2mm}RA:082941
- \hspace{2mm} Turma: A}\hspace{4mm} \rule{4cm}{1mm} }
-\vspace{2mm}
+  \makebox[5cm][l]{\rule{4cm}{1mm}{\hspace{4mm}\bf Tiago Chedraoui Silva \hspace{2mm}RA:082941
+      \hspace{2mm} Turma: A}\hspace{4mm} \rule{4cm}{1mm} }
+  \vspace{2mm}
 \end{minipage}
 
 
+\section{Objetivo}
+O objetivo desse laboratório era criar um benchmark e medir o desempenho de vários computadores.
+Para posteriormente listar, em ordem de desempenho, todos os computadores avaliados pela turma.
+\section{Dados coletados}
 
+\begin{tikzpicture}
+  \begin{axis}[
+    ylabel=Tempo,
+    xlabel=Máquina,
+    height=9cm,
+    width=9cm,
+    grid=major,
+    legend pos=outer north east]
+    
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog1.dat};
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog2.dat};
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog3.dat};
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog4.dat};
+
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog5.dat};
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog6.dat};
+
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog7.dat};
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog8.dat};
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog9.dat};
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog10.dat};
+
+    \legend{
+      GLPK (GNU Linear Programming Kit),
+      gnuplot,
+      OggEnc,
+      ffmpeg,
+      Caça palavras,
+      ImageMagick,
+      Controle de concorrência em banco de dados,
+      LAME MP3 Encoder,
+      PdfToPS,
+      SHA512SUM}
+  \end{axis}
+\end{tikzpicture}
+
+
+\begin{table}[h!]
+{Descrição das máquinas ordenadas pelo desempenho medido}
+\begin{tabular}{cl}
+\hline
+Máquina & Descrição\\
+\hline
+1	&	  Xeon 4 cores 2,4 Ghz, 1GB RAM\\
+2	&	Pentium 4 2.8Ghz, 512MB RAM\\
+3	&	Core 2 Quad 2.66GHz, 4MB L2, 4GB RAM\\
+4	&	Core 2 Duo 2.66Ghz, 4GB RAM\\
+5	&	Intel Core 2 Duo 2.8GHz, 4GB RAM\\
+6	&	Intel Core 2 Duo 2.66GHz, 1.9GB RAM\\
+7	&	Intel Pentium 4 1.80 GHZ, 1 GB RAM\\
+8 &	Intel Pentium 4, 2 procs single-core, 3.00GHz, 2MB cache, 1GB RAM\\
+9 &	Intel Xeon E5405, 2 procs dual-core, 2.00GHz, 6MB cache, 1GB RAM\\
+11 &	Intel Pentium D T2390 1.86GHz, 2GB RAM\\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Análise}
 \section{Conclusão}
 
 
 
 % ******************************************************
-% 		REFERENCIAS BIBLIOGRÁFICAS
+% REFERENCIAS BIBLIOGRÁFICAS
 % ******************************************************
-%\section{Referências}
+% \section{Referências}
 \bibliographystyle{plain}
 \begin{small}
   \bibliography{referencias}
