@@ -151,26 +151,30 @@ Para posteriormente listar, em ordem de desempenho, todos os computadores avalia
 \section{Análise}
 Pelos dados coletados podemos ordernar as máquinas pelo seu
 desempenho.
-Para isso fizemos uma média de todos os programas.
+Para isso fizemos uma média da eficiência relativa a todos os
+programas rodando em todas as máquinas. Ou seja, dado um programa a
+máquina mais rápida fica na primeira posição a mais lenta na última.
+A máquina que a média de posições for a menor é a mais rápida para um
+caso geral.
 
 \begin{table}[h!]
 \caption{Descrição das máquinas ordenadas pelo desempenho medido}
-\begin{tabular}{cl}
+\begin{tabular}{clc}
 \hline
-Máquina & Descrição & Posição média\\
+Máquina & Descrição & Posição média das execuções\\
 \hline
-1	&	  Xeon 4 cores 2,4 Ghz, 1GB RAM & 4\\
-2	&	Pentium 4 2.8Ghz, 512MB RAM & 7\\
-3	&	Core 2 Quad 2.66GHz, 4MB L2, 4GB RAM & 3\\
-4	&	Core 2 Duo 2.66Ghz, 4GB RAM & 3\\
-5	&	Intel Core 2 Duo 2.8GHz, 4GB RAM & 3\\
-6	&	Intel Core 2 Duo 2.66GHz, 1.9GB RAM & 2 \\
-7	&	Intel Pentium 4 1.80 GHZ, 1 GB RAM & 4\\
-8 &	Intel Pentium 4, 2 procs single-core, 3.00GHz, 2MB cache, 1GB
-RAM & 10\\
+5	&	Intel Core 2 Duo 2.8GHz, 4GB RAM & 2.0\\
 9 &	Intel Xeon E5405, 2 procs dual-core, 2.00GHz, 6MB cache, 1GB
-RAM & 5\\
-11 &	Intel Pentium D T2390 1.86GHz, 2GB RAM & 2\\
+RAM & 2.55\\
+3	&	Core 2 Quad 2.66GHz, 4MB L2, 4GB RAM & 3.10\\
+4	&	Core 2 Duo 2.66Ghz, 4GB RAM & 3.11\\
+6	&	Intel Core 2 Duo 2.66GHz, 1.9GB RAM & 4.3 \\
+1	&	  Xeon 4 cores 2,4 Ghz, 1GB RAM & 4.77\\
+11 &	Intel Pentium D T2390 1.86GHz, 2GB RAM & 4.83\\
+8 &	Intel Pentium 4, 2 procs single-core, 3.00GHz, 2MB cache, 1GB
+RAM & 5.3\\
+2	&	Pentium 4 2.8Ghz, 512MB RAM & 7.0\\
+7	&	Intel Pentium 4 1.80 GHZ, 1 GB RAM & 10.5\\
 \hline
 \end{tabular}
 \end{table}
