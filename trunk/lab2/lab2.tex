@@ -36,7 +36,7 @@
 
 \geometry{ 
   a4paper,	% Formato do papel
-  tmargin=20mm,	% Margem superior
+  tmargin=10mm,	% Margem superior
   bmargin=20mm,	% Margem inferior
   lmargin=20mm,	% Margem esquerda
   rmargin=20mm,	% Margem direita
@@ -80,6 +80,9 @@
 O objetivo desse laboratório era criar um benchmark e medir o desempenho de vários computadores.
 Para posteriormente listar, em ordem de desempenho, todos os computadores avaliados pela turma.
 \section{Dados coletados}
+Os dados coletados estão disponíveis no site da
+disciplina~\cite{Dados} e estão inseridos no gráfico abaixo. Nele
+temos o tempo de execução de um programa em diferentes máquinas.
 
 \begin{tikzpicture}
   \begin{axis}[
@@ -181,9 +184,18 @@ RAM & 5.3\\
 
 
 \section{Conclusão}
-
-
-
+A partir dos dados coletados, programas multi-thread, executados em máquinas com mais núcleos, têm um tempo
+``real'' menor que outros programas executados nas mesmas, já ele é executado em paralelo pelos
+diversos núcleos do processador. Porém, se usarmos os tempo de ``user+sys''
+programas o tempo de cada núcleo é somado, logo sua execução chega ser
+a parecida com um programa sequencial.
+Configurações como memória cache influenciam consideravelmente o tempo de
+execução de um programa que faz bastante acesso à memória. Além disso,
+ uma alta frequência do processador, ajuda no tempo total de execução
+do programa.
+Logo, nosso programa mais eficiente, baseado nos testes seria um cuja
+configuração possui uma grande memória ram, uma frequência alta e mais
+de um núcleo. O que é verificado pela tabela 1.
 % ******************************************************
 % REFERENCIAS BIBLIOGRÁFICAS
 % ******************************************************
