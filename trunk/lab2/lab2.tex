@@ -83,7 +83,7 @@
   \vspace{2mm}
 \end{minipage}
 
-
+\vspace{-3mm}
 \section{Objetivo}
 O objetivo desse laboratório era criar um benchmark e medir o desempenho de vários computadores.
 Para posteriormente listar, em ordem de desempenho, todos os computadores avaliados pela turma.
@@ -95,7 +95,7 @@ do teste: paralelismo da máquina.
 Os dados coletados estão disponíveis no \href{http://tinyurl.com/4kaohe3}{site} da
 disciplina e estão inseridos no gráfico abaixo. Nele
 temos o tempo de execução de um programa em diferentes máquinas. Os
-gráficos separados estão aqui.
+gráficos separados estão \href{http://mc723-1s2011-tcs.googlecode.com/svn/trunk/lab2/graficos.pdf}{aqui}.
 
 \begin{tikzpicture}
   \begin{axis}[
@@ -172,6 +172,8 @@ programas rodando em todas as máquinas. Ou seja, dado um programa a
 máquina mais rápida fica na primeira posição a mais lenta na última.
 A máquina que a média de posições for a menor é a mais rápida para um
 caso geral. \href{http://tinyurl.com/6k3ypjz}{Link } para o programa e dados.
+\vspace{-5mm}
+
 \begin{table}[h!]
 \caption{Descrição das máquinas ordenadas pelo desempenho medido}
 \begin{tabular}{clc}
@@ -194,10 +196,10 @@ RAM & 5.3\\
 \end{tabular}
 \end{table}
 
-
+\vspace{-5mm}
 \section{Conclusão}
 A partir dos dados coletados, programas multi-thread (principalmente
-os programas 5 e 7), executados em máquinas com mais núcleos(Máquina 3), têm um tempo
+os programas 5 e 7), executados em máquinas com mais núcleos (máquina 3), têm um tempo
 ``real'' menor que outros programas executados nas mesmas, já ele é executado em paralelo pelos
 diversos núcleos do processador. Porém, se usarmos os tempo de ``user+sys''
 programas o tempo de cada núcleo é somado, logo sua execução chega ser
@@ -208,7 +210,13 @@ execução de um programa que faz bastante acesso à memória. Além disso,
 do programa.
 Logo, nosso programa mais eficiente, baseado nos testes seria um cuja
 configuração possui uma grande memória ram, uma frequência alta e mais
-de um núcleo. O que é verificado pela tabela 1.
+de um núcleo. O que é verificado pela tabela 1. O computador 5 é o
+mais rápido exceto no programa ``caça palavras'' no qual se verifica o
+paralelismo, como o computador 3 possui mais núcleos, ele tende a ser
+melhor que o computador 5.
+
+Observação: infelizmente nem todos as máquinas executaram todos os
+programas o que prejudica um pouco as análises.
 % ******************************************************
 % REFERENCIAS BIBLIOGRÁFICAS
 % ******************************************************
