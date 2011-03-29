@@ -17,13 +17,21 @@
 \usepackage{color}
 \usepackage{setspace}
 \usepackage{verbatim}
-
+\usepackage{hyperref}
 
 % Gráficos
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.3}
 \usepgfplotslibrary{groupplots}
 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,%
+    citecolor=black,%
+    filecolor=black,%
+    linkcolor=blue,%
+    urlcolor=blue
+}
 
 \usepackage[compact]{titlesec}
 \titlespacing{\section}{0pt}{*0}{*0}
@@ -79,10 +87,15 @@
 \section{Objetivo}
 O objetivo desse laboratório era criar um benchmark e medir o desempenho de vários computadores.
 Para posteriormente listar, em ordem de desempenho, todos os computadores avaliados pela turma.
+\section{Parte individual}
+Programa ``Controle de concorrência em banco de
+dados''(\href{http://tinyurl.com/4kek6xs}{Link}). Objetivo principal
+do teste: paralelismo da máquina.
 \section{Dados coletados}
-Os dados coletados estão disponíveis no site da
-disciplina~\cite{Dados} e estão inseridos no gráfico abaixo. Nele
-temos o tempo de execução de um programa em diferentes máquinas.
+Os dados coletados estão disponíveis no \href{http://tinyurl.com/4kaohe3}{site} da
+disciplina e estão inseridos no gráfico abaixo. Nele
+temos o tempo de execução de um programa em diferentes máquinas. Os
+gráficos separados estão aqui.
 
 \begin{tikzpicture}
   \begin{axis}[
@@ -158,8 +171,7 @@ Para isso fizemos uma média da eficiência relativa a todos os
 programas rodando em todas as máquinas. Ou seja, dado um programa a
 máquina mais rápida fica na primeira posição a mais lenta na última.
 A máquina que a média de posições for a menor é a mais rápida para um
-caso geral.
-
+caso geral. \href{http://tinyurl.com/6k3ypjz}{Link } para o programa e dados.
 \begin{table}[h!]
 \caption{Descrição das máquinas ordenadas pelo desempenho medido}
 \begin{tabular}{clc}
@@ -184,7 +196,8 @@ RAM & 5.3\\
 
 
 \section{Conclusão}
-A partir dos dados coletados, programas multi-thread, executados em máquinas com mais núcleos, têm um tempo
+A partir dos dados coletados, programas multi-thread (principalmente
+os programas 5 e 7), executados em máquinas com mais núcleos(Máquina 3), têm um tempo
 ``real'' menor que outros programas executados nas mesmas, já ele é executado em paralelo pelos
 diversos núcleos do processador. Porém, se usarmos os tempo de ``user+sys''
 programas o tempo de cada núcleo é somado, logo sua execução chega ser
@@ -200,9 +213,9 @@ de um núcleo. O que é verificado pela tabela 1.
 % REFERENCIAS BIBLIOGRÁFICAS
 % ******************************************************
 % \section{Referências}
-\bibliographystyle{plain}
-\begin{small}
-  \bibliography{referencias}
-\end{small}
+%\bibliographystyle{plain}
+%\begin{small}
+%  \bibliography{referencias}
+%\end{small}
 
 \end{document}

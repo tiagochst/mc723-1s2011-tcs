@@ -1,0 +1,275 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{ae,aecompl}
+\usepackage{pslatex}
+\usepackage{epsfig}
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{ae}
+\usepackage{subfig}
+\usepackage{indentfirst}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{verbatim}
+\usepackage{hyperref}
+
+% Gráficos
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.3}
+\usepgfplotslibrary{groupplots}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,%
+    citecolor=black,%
+    filecolor=black,%
+    linkcolor=blue,%
+    urlcolor=blue
+}
+
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+% Definindo as margens para 2cm e o espaçamento entre linhas para 1.5
+% Relatório parcial deve ter espaçamento simples
+% \linespread{1.5}
+
+\geometry{ 
+  a4paper,	% Formato do papel
+  tmargin=10mm,	% Margem superior
+  bmargin=20mm,	% Margem inferior
+  lmargin=20mm,	% Margem esquerda
+  rmargin=20mm,	% Margem direita
+  footskip=20mm	% Espaço entre o rodapé e o fim do texto
+}
+\renewcommand{\thetable}{\Roman{table}}
+\newcommand{\x} {$\bullet$}
+
+
+\begin{document}
+
+
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\topmargin}{0pt}
+\setlength{\topsep}{0pt}
+\setlength{\partopsep}{0pt}
+
+
+\begin{minipage}{5cm}
+  \makebox[5cm][l]{\rule{4cm}{1mm}{\hspace{4mm}\bf Tiago Chedraoui Silva \hspace{2mm}RA:082941
+      \hspace{2mm} Turma: A}\hspace{4mm} \rule{4cm}{1mm} }
+  \vspace{2mm}
+\end{minipage}
+
+
+\section{Gráficos}
+
+\begin{tikzpicture}
+  \begin{axis}[
+    ylabel=Tempo,
+    xlabel=Máquina,
+    height=9cm,
+    width=9cm,
+    grid=major,
+    legend pos=outer north east]
+    
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog1.dat};
+
+    \legend{GLPK (GNU Linear Programming Kit)}
+  \end{axis}
+\end{tikzpicture}
+
+
+
+\begin{tikzpicture}
+  \begin{axis}[
+    ylabel=Tempo,
+    xlabel=Máquina,
+    height=9cm,
+    width=9cm,
+    grid=major,
+    legend pos=outer north east]
+    
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog2.dat};
+ 
+    \legend{      gnuplot}
+  \end{axis}
+\end{tikzpicture}
+
+
+
+\begin{tikzpicture}
+  \begin{axis}[
+    ylabel=Tempo,
+    xlabel=Máquina,
+    height=9cm,
+    width=9cm,
+    grid=major,
+    legend pos=outer north east]
+    
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog3.dat};
+   
+    \legend{OggEnc}
+  \end{axis}
+\end{tikzpicture}
+
+\newpage
+
+\begin{tikzpicture}
+  \begin{axis}[
+    ylabel=Tempo,
+    xlabel=Máquina,
+    height=9cm,
+    width=9cm,
+    grid=major,
+    legend pos=outer north east]
+    
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog4.dat};
+
+    \legend{ffmpeg}
+  \end{axis}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+  \begin{axis}[
+    ylabel=Tempo,
+    xlabel=Máquina,
+    height=9cm,
+    width=9cm,
+    grid=major,
+    legend pos=outer north east]
+    
+
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog5.dat};
+
+    \legend{ Caça palavras}
+  \end{axis}
+\end{tikzpicture}
+\newpage
+\begin{tikzpicture}
+  \begin{axis}[
+    ylabel=Tempo,
+    xlabel=Máquina,
+    height=9cm,
+    width=9cm,
+    grid=major,
+    legend pos=outer north east]
+    
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog6.dat};
+
+    \legend{
+      ImageMagick}
+  \end{axis}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+  \begin{axis}[
+    ylabel=Tempo,
+    xlabel=Máquina,
+    height=9cm,
+    width=9cm,
+    grid=major,
+    legend pos=outer north east]
+    
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog7.dat};
+  
+    \legend{
+      Controle de concorrência em banco de dados}
+  \end{axis}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+  \begin{axis}[
+    ylabel=Tempo,
+    xlabel=Máquina,
+    height=9cm,
+    width=9cm,
+    grid=major,
+    legend pos=outer north east]
+    
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog8.dat};
+
+    \legend{      LAME MP3 Encoder}
+  \end{axis}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+  \begin{axis}[
+    ylabel=Tempo,
+    xlabel=Máquina,
+    height=9cm,
+    width=9cm,
+    grid=major,
+    legend pos=outer north east]
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog9.dat};
+  
+    \legend{
+      PdfToPS}
+  \end{axis}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+  \begin{axis}[
+    ylabel=Tempo,
+    xlabel=Máquina,
+    height=9cm,
+    width=9cm,
+    grid=major,
+    legend pos=outer north east]
+    
+    \addplot+[error bars/.cd,
+    y dir=both,y explicit,
+    error mark=triangle*]
+    table[x=pc,y=tempo,y error=desvio] {plotdata/prog10.dat};
+
+    \legend{      SHA512SUM}
+  \end{axis}
+\end{tikzpicture}
+
+
+
+
+\end{document}
