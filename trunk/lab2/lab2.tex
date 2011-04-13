@@ -101,8 +101,8 @@ gráficos separados estão \href{http://mc723-1s2011-tcs.googlecode.com/svn/trun
   \begin{axis}[
     ylabel=Tempo,
     xlabel=Máquina,
-    height=9cm,
-    width=9cm,
+    height=8cm,
+    width=8cm,
     grid=major,
     legend pos=outer north east]
     
@@ -162,7 +162,7 @@ gráficos separados estão \href{http://mc723-1s2011-tcs.googlecode.com/svn/trun
       SHA512SUM}
   \end{axis}
 \end{tikzpicture}
-
+\vspace{-5mm}
 
 \section{Análise}
 Pelos dados coletados podemos ordernar as máquinas pelo seu
@@ -204,19 +204,27 @@ os programas 5 e 7), executados em máquinas com mais núcleos (máquina 3), tê
 diversos núcleos do processador. Porém, se usarmos os tempo de ``user+sys''
 programas o tempo de cada núcleo é somado, logo sua execução chega ser
 a parecida com um programa sequencial.
+
 Configurações como memória cache influenciam consideravelmente o tempo de
 execução de um programa que faz bastante acesso à memória. Além disso,
  uma alta frequência do processador, ajuda no tempo total de execução
 do programa.
-Logo, nosso programa mais eficiente, baseado nos testes seria um cuja
-configuração possui uma grande memória ram, uma frequência alta e mais
-de um núcleo. O que é verificado pela tabela 1. O computador 5 é o
-mais rápido exceto no programa ``caça palavras'' no qual se verifica o
-paralelismo, como o computador 3 possui mais núcleos, ele tende a ser
-melhor que o computador 5.
 
-Observação: infelizmente nem todos as máquinas executaram todos os
-programas o que prejudica um pouco as análises.
+Logo, o programa mais eficiente, baseado nos testes, seria um cuja
+configuração possui uma grande memória ram, uma frequência alta e mais
+de um núcleo. O que é verificado pela tabela 1.
+ O computador 5 é o
+mais rápido na execução da maioria dos programas, exceto na execução
+do programa ``caça palavras'' no qual se testa o
+paralelismo da máquina. Como o computador 3 possui mais núcleos, ele tende a ser
+melhor que o computador 5, o que foi verificado pelos testes.
+
+Observação 1: infelizmente nem todos as máquinas executaram todos os
+programas o que prejudica um pouco as análises. 
+
+Observação 2: A máquina 10 como não
+foi especificada na planilha de acordo o pedido foi ignorada.
+
 % ******************************************************
 % REFERENCIAS BIBLIOGRÁFICAS
 % ******************************************************

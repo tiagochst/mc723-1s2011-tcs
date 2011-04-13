@@ -1,0 +1,21 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2010.5.28)  13 APR 2011 12:15
+entering extended mode
+ %&-line parsing enabled.
+**lab3.tex
+(/usr/share/texmf/tex/latex/tools/q.tex
+! Interruption.
+<to be read again> 
+                   \begingroup 
+l.1 
+    %%
+? x
+ 
+Here is how much of TeX's memory you used:
+ 8 strings out of 256217
+ 217 string characters out of 1917095
+ 48804 words of memory out of 1500000
+ 3390 multiletter control sequences out of 10000+200000
+ 3640 words of font info for 14 fonts, out of 1200000 for 2000
+ 645 hyphenation exceptions out of 8191
+ 3i,0n,1p,15b,6s stack positions out of 5000i,500n,6000p,200000b,15000s
+No pages of output.
