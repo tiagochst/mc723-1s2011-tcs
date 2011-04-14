@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 #include <sys/time.h>
 
 
@@ -61,11 +62,11 @@ void leSeq()
   struct timeval  first, second, lapsed;
   struct timezone tzp; 
 
-  pFile0 = fopen("0", "r"); /*arquivo com nome de usuarios*/
-  pFile1 = fopen("1", "r"); /*arquivo com nome de usuarios*/
-  pFile2 = fopen("2", "r"); /*arquivo com nome de usuarios*/
-  pFile3 = fopen("3", "r"); /*arquivo com nome de usuarios*/
-  pFile4 = fopen("4", "r"); /*arquivo com nome de usuarios*/
+  pFile0 = fopen("/tmp/0", "r"); /*arquivo com nome de usuarios*/
+  pFile1 = fopen("/tmp/1", "r"); /*arquivo com nome de usuarios*/
+  pFile2 = fopen("/tmp/2", "r"); /*arquivo com nome de usuarios*/
+  pFile3 = fopen("/tmp/3", "r"); /*arquivo com nome de usuarios*/
+  pFile4 = fopen("/tmp/4", "r"); /*arquivo com nome de usuarios*/
 
   if (pFile0  == NULL || pFile1  == NULL || pFile2  == NULL || pFile3  == NULL || pFile4  == NULL ){
     return ;
@@ -120,11 +121,11 @@ void leFrag(int num)
   struct timeval  first, second, lapsed;
   struct timezone tzp; 
 
-  pFile0 = fopen("0", "r"); /*arquivo com nome de usuarios*/
-  pFile1 = fopen("1", "r"); /*arquivo com nome de usuarios*/
-  pFile2 = fopen("2", "r"); /*arquivo com nome de usuarios*/
-  pFile3 = fopen("3", "r"); /*arquivo com nome de usuarios*/
-  pFile4 = fopen("4", "r"); /*arquivo com nome de usuarios*/
+  pFile0 = fopen("/tmp/0", "r"); /*arquivo com nome de usuarios*/
+  pFile1 = fopen("/tmp/1", "r"); /*arquivo com nome de usuarios*/
+  pFile2 = fopen("/tmp/2", "r"); /*arquivo com nome de usuarios*/
+  pFile3 = fopen("/tmp/3", "r"); /*arquivo com nome de usuarios*/
+  pFile4 = fopen("/tmp/4", "r"); /*arquivo com nome de usuarios*/
 
   if (pFile0  == NULL || pFile1  == NULL || pFile2  == NULL || pFile3  == NULL || pFile4  == NULL ){
     return ;
@@ -194,11 +195,14 @@ void createFile(char nome[])
 void createManyFile(int num)
 {
   int i=0;
-  char numChar[5];
+  char numChar[10];
+  char path[10]="/tmp/";
   for(i=0;i<num;i++){
+    strcpy(path,"/tmp/");
     snprintf(numChar, sizeof(numChar)-1, "%d",i);
-    //    printf("%s",numChar);
-    createFile(numChar);
+    strcat(path,numChar);
+    //    printf("%s",path);
+    createFile(path);
   }
   return;
 }
