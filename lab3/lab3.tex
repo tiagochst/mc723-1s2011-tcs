@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper]{article}
+1\documentclass[10pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
@@ -20,9 +20,9 @@
 \usepackage{hyperref}
 
 % Gráficos
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.3}
-\usepgfplotslibrary{groupplots}
+%\usepackage{pgfplots}
+%\pgfplotsset{compat=1.3}
+%\usepgfplotslibrary{groupplots}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -140,10 +140,16 @@ se nossos dados estiverem dispersos (fragmentados) no disco.
 %Como podemos dizer que uma determinada configuração de disco é melhor que outra?
 %Como esse benchmark pode ser usado para estimar o desempenho da rede?
 %Quais são as unidades de transferências de dados em disco (na rede)?
-
+Para  avaliação de uma rede, deve-se medir o tempo necessário para que um computador
+enviar pacotes para outro através dela. Para isso podemos fazer o requerimento 
+de um arquivo em outra máquina da rede e retirar o tempo de acesso que é local.
+Assim, teremos o tempo de comunicação, fazendo:
+\begin{equation}
+  Tempo~de~rede = Tempo~total - Tempo~de~acesso. 
+\end{equation}
 
 \section{Programa}
-Inicialmente criou-se um script em bash que:
+Inicialmente criou-se um script em bash que fazia as seguintes etapas localmente depois em outra computador da rede:
 \begin{itemize}
 \item Gravava um arquivo de 2GB
 \item Recuperava o arquivo de 2GB (leitura  do arquivo) 
