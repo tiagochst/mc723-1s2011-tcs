@@ -1,0 +1,10 @@
+Meu pc
+=== PING - MC823 ===
+Max 0.600 ms
+Min 0.046 ms
+Media 0.064 ms
+Desvio 0.058 ms
+
+pillars
+
+
