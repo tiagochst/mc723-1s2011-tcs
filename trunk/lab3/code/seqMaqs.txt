@@ -1,5 +1,17 @@
 Meu pc
 
+seq /tmp
+Max 14931.510 ms
+Min 14298.632 ms
+Media 14442.874 ms
+Desvio 182.934 ms
+frag /tmp
+=== PING - MC823 ===
+Max 15381.555 ms
+Min 14258.629 ms
+Media 14499.125 ms
+Desvio 328.493 ms
+
 seq
 === PING - MC823 ===
 Max 15273.502 ms
