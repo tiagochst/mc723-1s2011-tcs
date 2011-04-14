@@ -54,29 +54,56 @@ void seqTime(struct timeval first,struct timeval second){
 /*Le toda a agenda do usuario em arquivo e passa para memoria*/
 void leSeq()
 {
-  FILE * pFile;
+  FILE * pFile0,* pFile1,* pFile2,* pFile3,* pFile4;
   char line[10]="";
 
   /* Estrutura para analise de tempo em microsegundos */
   struct timeval  first, second, lapsed;
   struct timezone tzp; 
 
-  pFile = fopen("file.dat", "r"); /*arquivo com nome de usuarios*/
-  if (pFile == NULL){
+  pFile0 = fopen("0", "r"); /*arquivo com nome de usuarios*/
+  pFile1 = fopen("1", "r"); /*arquivo com nome de usuarios*/
+  pFile2 = fopen("2", "r"); /*arquivo com nome de usuarios*/
+  pFile3 = fopen("3", "r"); /*arquivo com nome de usuarios*/
+  pFile4 = fopen("4", "r"); /*arquivo com nome de usuarios*/
+
+  if (pFile0  == NULL || pFile1  == NULL || pFile2  == NULL || pFile3  == NULL || pFile4  == NULL ){
     return ;
   }
   else
   {
 
     gettimeofday (&first, &tzp); 
-    /*Primeiro evento*/
-    while (fscanf(pFile, "%[^\n]", line) != EOF)
+
+    while (fscanf(pFile0, "%[^\n]", line) != EOF)
     {/*evento*/
-      fgetc(pFile);
+      fgetc(pFile0);
     }
+    while (fscanf(pFile1, "%[^\n]", line) != EOF)
+    {/*evento*/
+      fgetc(pFile1);
+    }
+    while (fscanf(pFile2, "%[^\n]", line) != EOF)
+    {/*evento*/
+      fgetc(pFile2);
+    }
+    while (fscanf(pFile3, "%[^\n]", line) != EOF)
+    {/*evento*/
+      fgetc(pFile3);
+    }
+    while (fscanf(pFile4, "%[^\n]", line) != EOF)
+    {/*evento*/
+      fgetc(pFile4);
+    }
+
+
     gettimeofday (&second, &tzp);
     seqTime(first,second);  
-    fclose(pFile);
+    fclose(pFile0);
+    fclose(pFile1);
+    fclose(pFile2);
+    fclose(pFile3);
+    fclose(pFile4);
     return ;
   }
 
@@ -177,7 +204,9 @@ void createManyFile(int num)
 }
 int main(){
   /*Cria arquivo de 100MB*/
-  createFile("file.dat");
+  // createFile("file.dat");
+  createManyFile(5);
+ 
   /*Le sequencialmente um arquivo*/
   leSeq();
   createManyFile(5);

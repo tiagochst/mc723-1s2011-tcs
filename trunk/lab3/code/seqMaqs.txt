@@ -1,9 +1,19 @@
 Meu pc
+
+seq
 === PING - MC823 ===
-Max 0.600 ms
-Min 0.046 ms
-Media 0.064 ms
-Desvio 0.058 ms
+Max 15273.502 ms
+Min 14269.003 ms
+Media 14471.426 ms
+Desvio 280.065 ms
+
+frag
+=== PING - MC823 ===
+Max 15815.992 ms
+Min 14272.746 ms
+Media 14624.627 ms
+Desvio 430.997 ms
+
 
 pillars
 

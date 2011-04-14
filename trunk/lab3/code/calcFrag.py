@@ -6,7 +6,7 @@ from numpy import*
 
 def main():
     rtt=[]
-    for line in fileinput.input(['seqFrag.dat']):
+    for line in fileinput.input(['fragTime.dat']):
         line = line.split()     
         rtt.append(float(line[0])*1000) #pega tempo de echo
         
