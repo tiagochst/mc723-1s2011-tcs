@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2010.11.30)  15 APR 2011 11:28
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2010.5.28)  15 APR 2011 11:13
 entering extended mode
  %&-line parsing enabled.
 **lab3.tex
@@ -359,11 +359,10 @@ Package: geometry 2002/07/08 v3.2 Page Geometry
 \Gm@odd@mp=\dimen110
 \Gm@even@mp=\dimen111
 \Gm@dimlist=\toks17
-
-(/usr/share/texmf/tex/xelatex/xetexconfig/geometry.cfg))
-(/usr/share/texmf/tex/latex/html/url.sty
-Package: url 1999/03/02  ver 1.4  Verb mode for urls, email addresses, and file
- names
+)
+(/usr/share/texmf/tex/latex/ltxmisc/url.sty
+\Urlmuskip=\muskip10
+Package: url 2005/06/27  ver 3.2  Verb mode for urls, etc.
 )
 (/usr/share/texmf/tex/latex/base/textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
@@ -760,14 +759,14 @@ LaTeX Font Info:    Try loading font information for TS1+ptm on input line 155.
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [1
 
-] [2] (./lab3.aux) ) 
+] (./lab3.bbl) [2] (./lab3.aux) ) 
 Here is how much of TeX's memory you used:
- 5194 strings out of 256217
- 73249 string characters out of 1917094
- 136005 words of memory out of 1500000
- 8380 multiletter control sequences out of 10000+200000
- 21220 words of font info for 40 fonts, out of 1200000 for 2000
+ 5228 strings out of 256217
+ 73540 string characters out of 1917095
+ 136303 words of memory out of 1500000
+ 8413 multiletter control sequences out of 10000+200000
+ 24576 words of font info for 42 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  43i,9n,42p,301b,392s stack positions out of 5000i,500n,6000p,200000b,15000s
 
-Output written on lab3.dvi (2 pages, 10992 bytes).
+Output written on lab3.dvi (2 pages, 12212 bytes).
