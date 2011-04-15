@@ -29,6 +29,7 @@ Desvio 430.997 ms
 
 
 pillars
+seq /tmp
 
 
 

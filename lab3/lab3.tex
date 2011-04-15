@@ -1,4 +1,4 @@
-1\documentclass[10pt,a4paper]{article}
+\documentclass[12pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
@@ -44,8 +44,8 @@
 
 \geometry{ 
   a4paper,	% Formato do papel
-  tmargin=10mm,	% Margem superior
-  bmargin=20mm,	% Margem inferior
+  tmargin=40mm,	% Margem superior
+  bmargin=40mm,	% Margem inferior
   lmargin=20mm,	% Margem esquerda
   rmargin=20mm,	% Margem direita
   footskip=20mm	% Espaço entre o rodapé e o fim do texto
@@ -149,21 +149,50 @@ Assim, teremos o tempo de comunicação, fazendo:
 \end{equation}
 
 \section{Programa}
-Inicialmente criou-se um script em bash que fazia as seguintes etapas localmente depois em outra computador da rede:
+Inicialmente criou-se um programa em c que:
 \begin{itemize}
-\item Gravava um arquivo de 2GB
-\item Recuperava o arquivo de 2GB (leitura  do arquivo) 
-\item Gravava um arquivo zip de 2GB cujo conteúdo era arquivos pequenos
-\item Recuperava o arquivo zip
+\item Gravava 5 arquivos de 100MB na pasta /tmp
+\item Lia os arquivos aleatoriamente e sequencialmente da pasta /tmp
+
+\item Gravava 5 arquivos de 400MB na pasta /tmp
+\item Lia os arquivos aleatoriamente e sequencialmente na pasta /tmp
+
+\item Lia os arquivos aleatoriamente e sequencialmente de outro computador 
+
 \end{itemize}
-
-
 \section{Dados coletados}
+Apenas pegou-se os tempo de leitura dos arquivos do qual se obteu para
+uma máquina cuja taxa de rotação do HD é de 7200 RPM:
+
+\begin{table}[h!]
+\caption{Tempo para 2GB de arquivos}
+\begin{center}
+\begin{tabular}{ccc}
+\hline 
+\hline
+Descrição & Acesso sequencial & Acesso aleatório \\
+\hline
+Tempo Maximo & 33166.823 ms & 32790.008 ms \\
+Tempo Mínimo & 31484.652 ms & 31293.304 ms\\
+Tempo médio & 31991.723 ms & 31871.419 ms\\
+Desvio  & 524.201 ms & 502.533 ms \\
+
+\end{tabular}
+\end{center}
+\end{table}
+
 
 \section{Análise}
-\section{Conclusão}
-Tempo de busca (Seek Time) é o fator que mais influencia no tempo de acesso 
 
+A diferença entre os tempos médios $t_{medioAl}-t_{medioSeq}=120.304 ms$
+Temos que o tempo total de seek é de $120.304$, pois ambas leituras devem ter um tempo
+de transferência igual e um tempo de latência médio aproximadamente o mesmo.
+
+\section{Conclusão}
+Tempo de busca (Seek Time) é o fator que mais influencia no tempo de
+acesso a arquivos se comparado ao tempo de latência rotacional.
+O tempo de transferência para arquivos grandes influencia também
+bastante no tempo total.
 % ******************************************************
 % REFERENCIAS BIBLIOGRÁFICAS
 % ******************************************************
