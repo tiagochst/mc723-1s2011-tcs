@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2010.5.28)  15 APR 2011 06:14
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2010.11.30)  15 APR 2011 11:28
 entering extended mode
  %&-line parsing enabled.
 **lab3.tex
@@ -13,8 +13,8 @@ tuguese, pinyin, romanian, russian, slovenian, uppersorbian, serbian, swedish,
 turkish, ukenglish, ukrainian, loaded.
 (/usr/share/texmf/tex/latex/base/article.cls
 Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
-(/usr/share/texmf/tex/latex/base/size12.clo
-File: size12.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+(/usr/share/texmf/tex/latex/base/size11.clo
+File: size11.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -650,7 +650,7 @@ twocolumn: --
 twoside: --
 asymmetric: --
 h-parts: 56.9055pt, 483.69687pt, 56.9055pt
-v-parts: 113.81102pt, 617.4248pt, 113.81102pt
+v-parts: 113.81102pt, 645.87756pt, 85.35826pt
 hmarginratio: --
 vmarginratio: --
 lines: --
@@ -665,17 +665,17 @@ driver:
 \paperwidth  597.50787pt
 \paperheight 845.04684pt
 \textwidth  483.69687pt
-\textheight 617.4248pt
+\textheight 645.87756pt
 \oddsidemargin  -15.36449pt
 \evensidemargin -15.36449pt
 \topmargin  4.54103pt
 \headheight 12.0pt
 \headsep    25.0pt
 \footskip   56.9055pt
-\marginparwidth 35.0pt
+\marginparwidth 50.0pt
 \marginparsep   10.0pt
 \columnsep  10.0pt
-\skip\footins  10.8pt plus 4.0pt minus 2.0pt
+\skip\footins  10.0pt plus 4.0pt minus 2.0pt
 \hoffset 0.0pt
 \voffset 0.0pt
 \mag 1000
@@ -725,7 +725,7 @@ LaTeX Info: Redefining \pageref on input line 57.
 \@outlinefile=\write3
 \openout3 = `lab3.out'.
 
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 82.
 LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 84
 .
@@ -745,15 +745,15 @@ LaTeX Font Info:    Try loading font information for OMX+psycm on input line 84
 (/usr/share/texmf/tex/latex/psnfss/omxpsycm.fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 84.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 84.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 84.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 89.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 154.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 155.
 
 
 (/usr/share/texmf/tex/latex/psnfss/ts1ptm.fd
@@ -762,12 +762,12 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 
 ] [2] (./lab3.aux) ) 
 Here is how much of TeX's memory you used:
- 18478 strings out of 256217
- 388795 string characters out of 1917095
- 494924 words of memory out of 1500000
- 21372 multiletter control sequences out of 10000+200000
- 21215 words of font info for 40 fonts, out of 1200000 for 2000
+ 5194 strings out of 256217
+ 73249 string characters out of 1917094
+ 136005 words of memory out of 1500000
+ 8380 multiletter control sequences out of 10000+200000
+ 21220 words of font info for 40 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 43i,9n,42p,217b,365s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 43i,9n,42p,301b,392s stack positions out of 5000i,500n,6000p,200000b,15000s
 
-Output written on lab3.dvi (2 pages, 13836 bytes).
+Output written on lab3.dvi (2 pages, 10992 bytes).

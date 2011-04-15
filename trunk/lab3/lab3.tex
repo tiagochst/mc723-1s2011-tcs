@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
@@ -45,7 +45,7 @@
 \geometry{ 
   a4paper,	% Formato do papel
   tmargin=40mm,	% Margem superior
-  bmargin=40mm,	% Margem inferior
+  bmargin=30mm,	% Margem inferior
   lmargin=20mm,	% Margem esquerda
   rmargin=20mm,	% Margem direita
   footskip=20mm	% Espaço entre o rodapé e o fim do texto
@@ -119,7 +119,8 @@ RPM &  Tempo de latência médio \\
 \end{table}
 
 \item [Tempo de busca (seek time):] tempo gasto para a cabeça de 
-leitura/gravação se posicionar na trilha correta. Varia de 3 ms (para trilhas adjacentes) e até 100 ms (para trilhas que estão nos extremos do disco).
+leitura/gravação se posicionar na trilha correta. O tempo é da ordem de $ms$
+%Varia de 3 ms (para trilhas adjacentes) e até 100 ms (para trilhas que estão nos extremos do disco).
 
 \item[Tempo de transferência:]  tempo gasto para a 
 migração dos dados da memória secundária para a 
@@ -154,9 +155,6 @@ Inicialmente criou-se um programa em c que:
 \item Gravava 5 arquivos de 100MB na pasta /tmp
 \item Lia os arquivos aleatoriamente e sequencialmente da pasta /tmp
 
-\item Gravava 5 arquivos de 400MB na pasta /tmp
-\item Lia os arquivos aleatoriamente e sequencialmente na pasta /tmp
-
 \item Lia os arquivos aleatoriamente e sequencialmente de outro computador 
 
 \end{itemize}
@@ -165,17 +163,31 @@ Apenas pegou-se os tempo de leitura dos arquivos do qual se obteu para
 uma máquina cuja taxa de rotação do HD é de 7200 RPM:
 
 \begin{table}[h!]
-\caption{Tempo para 2GB de arquivos}
+\caption{Tempo para 500GB de arquivos}
 \begin{center}
 \begin{tabular}{ccc}
 \hline 
 \hline
 Descrição & Acesso sequencial & Acesso aleatório \\
 \hline
-Tempo Maximo & 33166.823 ms & 32790.008 ms \\
-Tempo Mínimo & 31484.652 ms & 31293.304 ms\\
-Tempo médio & 31991.723 ms & 31871.419 ms\\
-Desvio  & 524.201 ms & 502.533 ms \\
+Tempo Maximo & 15572.871 ms & 16296.849\\
+Tempo Mínimo & 7885.791 ms & 7835.314 ms\\
+Tempo médio & 11537.245 ms & 11841.816 ms\\
+Desvio  & 3601.778 ms & 3924.05 ms \\
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[h!]
+\caption{Tempo para 500MB de arquivos}
+\begin{center}
+\begin{tabular}{ccc}
+\hline 
+\hline
+ Tempo & Taxa de transferência \\
+\hline
+Tempo médio & 43.00 s & 11.1MBps\\
 
 \end{tabular}
 \end{center}
@@ -184,15 +196,22 @@ Desvio  & 524.201 ms & 502.533 ms \\
 
 \section{Análise}
 
-A diferença entre os tempos médios $t_{medioAl}-t_{medioSeq}=120.304 ms$
-Temos que o tempo total de seek é de $120.304$, pois ambas leituras devem ter um tempo
+A diferença entre os tempos médios $t_{medioAl}-t_{medioSeq}=304.571 ms$
+Temos que o tempo total de seek é de $304.571$, pois ambas leituras devem ter um tempo
 de transferência igual e um tempo de latência médio aproximadamente o mesmo.
+O tempo de acesso a rede ficou em 11.76MBps.
 
 \section{Conclusão}
-Tempo de busca (Seek Time) é o fator que mais influencia no tempo de
-acesso a arquivos se comparado ao tempo de latência rotacional.
-O tempo de transferência para arquivos grandes influencia também
-bastante no tempo total.
+Pelos dados coletados  em ordem de influencia temos:
+\begin{enumerate}
+\item Tempo de Rede
+\item Tempo de Transferência
+\item Tempo de Seek
+\item Tempo de Latência rotacional
+\end{enumerate}
+
+Ou seja o tempo de rede é o que mais influencia, já que é necessário o envio do arquivo através da rede. Além disso,  o tempo para passar da memória secundário para a principal também toma tempo considerável no total. E pelos cálculos o tempo de seek é da ordem de $ms$.
+
 % ******************************************************
 % REFERENCIAS BIBLIOGRÁFICAS
 % ******************************************************
