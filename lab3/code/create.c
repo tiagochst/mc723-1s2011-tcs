@@ -27,6 +27,28 @@ void fragTime(struct timeval first,struct timeval second){
   return;
 }
 
+void wgetTime(struct timeval first,struct timeval second){
+
+  double t2=first.tv_sec+(first.tv_usec/1000000.0); 
+  double t3=second.tv_sec+(second.tv_usec/1000000.0); 
+
+  FILE * pFile;
+  pFile = fopen("wgetTime.dat", "a"); /*arquivo com tempos de leitura sequcial do*/
+
+  if (pFile == NULL) 
+    return ;
+  
+  /* if (first.tv_usec > second.tv_usec) { 
+    second.tv_usec += 1000000; 
+    second.tv_sec--; 
+  } */
+ 
+  fseek(pFile, 0, SEEK_END);
+  fprintf(pFile,"%f \n" ,t3-t2);
+  fclose(pFile);
+
+  return;
+}
 
 void seqTime(struct timeval first,struct timeval second){
 
@@ -121,6 +143,14 @@ void leFrag(int num)
   struct timeval  first, second, lapsed;
   struct timezone tzp; 
 
+  gettimeofday (&first, &tzp); 
+
+  // system("wget http://143.106.16.16:/tmp/0");
+  //system("wget http://143.106.16.16:/tmp/1");
+  //system("wget http://143.106.16.16:/tmp/2");
+  //system("wget http://143.106.16.16:/tmp/3");
+  //system("wget http://143.106.16.16:/tmp/4");
+
   pFile0 = fopen("/tmp/0", "r"); /*arquivo com nome de usuarios*/
   pFile1 = fopen("/tmp/1", "r"); /*arquivo com nome de usuarios*/
   pFile2 = fopen("/tmp/2", "r"); /*arquivo com nome de usuarios*/
@@ -133,7 +163,6 @@ void leFrag(int num)
   else
   {
 
-    gettimeofday (&first, &tzp); 
     /*Vamos ler 1000 linhas de cada arquivo*/
     /*Primeiro evento*/
     while (fscanf(pFile4, "%[^\n]", line) != EOF)
@@ -154,16 +183,16 @@ void leFrag(int num)
       fgetc(pFile4);
 
     }
-
-
-    gettimeofday (&second, &tzp);
-    fragTime(first,second);  
     fclose(pFile0);
     fclose(pFile1);
     fclose(pFile2);
     fclose(pFile3);
     fclose(pFile4);
 
+
+    gettimeofday (&second, &tzp);
+    fragTime(first,second);  
+  
     return ;
   }
 
@@ -181,7 +210,7 @@ void createFile(char nome[])
     perror("Error opening file");
   else
     {
-      for(i=0;i*10<400000000;i++){
+      for(i=0;i*10<100000000;i++){
 	fputs("123456789\n", pFile); /* 10 bytes */
       }
       fclose(pFile);
@@ -207,14 +236,29 @@ void createManyFile(int num)
   return;
 }
 int main(){
+
+ /* Estrutura para analise de tempo em microsegundos */
+  struct timeval  first, second, lapsed;
+  struct timezone tzp; 
+
   /*Cria arquivo de 100MB*/
   // createFile("file.dat");
-  createManyFile(5);
+  //  createManyFile(5);
+  //gettimeofday (&first, &tzp);
+  //system("wget http://143.106.16.16:/tmp/0");
+  //system("wget http://143.106.16.16:/tmp/1");
+  //system("wget http://143.106.16.16:/tmp/2");
+  //system("wget http://143.106.16.16:/tmp/3");
+  //  system("wget http://143.106.16.16:/tmp/4");
+  
  
+  //gettimeofday (&second, &tzp);
+  //wgetTime(first,second);  
+
   /*Le sequencialmente um arquivo*/
-  leSeq();
+  //  leSeq();
   createManyFile(5);
-  leFrag(5);
+  //leFrag(5);
 
 
   return 0;
