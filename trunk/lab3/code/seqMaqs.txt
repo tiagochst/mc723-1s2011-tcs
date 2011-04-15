@@ -27,6 +27,22 @@ Media 14624.627 ms
 Desvio 430.997 ms
 
 
+
 pillars
 
 
+
+
+
+
+302
+=== PING - MC823 ===
+Max 15572.871 ms
+Min 7885.791 ms
+Media 11537.245 ms
+Desvio 3601.778 ms
+=== PING - MC823 ===
+Max 16296.849 ms
+Min 7835.314 ms
+Media 11841.816 ms
+Desvio 3924.050 ms
