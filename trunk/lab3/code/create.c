@@ -181,7 +181,7 @@ void createFile(char nome[])
     perror("Error opening file");
   else
     {
-      for(i=0;i*10<100000000;i++){
+      for(i=0;i*10<400000000;i++){
 	fputs("123456789\n", pFile); /* 10 bytes */
       }
       fclose(pFile);

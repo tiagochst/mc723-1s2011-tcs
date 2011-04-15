@@ -46,3 +46,16 @@ Max 16296.849 ms
 Min 7835.314 ms
 Media 11841.816 ms
 Desvio 3924.050 ms
+
+302 2GB
+=== PING - MC823 ===
+Max 33166.823 ms
+Min 31484.652 ms
+Media 31991.723 ms
+Desvio 524.201 ms
+=== PING - MC823 ===
+Max 32790.008 ms
+Min 31293.304 ms
+Media 31871.419 ms
+Desvio 502.533 ms
+
