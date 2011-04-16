@@ -7,3 +7,5 @@ done
 
 python calcSeq.py
 python calcFrag.py
+python calcHFrag.py
+python calcHSeq.py

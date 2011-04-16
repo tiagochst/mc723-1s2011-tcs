@@ -326,7 +326,7 @@ void createFile(char nome[])
     perror("Error opening file");
   else
     {
-      for(i=0;i*10<100000000;i++){
+      for(i=0;i*10<200000000;i++){
 	fputs("123456789\n", pFile); /* 10 bytes */
       }
       fclose(pFile);
@@ -375,26 +375,26 @@ int main(){
 
   /*Cria 5 arquivos de 100MB em /tmp*/
   /*Medição na máquina local*/
-  createTManyFile(5);
+ // createTManyFile(5);
   /*Le sequencialmente um arquivo*/
   leSeq();
 
   /*Cria 5 arquivos de 100MB em /tmp*/
   /*Medição na máquina local*/
-  createTManyFile(5);
+ // createTManyFile(5);
   /*Le os arquivos inteiros aleatoriamente*/
   leFrag(5);
 
 
   /*Cria 5 arquivos de 100MB em $HOME*/
   /*Medição na máquina local*/
-  createHManyFile(5);
+//  createHManyFile(5);
   /*Le sequencialmente um arquivo*/
   leHSeq();
 
   /*Cria 5 arquivos de 100MB em /tmp*/
   /*Medição na máquina local*/
-  createHManyFile(5);
+//  createHManyFile(5);
  
  /*Le os arquivos inteiros aleatoriamente*/
   leHFrag(5);
