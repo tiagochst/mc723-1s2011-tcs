@@ -1,0 +1,69 @@
+Exercício 4 - Compilando, executando, depurando e algo mais...
+Informações Gerais
+
+Entrega:  29/04 até as 8:00
+Formato de entrega: Relatório no formato PDF com apenas 1 página
+Forma de entrega: via e-mail
+Objetivos
+
+ Você deve saber compilar bem um programa, executá-lo de forma prática e automatizada, depurá-lo, saber qual parte dele é mais lenta e ter noções de paralelização.
+
+Antes de começar
+
+Este laboratório está baseado em ferramentas GNU que já estão instaladas em Linux mas que podem ser instaladas em Windows e Macs também.
+
+Você deve responder estas perguntas:
+
+Como especificar as otimizações que um compilador deve utilizar num programa?
+Quais otimizações são importantes para o processador que você está utilizando?
+Qual a diferença entre um Makefile e um script?
+O que é "depurar um programa"?
+Como executar o GDB?
+Como utilizar um ambiente gráfico com o GDB?
+Como descobrir a parte que é mais executada de um programa?
+Como utilizar o gprof?
+Você sabe controlar diferentes versões de um programa? E compartilha-las entre seu grupo para que cada um trabalhe em uma parte de um trabalho?
+Como fazer com que um programa tire proveito de multiprocessamento de forma escalável?
+Ao final, você deve ser capaz de utilizar estas ferramentas e também diferenciar alternativas de ganho de desempenho obtidas por algoritmos e também por ferramentas.
+
+
+Atividade
+
+Este Exercício é dividido em várias partes e a meta mais importante é que você entenda as ferramentas indicadas ou similares. 
+Um dos primeiros compressores/descompressores de MP3 criados é chamado de dist10, você deve encontrar um arquivo com nome dist10.tar.gz na internet e baixá-lo (nos testes abaixo, foque apenas nos arquivos dentro da pasta lsf/encoder). Para testes, utilize um arquivo .wav grande, como este (você pode utilizar outros se quiser). O encoder precisa do arquivo no formato AIFF, para isto, utilize o comando "sox heavydrum.wav heavydrum.aiff" para fazer a conversão.
+Agora siga as atividades abaixo, anotando as informações e decisões que você precisará tomar para fazer seu relatório ao final.
+
+Parte 1 - Compilando e otimizando
+Para fazer a próxima atividade você deve entender dos aplicativos configure e make.
+Inclua no seu relatório, respostas simples para as perguntas:
+Para que serve a opção -n do make?
+Quantas regras existem no Makefile do lsf/encoder? Por regra, entenda tudo o que pode ser pedido para o make fazer (seu comando pode ser da forma: make regra)
+Compile o programa sem nenhuma opção extra de compilação extra. Quanto tempo ele gasta para codificar o arquivo? Veja se o valor muda utilizando, separadamente, cada uma das otimizações -O0, -O1, -O2 e -O3 (letra O maiúscula seguida de um número). Qual delas deu o melhor tempo? Existem outras otimizações que você pode aplicar no processador atual, consulte o manual do gcc por otimizações da categoria -mtune e veja quais se aplicam ao seu processador. Para que elas servem? O tempo melhorou? Descreva seus resultados sempre em relação ao mais lento. Atenção: A opção O3 nem sempre será melhor. Meça o tempo de compilação das opções e o tempo de execução e veja as diferenças (indique no relatório o tempo utilizado em cada caso: real, user ou system?)
+Parte 2 - Depurando
+Agora é hora de tentar entender um pouco o programa (mas não totalmente). Utilize o GDB para depurar seu programa. Muitas vezes, a interface em modo texto do GDB dificulta a depuração, recomendo que vocês utilizem um visualizador gráfico para o GDB. Um bom visualizador é o DDD (basta executar ddd na linha de comando). Alguns comandos interessantes do GDB que você deve saber utilizar: breakpoint, watchpoint, print, display, run, set args e help. Utilize o GDB para executar algumas partes do programa e tentar entender o fluxo de informações nele. Lembre-se que o foco é entender melhor o uso do GDB. Procure por tutoriais no Google se preferir. Aqui estão 4 sugestões: 1, 2, e 3.
+Você deve saber:
+Qual opção de compilação deve ser utilizada para gerar os símbolos que o gdb utiliza (-g)
+A diferença entre os comandos next e step
+Definir e remover um breakpoint (comando break)
+Definir e remover um watchpoint (comando watch)
+Para que servem os comandos Run e Continue. Parecem óbvios, não? Como passar um parâmetro pelo run?
+Como passar parâmetros para um programa
+Como ver o valor de uma variável (diferença entre print e display). Se estiver utilizando o DDD, para que serve o comando graph display?
+Para que serve o comando bt?
+Utilizando o arquivo de exemplo fornecido como entrada, utilize o depurador para descobrir o valor do vetor off, ao final da décima primeira execução da função window_subband. Coloque a resposta no seu relatório.
+Parte 3 - Profiling
+
+Em qual parte seu programa gasta mais tempo? use o gprof para descobrir (veja o manual do gprof ou os tutoriais 1 e/ou 2). Indique as duas funções que mais gastam tempo no seu programa no relatório.
+Parte 4 - Controle de versões
+
+Este item é para sua leitura e entendimento. Um software de controle de versões é importante para ajudá-lo a gerenciar o desenvolvimento dos seus programas. Recomendo que aprendam a utilizar o git. Vejam tutoriais em: 1, 2, 3 e 4.
+
+Parte 5 - Desafio de paralelização
+Desafio (opcional): Se você tiver que paralelizar alguma parte de um programa, qual parte você escolheria? Como paralelizar de forma escalável o código? Eu sugiro utilizar OpenMP, veja uma breve apresentação, um tutorial, o site oficial, uso pelo GCC e implementação GNU do for. Meça o tempo do programa paralelizado. O resultado foi o esperado? Comente. Para ganhar um bônus na nota, ache alguma parte do programa ImageMagick que possa ser paralelizada, paralelize, gere um patch e submeta como contribuição para o site. Se você olhar a lista dos autores dos patches de OpenMP, verá nomes de vários ex-alunos de minhas disciplinas.
+Entrega
+
+Enviar um relatório de apenas 1 página, descrevendo a atividade realizada, os arquivos de entrada e os computadores utilizados. O relatório deve conter uma tabela e/ou gráfico com a comparação de desempenho. Analisar e comentar o resultado.
+Entrega: 29/04 até as 8:00 
+Formato: arquivo PDF.
+por e-mail 
+

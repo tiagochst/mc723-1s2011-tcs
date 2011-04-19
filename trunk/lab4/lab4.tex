@@ -1,0 +1,231 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{ae,aecompl}
+\usepackage{pslatex}
+\usepackage{epsfig}
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{ae}
+\usepackage{subfig}
+\usepackage{indentfirst}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{verbatim}
+\usepackage{hyperref}
+
+% Gráficos
+%\usepackage{pgfplots}
+%\pgfplotsset{compat=1.3}
+%\usepgfplotslibrary{groupplots}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,%
+    citecolor=black,%
+    filecolor=black,%
+    linkcolor=blue,%
+    urlcolor=blue
+}
+
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+% Definindo as margens para 2cm e o espaçamento entre linhas para 1.5
+% Relatório parcial deve ter espaçamento simples
+% \linespread{1.5}
+
+\geometry{ 
+  a4paper,	% Formato do papel
+  tmargin=40mm,	% Margem superior
+  bmargin=30mm,	% Margem inferior
+  lmargin=20mm,	% Margem esquerda
+  rmargin=20mm,	% Margem direita
+  footskip=20mm	% Espaço entre o rodapé e o fim do texto
+}
+\renewcommand{\thetable}{\Roman{table}}
+\newcommand{\x} {$\bullet$}
+
+
+\begin{document}
+
+
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\topmargin}{0pt}
+\setlength{\topsep}{0pt}
+\setlength{\partopsep}{0pt}
+
+
+% Guia para o relatório
+% Quais são os principais parâmetros a serem definidos em uma cache?
+% Quais são os valores típicos para esses parâmetros?
+% Quais devem ser os limites mínimos e máximos desses valores?
+% Olhe no manual do dinero e descubra quais desses parâmetros ele
+% permite configurar -- Done
+% Como podemos dizer que uma determinada configuração de cache é melhor que outra?
+% O que é um trace de execução? -- Done +-
+% Por que utilizar um trace de execução para achar a melhor configuração de cache para um programa?
+% Por que escolher a melhor configuração de cache para um dado programa? A configuração de cache não é específica do processador?
+% Olhe aqui qual o programa e número de arquivos você deve usar
+\begin{minipage}{5cm}
+  \makebox[5cm][l]{\rule{4cm}{1mm}{\hspace{4mm}\bf Tiago Chedraoui Silva \hspace{2mm}RA:082941
+      \hspace{2mm} Turma: A}\hspace{4mm} \rule{4cm}{1mm} }
+  \vspace{2mm}
+\end{minipage}
+
+\vspace{-3mm}
+
+\section{Objetivo}
+
+\section{Parte 1}
+A opção -n serve para esconder os warnings
+Existem 4 regras no Makefile do lsf/encoder.
+
+Make
+real	0m0.572s
+user	0m0.290s
+sys	0m0.244s
+
+Make -O0
+real	0m3.618s
+user	0m2.445s
+sys	0m0.651s
+
+Make -O1
+real	0m6.076s
+user	0m4.793s
+sys	0m0.694s
+
+Make -O2
+real	0m7.775s
+user	0m6.472s
+sys	0m0.740s
+
+Make -O3
+real	0m9.882s
+user	0m8.337s
+sys	0m0.727s
+
+-mtune= cpu_type 
+Otimização compilação de acordo com arquitetura
+
+make
+real	0m3.560s
+user	0m2.471s
+sys	0m0.625s
+
+make -O2
+real	0m7.614s
+user	0m6.471s
+sys	0m0.690s
+
+make -O3
+real	0m9.761s
+user	0m8.185s
+sys	0m0.784s
+
+%  -mtune=name
+%           This option is very similar to the -mcpu= option, except that instead of specifying the actual target processor type, and hence restricting
+%           which instructions can be used, it specifies that GCC should tune the performance of the code as if the target were of the type specified in
+%           this option, but still choosing the instructions that it will generate based on the cpu specified by a -mcpu= option.  For some ARM
+%           implementations better performance can be obtained by using this option.
+
+%     -mtune=architecture-type
+%           Tune to architecture-type everything applicable about the generated code, except for the ABI and the set of available instructions.  The
+ %          choices for architecture-type are the same as for -march=architecture-type.
+
+   
+
+%       -mtune=cpu-type
+%           Tune to cpu-type everything applicable about the generated code, except for the ABI and the set of available instructions.  The choices for
+%           cpu-type are:
+
+%           generic
+%               Produce code optimized for the most common IA32/AMD64/EM64T processors.  If you know the CPU on which your code will run, then you should
+%               use the corresponding -mtune option instead of -mtune=generic.  But, if you do not know exactly what CPU users of your application will
+%               have, then you should use this option.
+
+%               As new processors are deployed in the marketplace, the behavior of this option will change.  Therefore, if you upgrade to a newer version
+%               of GCC, the code generated option will change to reflect the processors that were most common when that version of GCC was released.
+
+%               There is no -march=generic option because -march indicates the instruction set the compiler can use, and there is no generic instruction
+%               set applicable to all processors.  In contrast, -mtune indicates the processor (or, in this case, collection of processors) for which the
+           %     code is optimized.
+
+           % native
+           %     This selects the CPU to tune for at compilation time by determining the processor type of the compiling machine.  Using -mtune=native will
+           %     produce code optimized for the local machine under the constraints of the selected instruction set.  Using -march=native will enable all
+           %     instruction subsets supported by the local machine (hence the result might not run on different machines).
+
+           % i386
+           %     Original Intel's i386 CPU.
+
+           % i586, pentium
+           %     Intel Pentium CPU with no MMX support.
+
+           % pentium-mmx
+           %     Intel PentiumMMX CPU based on Pentium core with MMX instruction set support.
+
+           % pentiumpro
+           %     Intel PentiumPro CPU.
+
+           % i686
+           %     Same as "generic", but when used as "march" option, PentiumPro instruction set will be used, so the code will run on all i686 family
+           %     chips.
+
+           % core2
+           %     Intel Core2 CPU with 64-bit extensions, MMX, SSE, SSE2, SSE3 and SSSE3 instruction set support.
+
+           % atom
+           %     Intel Atom CPU with 64-bit extensions, MMX, SSE, SSE2, SSE3 and SSSE3 instruction set support.
+
+
+           % athlon, athlon-tbird
+           %     AMD Athlon CPU with MMX, 3dNOW!, enhanced 3DNow! and SSE prefetch instructions support.
+
+           % athlon-4, athlon-xp, athlon-mp
+           %     Improved AMD Athlon CPU with MMX, 3DNow!, enhanced 3DNow! and full SSE instruction set support.
+
+           % k8, opteron, athlon64, athlon-fx
+           %     AMD K8 core based CPUs with x86-64 instruction set support.  (This supersets MMX, SSE, SSE2, 3DNow!, enhanced 3DNow! and 64-bit
+           %     instruction set extensions.)
+
+
+           % While picking a specific cpu-type will schedule things appropriately for that particular chip, the compiler will not generate any code that
+           % does not run on the i386 without the -march=cpu-type option being used.
+
+
+\section{Parte 2}
+\section{Parte 3}
+\section{Parte 4}
+Meu usuário no github (git) https://github.com/tiagochst/
+Meu usuário no google code (svn) http://code.google.com/u/@VxBQQFNXDhRBWAR6/
+\section{Parte 5}
+
+\section{Programa}
+\section{Dados coletados}
+
+\section{Análise}
+
+
+\section{Conclusão}
+% ******************************************************
+% REFERENCIAS BIBLIOGRÁFICAS
+% ******************************************************
+ \section{Referências}
+\bibliographystyle{plain}
+\begin{small}
+  \bibliography{referencias}
+\end{small}
+
+\end{document}
