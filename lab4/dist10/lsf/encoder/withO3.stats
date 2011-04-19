@@ -1,0 +1,410 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+ 24.62      0.65     0.65   136656     4.76     4.76  filter_subband
+ 16.67      1.09     0.44     3796   115.91   115.91  threshold
+ 13.64      1.45     0.36     3796    94.84    94.84  II_f_f_t
+  8.71      1.68     0.23   136656     1.68     1.68  window_subband
+  8.33      1.90     0.22     3796    57.96    57.96  noise_label
+  7.95      2.11     0.21     1898   110.64   110.64  II_a_bit_allocation
+  6.82      2.29     0.18     1898    94.84    94.84  II_subband_quantization
+  4.55      2.41     0.12     1898    63.22    63.22  II_scale_factor_calc
+  4.17      2.52     0.11  2972505     0.04     0.04  putbits
+  1.52      2.56     0.04     1898    21.07   563.75  II_Psycho_One
+  0.76      2.58     0.02     1898    10.54    62.20  II_sample_encoding
+  0.38      2.59     0.01     3796     2.63     2.63  II_tonal_label
+  0.38      2.60     0.01     1899     5.27     5.27  SwapBytesInWords
+  0.38      2.61     0.01     1899     5.27    10.53  get_audio
+  0.38      2.62     0.01     1898     5.27     5.27  II_main_bit_allocation
+  0.38      2.63     0.01     1898     5.27     5.27  II_transmission_pattern
+  0.38      2.64     0.01                             main
+  0.00      2.64     0.00    22010     0.00     0.00  put1bit
+  0.00      2.64     0.00    15201     0.00     0.00  mem_alloc
+  0.00      2.64     0.00    15184     0.00     0.00  mem_free
+  0.00      2.64     0.00     3796     0.00     0.00  subsampling
+  0.00      2.64     0.00     1899     0.00     5.27  read_samples
+  0.00      2.64     0.00     1898     0.00     2.22  II_encode_bit_alloc
+  0.00      2.64     0.00     1898     0.00     3.82  II_encode_scale
+  0.00      2.64     0.00     1898     0.00     0.26  encode_info
+  0.00      2.64     0.00     1898     0.00     0.00  pick_scale
+  0.00      2.64     0.00     1898     0.00     0.00  sstell
+  0.00      2.64     0.00       24     0.00     0.00  Read32BitsHighLow
+  0.00      2.64     0.00        4     0.00     0.00  OpenTableFile
+  0.00      2.64     0.00        3     0.00     0.00  SmpFrqIndex
+  0.00      2.64     0.00        2     0.00     0.00  Read16BitsHighLow
+  0.00      2.64     0.00        1     0.00     0.00  BitrateIndex
+  0.00      2.64     0.00        1     0.00     0.00  ConvertFromIeeeExtended
+  0.00      2.64     0.00        1     0.00     0.00  DetermineByteOrder
+  0.00      2.64     0.00        1     0.00     0.00  ReadIeeeExtendedHighLow
+  0.00      2.64     0.00        1     0.00     0.00  aiff_check
+  0.00      2.64     0.00        1     0.00     0.00  aiff_read_headers
+  0.00      2.64     0.00        1     0.00     0.00  close_bit_stream_w
+  0.00      2.64     0.00        1     0.00     0.00  create_ana_filter
+  0.00      2.64     0.00        1     0.00     0.00  hdr_to_frps
+  0.00      2.64     0.00        1     0.00     0.00  open_bit_stream_w
+  0.00      2.64     0.00        1     0.00     0.00  parse_args
+  0.00      2.64     0.00        1     0.00     0.00  pick_table
+  0.00      2.64     0.00        1     0.00     0.00  print_config
+  0.00      2.64     0.00        1     0.00     0.00  read_ana_window
+  0.00      2.64     0.00        1     0.00     0.00  read_bit_alloc
+  0.00      2.64     0.00        1     0.00     0.00  read_cbound
+  0.00      2.64     0.00        1     0.00     0.00  read_freq_band
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.38% of 2.64 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.01    2.63                 main [1]
+                0.04    1.03    1898/1898        II_Psycho_One [2]
+                0.65    0.00  136656/136656      filter_subband [3]
+                0.23    0.00  136656/136656      window_subband [6]
+                0.21    0.00    1898/1898        II_a_bit_allocation [8]
+                0.18    0.00    1898/1898        II_subband_quantization [9]
+                0.12    0.00    1898/1898        II_scale_factor_calc [10]
+                0.02    0.10    1898/1898        II_sample_encoding [11]
+                0.01    0.01    1899/1899        get_audio [13]
+                0.01    0.00    1898/1898        II_transmission_pattern [18]
+                0.01    0.00    1898/1898        II_main_bit_allocation [17]
+                0.00    0.01    1898/1898        II_encode_scale [19]
+                0.00    0.00    1898/1898        II_encode_bit_alloc [20]
+                0.00    0.00    1898/1898        encode_info [21]
+                0.00    0.00   10622/22010       put1bit [22]
+                0.00    0.00    1898/1898        sstell [27]
+                0.00    0.00    1898/1898        pick_scale [26]
+                0.00    0.00       6/15201       mem_alloc [23]
+                0.00    0.00       1/1           parse_args [42]
+                0.00    0.00       1/1           print_config [44]
+                0.00    0.00       1/1           hdr_to_frps [40]
+                0.00    0.00       1/1           close_bit_stream_w [38]
+-----------------------------------------------
+                0.04    1.03    1898/1898        main [1]
+[2]     40.5    0.04    1.03    1898         II_Psycho_One [2]
+                0.44    0.00    3796/3796        threshold [4]
+                0.36    0.00    3796/3796        II_f_f_t [5]
+                0.22    0.00    3796/3796        noise_label [7]
+                0.01    0.00    3796/3796        II_tonal_label [14]
+                0.00    0.00    3799/15201       mem_alloc [23]
+                0.00    0.00    3796/3796        subsampling [25]
+                0.00    0.00    3796/15184       mem_free [24]
+                0.00    0.00       1/1           read_cbound [47]
+                0.00    0.00       1/1           read_freq_band [48]
+-----------------------------------------------
+                0.65    0.00  136656/136656      main [1]
+[3]     24.6    0.65    0.00  136656         filter_subband [3]
+                0.00    0.00       1/15201       mem_alloc [23]
+                0.00    0.00       1/1           create_ana_filter [39]
+-----------------------------------------------
+                0.44    0.00    3796/3796        II_Psycho_One [2]
+[4]     16.7    0.44    0.00    3796         threshold [4]
+-----------------------------------------------
+                0.36    0.00    3796/3796        II_Psycho_One [2]
+[5]     13.6    0.36    0.00    3796         II_f_f_t [5]
+                0.00    0.00   11391/15201       mem_alloc [23]
+                0.00    0.00   11388/15184       mem_free [24]
+-----------------------------------------------
+                0.23    0.00  136656/136656      main [1]
+[6]      8.7    0.23    0.00  136656         window_subband [6]
+                0.00    0.00       2/15201       mem_alloc [23]
+                0.00    0.00       1/1           read_ana_window [45]
+-----------------------------------------------
+                0.22    0.00    3796/3796        II_Psycho_One [2]
+[7]      8.3    0.22    0.00    3796         noise_label [7]
+-----------------------------------------------
+                0.21    0.00    1898/1898        main [1]
+[8]      8.0    0.21    0.00    1898         II_a_bit_allocation [8]
+-----------------------------------------------
+                0.18    0.00    1898/1898        main [1]
+[9]      6.8    0.18    0.00    1898         II_subband_quantization [9]
+-----------------------------------------------
+                0.12    0.00    1898/1898        main [1]
+[10]     4.5    0.12    0.00    1898         II_scale_factor_calc [10]
+-----------------------------------------------
+                0.02    0.10    1898/1898        main [1]
+[11]     4.5    0.02    0.10    1898         II_sample_encoding [11]
+                0.10    0.00 2649612/2972505     putbits [12]
+-----------------------------------------------
+                0.00    0.00   13286/2972505     encode_info [21]
+                0.00    0.00  113880/2972505     II_encode_bit_alloc [20]
+                0.01    0.00  195727/2972505     II_encode_scale [19]
+                0.10    0.00 2649612/2972505     II_sample_encoding [11]
+[12]     4.2    0.11    0.00 2972505         putbits [12]
+-----------------------------------------------
+                0.01    0.01    1899/1899        main [1]
+[13]     0.8    0.01    0.01    1899         get_audio [13]
+                0.00    0.01    1899/1899        read_samples [16]
+-----------------------------------------------
+                0.01    0.00    3796/3796        II_Psycho_One [2]
+[14]     0.4    0.01    0.00    3796         II_tonal_label [14]
+-----------------------------------------------
+                0.01    0.00    1899/1899        read_samples [16]
+[15]     0.4    0.01    0.00    1899         SwapBytesInWords [15]
+-----------------------------------------------
+                0.00    0.01    1899/1899        get_audio [13]
+[16]     0.4    0.00    0.01    1899         read_samples [16]
+                0.01    0.00    1899/1899        SwapBytesInWords [15]
+                0.00    0.00       1/1           DetermineByteOrder [34]
+-----------------------------------------------
+                0.01    0.00    1898/1898        main [1]
+[17]     0.4    0.01    0.00    1898         II_main_bit_allocation [17]
+-----------------------------------------------
+                0.01    0.00    1898/1898        main [1]
+[18]     0.4    0.01    0.00    1898         II_transmission_pattern [18]
+-----------------------------------------------
+                0.00    0.01    1898/1898        main [1]
+[19]     0.3    0.00    0.01    1898         II_encode_scale [19]
+                0.01    0.00  195727/2972505     putbits [12]
+-----------------------------------------------
+                0.00    0.00    1898/1898        main [1]
+[20]     0.2    0.00    0.00    1898         II_encode_bit_alloc [20]
+                0.00    0.00  113880/2972505     putbits [12]
+-----------------------------------------------
+                0.00    0.00    1898/1898        main [1]
+[21]     0.0    0.00    0.00    1898         encode_info [21]
+                0.00    0.00   13286/2972505     putbits [12]
+                0.00    0.00   11388/22010       put1bit [22]
+-----------------------------------------------
+                0.00    0.00   10622/22010       main [1]
+                0.00    0.00   11388/22010       encode_info [21]
+[22]     0.0    0.00    0.00   22010         put1bit [22]
+-----------------------------------------------
+                0.00    0.00       1/15201       filter_subband [3]
+                0.00    0.00       1/15201       read_cbound [47]
+                0.00    0.00       1/15201       read_freq_band [48]
+                0.00    0.00       2/15201       window_subband [6]
+                0.00    0.00       6/15201       main [1]
+                0.00    0.00    3799/15201       II_Psycho_One [2]
+                0.00    0.00   11391/15201       II_f_f_t [5]
+[23]     0.0    0.00    0.00   15201         mem_alloc [23]
+-----------------------------------------------
+                0.00    0.00    3796/15184       II_Psycho_One [2]
+                0.00    0.00   11388/15184       II_f_f_t [5]
+[24]     0.0    0.00    0.00   15184         mem_free [24]
+-----------------------------------------------
+                0.00    0.00    3796/3796        II_Psycho_One [2]
+[25]     0.0    0.00    0.00    3796         subsampling [25]
+-----------------------------------------------
+                0.00    0.00    1898/1898        main [1]
+[26]     0.0    0.00    0.00    1898         pick_scale [26]
+-----------------------------------------------
+                0.00    0.00    1898/1898        main [1]
+[27]     0.0    0.00    0.00    1898         sstell [27]
+-----------------------------------------------
+                0.00    0.00      24/24          aiff_read_headers [37]
+[28]     0.0    0.00    0.00      24         Read32BitsHighLow [28]
+-----------------------------------------------
+                0.00    0.00       1/4           read_bit_alloc [46]
+                0.00    0.00       1/4           read_ana_window [45]
+                0.00    0.00       1/4           read_cbound [47]
+                0.00    0.00       1/4           read_freq_band [48]
+[29]     0.0    0.00    0.00       4         OpenTableFile [29]
+-----------------------------------------------
+                0.00    0.00       1/3           aiff_check [36]
+                0.00    0.00       2/3           parse_args [42]
+[30]     0.0    0.00    0.00       3         SmpFrqIndex [30]
+-----------------------------------------------
+                0.00    0.00       2/2           aiff_read_headers [37]
+[31]     0.0    0.00    0.00       2         Read16BitsHighLow [31]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_args [42]
+[32]     0.0    0.00    0.00       1         BitrateIndex [32]
+-----------------------------------------------
+                0.00    0.00       1/1           ReadIeeeExtendedHighLow [35]
+[33]     0.0    0.00    0.00       1         ConvertFromIeeeExtended [33]
+-----------------------------------------------
+                0.00    0.00       1/1           read_samples [16]
+[34]     0.0    0.00    0.00       1         DetermineByteOrder [34]
+-----------------------------------------------
+                0.00    0.00       1/1           aiff_read_headers [37]
+[35]     0.0    0.00    0.00       1         ReadIeeeExtendedHighLow [35]
+                0.00    0.00       1/1           ConvertFromIeeeExtended [33]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_args [42]
+[36]     0.0    0.00    0.00       1         aiff_check [36]
+                0.00    0.00       1/3           SmpFrqIndex [30]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_args [42]
+[37]     0.0    0.00    0.00       1         aiff_read_headers [37]
+                0.00    0.00      24/24          Read32BitsHighLow [28]
+                0.00    0.00       2/2           Read16BitsHighLow [31]
+                0.00    0.00       1/1           ReadIeeeExtendedHighLow [35]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[38]     0.0    0.00    0.00       1         close_bit_stream_w [38]
+-----------------------------------------------
+                0.00    0.00       1/1           filter_subband [3]
+[39]     0.0    0.00    0.00       1         create_ana_filter [39]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[40]     0.0    0.00    0.00       1         hdr_to_frps [40]
+                0.00    0.00       1/1           pick_table [43]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_args [42]
+[41]     0.0    0.00    0.00       1         open_bit_stream_w [41]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[42]     0.0    0.00    0.00       1         parse_args [42]
+                0.00    0.00       2/3           SmpFrqIndex [30]
+                0.00    0.00       1/1           open_bit_stream_w [41]
+                0.00    0.00       1/1           aiff_read_headers [37]
+                0.00    0.00       1/1           aiff_check [36]
+                0.00    0.00       1/1           BitrateIndex [32]
+-----------------------------------------------
+                0.00    0.00       1/1           hdr_to_frps [40]
+[43]     0.0    0.00    0.00       1         pick_table [43]
+                0.00    0.00       1/1           read_bit_alloc [46]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[44]     0.0    0.00    0.00       1         print_config [44]
+-----------------------------------------------
+                0.00    0.00       1/1           window_subband [6]
+[45]     0.0    0.00    0.00       1         read_ana_window [45]
+                0.00    0.00       1/4           OpenTableFile [29]
+-----------------------------------------------
+                0.00    0.00       1/1           pick_table [43]
+[46]     0.0    0.00    0.00       1         read_bit_alloc [46]
+                0.00    0.00       1/4           OpenTableFile [29]
+-----------------------------------------------
+                0.00    0.00       1/1           II_Psycho_One [2]
+[47]     0.0    0.00    0.00       1         read_cbound [47]
+                0.00    0.00       1/4           OpenTableFile [29]
+                0.00    0.00       1/15201       mem_alloc [23]
+-----------------------------------------------
+                0.00    0.00       1/1           II_Psycho_One [2]
+[48]     0.0    0.00    0.00       1         read_freq_band [48]
+                0.00    0.00       1/4           OpenTableFile [29]
+                0.00    0.00       1/15201       mem_alloc [23]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Index by function name
+
+  [32] BitrateIndex           [28] Read32BitsHighLow      [41] open_bit_stream_w
+  [33] ConvertFromIeeeExtended [35] ReadIeeeExtendedHighLow [42] parse_args
+  [34] DetermineByteOrder     [30] SmpFrqIndex            [26] pick_scale
+   [2] II_Psycho_One          [15] SwapBytesInWords       [43] pick_table
+   [8] II_a_bit_allocation    [36] aiff_check             [44] print_config
+  [20] II_encode_bit_alloc    [37] aiff_read_headers      [22] put1bit
+  [19] II_encode_scale        [38] close_bit_stream_w     [12] putbits
+   [5] II_f_f_t               [39] create_ana_filter      [45] read_ana_window
+  [17] II_main_bit_allocation [21] encode_info            [46] read_bit_alloc
+  [11] II_sample_encoding      [3] filter_subband         [47] read_cbound
+  [10] II_scale_factor_calc   [13] get_audio              [48] read_freq_band
+   [9] II_subband_quantization [40] hdr_to_frps           [16] read_samples
+  [14] II_tonal_label          [1] main                   [27] sstell
+  [18] II_transmission_pattern [23] mem_alloc             [25] subsampling
+  [29] OpenTableFile          [24] mem_free                [4] threshold
+  [31] Read16BitsHighLow       [7] noise_label             [6] window_subband
