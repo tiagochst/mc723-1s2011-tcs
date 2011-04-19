@@ -1,5 +1,5 @@
 #Relatorio
-file=lab3
+file=lab4
 rel:
 	latex $(file).tex
 	latex $(file).tex
