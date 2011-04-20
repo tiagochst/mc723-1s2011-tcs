@@ -41,7 +41,7 @@ DEP = $(c_sources:.c=.d)
 
 NINT_SWITCH = 
 
-CC_SWITCHES =   -g -O1 -DUNIX -DBS_FORMAT=BINARY $(NINT_SWITCH) -DNDEBUG
+CC_SWITCHES =   -O3 -mtune=core2 -DUNIX -DBS_FORMAT=BINARY $(NINT_SWITCH) -DNDEBUG
 
 PGM = encode
 
@@ -56,7 +56,7 @@ LIBS =  -lm -lieee
 
 
 $(PGM):	$(OBJ) Makefile
-	$(CC) -o $(PGM) $(OBJ) $(LIBS) -g
+	$(CC) -o $(PGM) $(OBJ) $(LIBS) 
 
 clean:
 	-rm $(OBJ) $(DEP)

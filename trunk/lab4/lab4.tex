@@ -44,11 +44,11 @@
 
 \geometry{ 
   a4paper,	% Formato do papel
-  tmargin=40mm,	% Margem superior
-  bmargin=30mm,	% Margem inferior
+  tmargin=30mm,	% Margem superior
+  bmargin=10mm,	% Margem inferior
   lmargin=20mm,	% Margem esquerda
   rmargin=20mm,	% Margem direita
-  footskip=20mm	% Espaço entre o rodapé e o fim do texto
+  footskip=00mm	% Espaço entre o rodapé e o fim do texto
 }
 \renewcommand{\thetable}{\Roman{table}}
 \newcommand{\x} {$\bullet$}
@@ -92,72 +92,117 @@ R:A opção -n serve para esconder os warnings.
 
 Quantas regras existem no Makefile do lsf/encoder?
 
-R:Existem 4 regras no Makefile do lsf/encoder (make clean,make encode, make tags, make include).
+R:Existem 4 regras no Makefile do lsf/encoder (make clean,make encode, make tags, make TAGS).
 
 \subsection{Parte 1 - compilação}
+Alterando flags de otimização obtivemos as tabelas abaixo:
+
+OBS:-mtune= cpu\underline{}type - Otimização compilação de acordo com arquitetura
 
 \begin{table}[h!]
-  \caption{Função que mais gastam tempo no programa enconde}
-\begin{center}
-  \begin{tabular}{ccccccc}
+  \caption{Tempo de compilação para diferentes flags de otimização}
+  \begin{center}
+    \begin{tabular}{ccccccc}
 
-Otimização& tempo real& tempo user& tempo sys\\
-\hline 
-Nenhuma  &  real	0m0.572s & user	0m0.290s& sys	0m0.244s\\
+      Otimização& tempo real& tempo user& tempo sys\\
+      \hline 
+      Nenhuma  &  real	0m0.572s & user	0m0.290s& sys	0m0.244s\\
 
--O0&
-real	0m3.618s&
-user	0m2.445s&
-sys	0m0.651s\\
+      -O0&
+      real	0m3.618s&
+      user	0m2.445s&
+      sys	0m0.651s\\
 
--O1&
-real	0m6.076s&
-user	0m4.793s&
-sys	0m0.694s\\
+      -O1&
+      real	0m6.076s&
+      user	0m4.793s&
+      sys	0m0.694s\\
 
- -O2&
-real	0m7.775s&
-user	0m6.472s&
-sys	0m0.740s\\
+      -O2&
+      real	0m7.775s&
+      user	0m6.472s&
+      sys	0m0.740s\\
 
--O3&
-real	0m9.882s&
-user	0m8.337s&
-sys	0m0.727s\\
+      -O3&
+      real	0m9.882s&
+      user	0m8.337s&
+      sys	0m0.727s\\
 
- \end{tabular}
-\end{center}
+  -mtune=core2 &
+      real	0m3.560s&
+      user	0m2.471s&
+      sys	0m0.625s\\
+
+      -O2 -mtune=core2 &
+      real	0m7.614s&
+      user	0m6.471s&
+      sys	0m0.690s\\
+
+      -O3 -mtune=core2&
+      real	0m9.761s&
+      user	0m8.185s&
+      sys	0m0.784s
+
+    \end{tabular}
+  \end{center}
 \end{table}
 
--mtune= cpu\underline{}type 
-Otimização compilação de acordo com arquitetura
+
+
+
+% \begin{table}[h!]
+%   \caption{Usando flag mtune em compilação}
+%   \begin{center}
+%     \begin{tabular}{ccccccc}
+%       Otimização& tempo real& tempo user& tempo sys\\
+%       \hline
+    
+
+%     \end{tabular}
+%   \end{center}
+% \end{table}
+
 
 \begin{table}[h!]
-  \caption{Usando flag mtune em compilação}
-\begin{center}
-  \begin{tabular}{ccccccc}
-Otimização& tempo real& tempo user& tempo sys\\
-\hline
-make &
-real	0m3.560s&
-user	0m2.471s&
-sys	0m0.625s\\
+  \caption{Tempo de execução para diferentes flags de otimização}
+  \begin{center}
+    \begin{tabular}{ccccccc}
 
-make -O2&
-real	0m7.614s&
-user	0m6.471s&
-sys	0m0.690s\\
+      Otimização& tempo real& tempo user& tempo sys\\
+      \hline 
+      Nenhuma  &
+      0m12.894s&
+      0m12.168s &
+      0m0.056s\\
+      
+      -O0&
+      0m15.278s&
+      0m14.314s&
+      0m0.068s\\
 
-make -O3&
-real	0m9.761s&
-user	0m8.185s&
-sys	0m0.784s
+      -O1&
+      0m9.515s&
+      0m7.848s&
+      0m0.059s\\
 
+      -O2&
+      0m7.463s&
+      0m6.973s&
+      0m0.052s\\
 
- \end{tabular}
-\end{center}
+      -O3&
+      0m7.745s&
+      0m6.818s&
+      0m0.069s\\
+
+      -O3 -mtune=core2 &
+      0m7.205s&
+      0m6.694s&
+      0m0.050s\\
+
+    \end{tabular}
+  \end{center}
 \end{table}
-
 
 % -mtune=name
 % This option is very similar to the -mcpu= option, except that instead of specifying the actual target processor type, and hence restricting
@@ -234,21 +279,21 @@ sys	0m0.784s
 O valor do vetor off após a décima primeira execução da função
 window\underline{ }subband é: \{320 , 352\} 
 Para isso colocou-se um breakpoint no final da função (b enconde.c:349) e executei-a 11 vezes e dando print em off.
-%0  {0,0}
-%1  {480,0} 
-%2  {480,480} 
-%3  {448,480} 
-%4  {448,448} 
-%5  {416, 448}
-%6  {416, 416}
-%7  {384,416}
-%8  {384,384}
-%9  {352,384}
-%10 {352,352}
-%11 {320,352}
-%{352,384}
-%{352,352}
-%{320,320}
+% 0  {0,0}
+% 1  {480,0} 
+% 2  {480,480} 
+% 3  {448,480} 
+% 4  {448,448} 
+% 5  {416, 448}
+% 6  {416, 416}
+% 7  {384,416}
+% 8  {384,384}
+% 9  {352,384}
+% 10 {352,352}
+% 11 {320,352}
+% {352,384}
+% {352,352}
+% {320,320}
 \section{Parte 3}
 Exacutando:
 \begin{verbatim}
@@ -282,7 +327,6 @@ funções que mais gastam tempo:
 \section{Parte 4}
 Meu usuário no github (git) https://github.com/tiagochst/\\
 Meu usuário no google code (svn) http://code.google.com/u/@VxBQQFNXDhRBWAR6/
-\section{Parte 5}
 
 % ******************************************************
 % REFERENCIAS BIBLIOGRÁFICAS
