@@ -92,7 +92,8 @@ R:A opção -n serve para esconder os warnings.
 
 Quantas regras existem no Makefile do lsf/encoder?
 
-R:Existem 4 regras no Makefile do lsf/encoder.
+R:Existem 4 regras no Makefile do lsf/encoder (make clean,make encode, make tags, make include).
+
 \subsection{Parte 1 - compilação}
 
 \begin{table}[h!]
@@ -232,7 +233,7 @@ sys	0m0.784s
 \section{Parte 2}
 O valor do vetor off após a décima primeira execução da função
 window\underline{ }subband é: \{320 , 352\} 
-
+Para isso colocou-se um breakpoint no final da função (b enconde.c:349) e executei-a 11 vezes e dando print em off.
 %0  {0,0}
 %1  {480,0} 
 %2  {480,480} 
