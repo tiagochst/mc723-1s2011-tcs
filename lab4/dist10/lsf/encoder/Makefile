@@ -41,7 +41,7 @@ DEP = $(c_sources:.c=.d)
 
 NINT_SWITCH = 
 
-CC_SWITCHES =   -O3 -mtune=core2 -DUNIX -DBS_FORMAT=BINARY $(NINT_SWITCH) -DNDEBUG
+CC_SWITCHES =    -mtune=core2 -DUNIX -DBS_FORMAT=BINARY $(NINT_SWITCH) -DNDEBUG
 
 PGM = encode
 
