@@ -1,0 +1,130 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{ae,aecompl}
+\usepackage{pslatex}
+\usepackage{epsfig}
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{ae}
+\usepackage{subfig}
+\usepackage{indentfirst}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{verbatim}
+\renewcommand{\thetable}{\Roman{table}}
+
+
+%\usepackage[compact]{titlesec}
+%\titlespacing{\section}{0pt}{*0}{*0}
+%\titlespacing{\subsection}{0pt}{*0}{*0}
+%\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+%Definindo as margens para 2cm e o espaçamento entre linhas para 1.5
+% Relatório parcial deve ter espaçamento simples
+%\linespread{1.5}
+
+\geometry{ 
+	a4paper,	% Formato do papel
+	tmargin=20mm,	% Margem superior
+	bmargin=20mm,	% Margem inferior
+	lmargin=20mm,	% Margem esquerda
+	rmargin=20mm,	% Margem direita
+	footskip=20mm	% Espaço entre o rodapé e o fim do texto
+}
+
+
+\include{abaco} 
+
+\begin{document}
+
+% CAPA
+  \thispagestyle{empty}
+  
+  \begin{minipage}[h]{0.10\linewidth}
+    \ABACO{1}{9}{6}{9}{0.5} 
+  \end{minipage}
+  \begin{minipage}[h!]{0.7\linewidth}
+    \vspace*{\fill}
+    \centering
+    {\large \textbf{UNIVERSIDADE~ESTADUAL~DE~CAMPINAS}}\\ 
+    {\large INSTITUTO~DE~COMPUTAÇÃO}                   
+    \vspace*{\fill} 
+  \end{minipage}
+    \\\vspace{0.5cm}
+  
+  \begin{center} 
+    \rule{11.0cm}{0.4pt}\vspace*{-\baselineskip}\vspace{-2.0pt}
+    \rule{11.0cm}{1.6pt} \vspace*{2.0pt}\\
+      {\Large \textsc{Modelagem de processadores em ArchC}}\vspace{-3.2pt}
+    \rule{11.0cm}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} \rule{11.0cm}{1.6pt}\\
+    {\textsl{Proposta de projeto}}
+    \\\vspace{1cm}
+    \begin{tabular}{ll}
+      \textbf{Nome}: Douglas Alves Germano        &   \textbf{RA}: 060210\\
+      \textbf{Nome}: Tiago Chedraoui Silva        &       \textbf{RA}: 082941
+      
+    \end{tabular}
+  \end{center}
+  \vspace{0.5cm}
+  
+  \section*{Introdução}
+  
+  O archC é uma linguagem de descrição de arquiteturas livre
+  desenvolvido no Laboratório de Sistemas de Computação (LSC) na
+  Unicamp. Utilizando essa linguagem desenvolveremos um simulador de um sistema dedicado. 
+  
+  \section*{Descrição}
+  Modelaremos o processador da familia RS08 da empresa freescale na
+  linguagem ArchC. 
+  
+  \section*{Próximas fases}
+  
+  \begin{description}
+  \item[Fase 2] Composta pelos item 1, 2 e 3 da lista do cronograma:
+    Iniciaresmos a implementação do processador em ArchC.
+  \item[Fase 3] Composta pelo item 4 lista do cronograma: Terminaremos
+    a implementação.
+ 
+  \end{description}
+  
+  \section*{Cronograma}
+    
+  \begin{enumerate}
+  \item Instalar localmente ArchC
+  \item Estudar como desenvolver um processador na linguagem ArchC
+  \item Implementar código com funções básicas 
+  \item Implementação código com a maioria das funções presentes no processador
+    
+  \end{enumerate}
+
+  \begin{table}[h!]
+    \caption{Cronograma das atividades}
+    \begin{center} {
+        \begin{tabular}{ |c|c|c|c|c|c|c|}
+          \hline
+          & \multicolumn{3}{|c|}{Fase 2} & \multicolumn{3}{|c|}{Fase 3} 	\\ \hline
+          Semana & 01 & 02  & 03 & 04 & 05 & 06 \\ \hline
+          1 & $\bullet$ &  & &  & & \\ \hline
+          2 & $\bullet$ & $\bullet$ & & &  & \\ \hline
+          3 & & $\bullet$ & $\bullet$ & &  & \\ \hline
+          4 &  &  &  & $\bullet$ & $\bullet$ & $\bullet$\\ \hline
+          
+
+          \hline
+        \end{tabular}
+      }\end{center}
+    \label{tab:cronograma}
+  \end{table}
+
+ \addcontentsline{toc}{section}{Referências}
+ \bibliographystyle{unsrtbr}
+ \begin{small}\bibliography{../../bibliografia/referencias}\end{small}
+ \label{referencias}
+  
+\end{document}
