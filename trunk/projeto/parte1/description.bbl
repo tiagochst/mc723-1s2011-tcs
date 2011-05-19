@@ -1,13 +1,13 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{5}
 
 \bibitem{FS}
 Manual microprocessador da empresa freescale
-\newblock Disponível em: {http://www.freescale.com/}.
+\newblock Disponível em:
+{http://cache.freescale.com/files/microcontrollers/doc/ref\underline{ }manual/RS08RM.pdf}.
 
 \bibitem{ArchC}
 Linguagem de descrição de arquitetura ArchC
 \newblock Descrição em: {\em http://www.archc.org/}.
-
 
 \bibitem{Ducatte}
 Descrição do projeto
