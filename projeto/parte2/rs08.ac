@@ -1,0 +1,27 @@
+AC_ARCH(rs08){
+
+  ac_mem   RAM:16K;
+  ac_wordsize 8;
+
+
+  ac_format Fmt_CCR =
+              "%Z:1 %C:1" ;
+
+  ac_format Fmt_PC =
+              "%PCH:6 %PCL:8";
+
+  ac_format Fmt_SPC =
+              "%SPCH:6 %SPCL:8";
+
+  ac_reg      A;
+  ac_reg<Fmt_CCR> CCR;   /* zero(Z), carry(C) */
+  ac_reg<Fmt_PC>  PC;
+  ac_reg<Fmt_SPC> SPC;
+  
+  ARCH_CTOR(rs08) {
+
+    ac_isa("rs08_isa.ac");
+    set_endian("big");
+
+  };
+};
