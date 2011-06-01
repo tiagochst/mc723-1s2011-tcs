@@ -1,0 +1,153 @@
+AC_ISA(rs08){
+
+  /*opcode: byte(byte's position) - enderecamento indireto (ii) */
+  ac_format Type_IMM = "%op:8 %byte2:8";
+ 
+  /*opcode: address(byte's position) - MOVE (II DD) */
+  ac_format Type_IMD = "%op:8 %byte2:8 %addr3:8";
+ 
+  /*opcode: address(byte's position) - ENDERECAMENTO INDIRETO - no carry*/
+  ac_format Type_IMM_DIR = "%op:8 %byte2:8";
+ 
+  /*opcode: address(byte's position) - ENDERECAMENTO DIRETO */
+  ac_format Type_DIR = "%op:8 %addr2:8";
+ 
+  /*opcode: byte (direct address) : byte (direct address) - MOVE*/
+  ac_format Type_DD = "%op:8 %byte2:8 %byte3:8";
+
+  /*opcode: address(byte's position) - BEQ */
+  ac_format Type_REL = "%op:8 %addr2:8";
+
+  /*opcode (ROTACOES SOBRE O ACUMULADOR: LSRA, LSLA, ROLA, RORA) */
+  ac_format Type_INH = "%op:8";
+ 
+  /*opcode: high-order address byte: low-order address byte (JUMP)*/
+  ac_format Type_EXT = "%op:8 %addr:16";
+  
+
+  ac_instr<Type_IMM> adci, andi, cmpi, eori, ldai, orai, subi; 
+
+  ac_instr<Type_IMD> movi;
+
+  ac_instr<Type_IMM_DIR> addi;
+
+  ac_instr<Type_DIR> add, adc, sub, inc, dec, cmp, clr, and, ora, eor, lda, sta;
+
+  ac_instr<Type_DD> mov;
+  
+  ac_instr<Type_REL> beq; 
+
+  ac_instr<Type_INH> lsra, lsla, rola, rora;
+
+  ac_instr<Type_EXT> jmp;
+
+
+  ISA_CTOR(rs08){
+
+/* IMM adci, andi, cmpi, eori, ldai, orai, subi; */
+
+    adci.set_asm("adc #%imm", byte2);
+    adci.set_decoder(op = 0xA9);
+
+    andi.set_asm("and #%imm", byte2);
+    andi.set_decoder(op = 0xA4);
+
+    cmpi.set_asm("cmp #%imm", byte2);
+    cmpi.set_decoder(op = 0xA1);
+
+    eori.set_asm("eor #%imm", byte2);
+    eori.set_decoder(op = 0xA8);
+
+    ldai.set_asm("lda #%imm", byte2);
+    ldai.set_decoder(op = 0xA6);
+
+    orai.set_asm("ora #%imm", byte2);
+    orai.set_decoder(op = 0xAA);
+
+    subi.set_asm("sub #%imm", byte2);
+    subi.set_decoder(op = 0xA0);
+
+
+/* IMD  movi */
+
+    movi.set_asm("mov *#%imm, *%addr", byte2, addr3);
+    movi.set_decoder(op = 0x3E);
+
+
+/* IMM_DIR addi */
+
+    addi.set_asm("add *#%imm", byte2);
+    addi.set_decoder(op = 0xAB);
+
+
+/* DIR adc, sub, inc, dec, cmp, clr, and, or, eor, lda, sta; */
+
+    adc.set_asm("adc *%addr", addr2);
+    adc.set_decoder(op = 0xB9);
+
+    add.set_asm("add *%addr", addr2);
+    add.set_decoder(op = 0xBB);
+
+    and.set_asm("and *%addr", addr2);
+    and.set_decoder(op = 0xB4);
+
+    clr.set_asm("clr *%addr", addr2);
+    clr.set_decoder(op = 0x3F);
+
+    cmp.set_asm("cmp *%addr", addr2);
+    cmp.set_decoder(op = 0xB1);
+
+    dec.set_asm("dec *%addr", addr2);
+    dec.set_decoder(op = 0x3A);
+
+    eor.set_asm("eor *%addr", addr2);
+    eor.set_decoder(op = 0xB8);
+
+    inc.set_asm("inc *%addr", addr2);
+    inc.set_decoder(op = 0x3C);
+
+    sub.set_asm("sub *%addr", addr2);
+    sub.set_decoder(op = 0xB0);
+ 
+    ora.set_asm("ora *%addr", addr2);
+    ora.set_decoder(op = 0xBA);
+
+    lda.set_asm("lda *%addr", addr2);
+    lda.set_decoder(op = 0xB6);
+
+    sta.set_asm("sta *%addr", addr2);
+    sta.set_decoder(op = 0xB7);
+
+/* DD mov */
+
+    mov.set_asm("mov *%addr, *%addr", byte2, byte3);
+    mov.set_decoder(op = 0x4E);
+
+/* REL beq */
+
+    beq.set_asm("beq %addr$", addr2);
+    beq.set_decoder(op = 0x37);
+	
+
+/* INH lsra, lsla, rola, rora */
+
+     lsla.set_asm("lsla");
+     lsla.set_decoder(op = 0x48);
+
+     lsra.set_asm("lsra");
+     lsra.set_decoder(op = 0x44);
+
+     rola.set_asm("rola");
+     rola.set_decoder(op = 0x49);
+
+     rora.set_asm("rora");
+     rora.set_decoder(op = 0x46);
+
+
+/* EXT jmp */
+
+    jmp.set_asm("jmp %addr", addr);
+    jmp.set_decoder(op = 0xBC);
+
+  };
+};
