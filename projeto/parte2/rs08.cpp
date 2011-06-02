@@ -15,8 +15,6 @@
 
 #include  "rs08.H"
 
-#include  "rs08_syscall.H"
-
 void rs08::behavior() {
 
   unsigned ins_id;
@@ -36,7 +34,6 @@ void rs08::behavior() {
   else {
     if( start_up ){
       decode_pc = ac_start_addr;
-      syscall.set_prog_args(argc, argv);
       start_up=0;
       init_dec_cache();
     }
@@ -44,21 +41,6 @@ void rs08::behavior() {
       decode_pc = bhv_pc;
     }
  
-    //!Handling System calls.
-    switch( decode_pc ){
-
-#define AC_SYSC(NAME,LOCATION) \
-    case LOCATION: \
-        syscall.NAME(); \
-      break;  \
-
-
-#include <ac_syscall.def>
-
-#undef AC_SYSC
-
-    default:
-
       ins_cache = (DEC_CACHE+decode_pc);
       if ( !ins_cache->valid ){
         quant = 0;
@@ -75,126 +57,124 @@ void rs08::behavior() {
         return;
       }
 
-      ac_pc = decode_pc;
+    ac_pc = decode_pc;
 
-      ISA.cur_instr_id = ins_id;
-      if (!ac_annul_sig) ISA._behavior_instruction(instr_vec->get(1));
-      switch (ins_id) {
-      case 1: // Instruction adci
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
-        if (!ac_annul_sig) ISA.behavior_adci(instr_vec->get(1), instr_vec->get(2));
-        break;
-      case 2: // Instruction andi
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
-        if (!ac_annul_sig) ISA.behavior_andi(instr_vec->get(1), instr_vec->get(2));
-        break;
-      case 3: // Instruction cmpi
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
-        if (!ac_annul_sig) ISA.behavior_cmpi(instr_vec->get(1), instr_vec->get(2));
-        break;
-      case 4: // Instruction eori
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
-        if (!ac_annul_sig) ISA.behavior_eori(instr_vec->get(1), instr_vec->get(2));
-        break;
-      case 5: // Instruction ldai
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
-        if (!ac_annul_sig) ISA.behavior_ldai(instr_vec->get(1), instr_vec->get(2));
-        break;
-      case 6: // Instruction orai
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
-        if (!ac_annul_sig) ISA.behavior_orai(instr_vec->get(1), instr_vec->get(2));
-        break;
-      case 7: // Instruction subi
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
-        if (!ac_annul_sig) ISA.behavior_subi(instr_vec->get(1), instr_vec->get(2));
-        break;
-      case 8: // Instruction movi
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_IMD(instr_vec->get(1), instr_vec->get(2), instr_vec->get(3));
-        if (!ac_annul_sig) ISA.behavior_movi(instr_vec->get(1), instr_vec->get(2), instr_vec->get(3));
-        break;
-      case 9: // Instruction addi
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM_DIR(instr_vec->get(1), instr_vec->get(2));
-        if (!ac_annul_sig) ISA.behavior_addi(instr_vec->get(1), instr_vec->get(2));
-        break;
-      case 10: // Instruction add
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_add(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 11: // Instruction adc
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_adc(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 12: // Instruction sub
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_sub(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 13: // Instruction inc
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_inc(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 14: // Instruction dec
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_dec(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 15: // Instruction cmp
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_cmp(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 16: // Instruction clr
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_clr(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 17: // Instruction and
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_and(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 18: // Instruction ora
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_ora(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 19: // Instruction eor
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_eor(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 20: // Instruction lda
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_lda(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 21: // Instruction sta
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_sta(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 22: // Instruction mov
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_DD(instr_vec->get(1), instr_vec->get(2), instr_vec->get(5));
-        if (!ac_annul_sig) ISA.behavior_mov(instr_vec->get(1), instr_vec->get(2), instr_vec->get(5));
-        break;
-      case 23: // Instruction beq
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_REL(instr_vec->get(1), instr_vec->get(4));
-        if (!ac_annul_sig) ISA.behavior_beq(instr_vec->get(1), instr_vec->get(4));
-        break;
-      case 24: // Instruction lsra
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_INH(instr_vec->get(1));
-        if (!ac_annul_sig) ISA.behavior_lsra(instr_vec->get(1));
-        break;
-      case 25: // Instruction lsla
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_INH(instr_vec->get(1));
-        if (!ac_annul_sig) ISA.behavior_lsla(instr_vec->get(1));
-        break;
-      case 26: // Instruction rola
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_INH(instr_vec->get(1));
-        if (!ac_annul_sig) ISA.behavior_rola(instr_vec->get(1));
-        break;
-      case 27: // Instruction rora
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_INH(instr_vec->get(1));
-        if (!ac_annul_sig) ISA.behavior_rora(instr_vec->get(1));
-        break;
-      case 28: // Instruction jmp
-        if (!ac_annul_sig) ISA._behavior_rs08_Type_EXT(instr_vec->get(1), instr_vec->get(6));
-        if (!ac_annul_sig) ISA.behavior_jmp(instr_vec->get(1), instr_vec->get(6));
-        break;
-      } // switch (ins_id)
+    ISA.cur_instr_id = ins_id;
+    if (!ac_annul_sig) ISA._behavior_instruction(instr_vec->get(1));
+    switch (ins_id) {
+    case 1: // Instruction adci
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
+      if (!ac_annul_sig) ISA.behavior_adci(instr_vec->get(1), instr_vec->get(2));
       break;
-    }
+    case 2: // Instruction andi
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
+      if (!ac_annul_sig) ISA.behavior_andi(instr_vec->get(1), instr_vec->get(2));
+      break;
+    case 3: // Instruction cmpi
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
+      if (!ac_annul_sig) ISA.behavior_cmpi(instr_vec->get(1), instr_vec->get(2));
+      break;
+    case 4: // Instruction eori
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
+      if (!ac_annul_sig) ISA.behavior_eori(instr_vec->get(1), instr_vec->get(2));
+      break;
+    case 5: // Instruction ldai
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
+      if (!ac_annul_sig) ISA.behavior_ldai(instr_vec->get(1), instr_vec->get(2));
+      break;
+    case 6: // Instruction orai
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
+      if (!ac_annul_sig) ISA.behavior_orai(instr_vec->get(1), instr_vec->get(2));
+      break;
+    case 7: // Instruction subi
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM(instr_vec->get(1), instr_vec->get(2));
+      if (!ac_annul_sig) ISA.behavior_subi(instr_vec->get(1), instr_vec->get(2));
+      break;
+    case 8: // Instruction movi
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_IMD(instr_vec->get(1), instr_vec->get(2), instr_vec->get(3));
+      if (!ac_annul_sig) ISA.behavior_movi(instr_vec->get(1), instr_vec->get(2), instr_vec->get(3));
+      break;
+    case 9: // Instruction addi
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_IMM_DIR(instr_vec->get(1), instr_vec->get(2));
+      if (!ac_annul_sig) ISA.behavior_addi(instr_vec->get(1), instr_vec->get(2));
+      break;
+    case 10: // Instruction add
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_add(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 11: // Instruction adc
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_adc(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 12: // Instruction sub
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_sub(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 13: // Instruction inc
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_inc(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 14: // Instruction dec
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_dec(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 15: // Instruction cmp
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_cmp(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 16: // Instruction clr
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_clr(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 17: // Instruction and
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_and(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 18: // Instruction ora
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_ora(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 19: // Instruction eor
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_eor(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 20: // Instruction lda
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_lda(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 21: // Instruction sta
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DIR(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_sta(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 22: // Instruction mov
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_DD(instr_vec->get(1), instr_vec->get(2), instr_vec->get(5));
+      if (!ac_annul_sig) ISA.behavior_mov(instr_vec->get(1), instr_vec->get(2), instr_vec->get(5));
+      break;
+    case 23: // Instruction beq
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_REL(instr_vec->get(1), instr_vec->get(4));
+      if (!ac_annul_sig) ISA.behavior_beq(instr_vec->get(1), instr_vec->get(4));
+      break;
+    case 24: // Instruction lsra
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_INH(instr_vec->get(1));
+      if (!ac_annul_sig) ISA.behavior_lsra(instr_vec->get(1));
+      break;
+    case 25: // Instruction lsla
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_INH(instr_vec->get(1));
+      if (!ac_annul_sig) ISA.behavior_lsla(instr_vec->get(1));
+      break;
+    case 26: // Instruction rola
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_INH(instr_vec->get(1));
+      if (!ac_annul_sig) ISA.behavior_rola(instr_vec->get(1));
+      break;
+    case 27: // Instruction rora
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_INH(instr_vec->get(1));
+      if (!ac_annul_sig) ISA.behavior_rora(instr_vec->get(1));
+      break;
+    case 28: // Instruction jmp
+      if (!ac_annul_sig) ISA._behavior_rs08_Type_EXT(instr_vec->get(1), instr_vec->get(6));
+      if (!ac_annul_sig) ISA.behavior_jmp(instr_vec->get(1), instr_vec->get(6));
+      break;
+    } // switch (ins_id)
     if ((!ac_wait_sig) && (!ac_annul_sig)) ac_instr_counter+=1;
     ac_annul_sig = 0;
   }

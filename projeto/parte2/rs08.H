@@ -22,7 +22,6 @@
 #include "rs08_parms.H"
 #include "rs08_arch.H"
 #include "rs08_isa.H"
-#include "rs08_syscall.H"
 
 
 class rs08: public ac_module, public rs08_arch {
@@ -38,7 +37,6 @@ public:
   char* delayed_load_program;
 
   rs08_parms::rs08_isa ISA;
-  rs08_syscall syscall;
   cache_item_t* DEC_CACHE;
 
   unsigned id;
@@ -54,7 +52,7 @@ public:
   SC_HAS_PROCESS( rs08 );
 
   //!Constructor.
-  rs08( sc_module_name name_ ): ac_module(name_), rs08_arch(), ISA(*this), syscall(*this) {
+  rs08( sc_module_name name_ ): ac_module(name_), rs08_arch(), ISA(*this) {
 
     SC_THREAD( behavior );
     bhv_pc = 0; 

@@ -16,7 +16,7 @@
 const char *project_name="rs08";
 const char *project_file="rs08.ac";
 const char *archc_version="2.0";
-const char *archc_options="-abi ";
+const char *archc_options="";
 
 #include  <iostream>
 #include  <systemc.h>
