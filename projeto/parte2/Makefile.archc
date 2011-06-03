@@ -14,20 +14,20 @@
 
 
 # Variable that points to SystemC installation path
-SYSTEMC :=  /home/Tiago/tools/systemc
+SYSTEMC :=  /home/Tiago/tools/systemc-2.2.0/
 
 
 
 # Variable that points to ArchC installation path
-ARCHC := /home/Tiago/tools/archc/bin
+ARCHC := /usr/local/bin
 
 # Target Arch used by SystemC
 TARGET_ARCH :=  linux
 
 
 
-INC_DIR := -I. -I/home/Tiago/tools/archc/include/archc -I$(SYSTEMC)/include 
-LIB_DIR := -L. -L$(SYSTEMC)/lib-$(TARGET_ARCH) -L/home/Tiago/tools/archc/lib
+INC_DIR := -I. -I/usr/local/include/archc -I$(SYSTEMC)/include 
+LIB_DIR := -L. -L$(SYSTEMC)/lib-$(TARGET_ARCH) -L/usr/local/lib
 
 LIB_SYSTEMC := -lsystemc
 LIBS := $(LIB_SYSTEMC) -lm $(EXTRA_LIBS) -larchc
@@ -74,7 +74,7 @@ EXE := $(MODULE).x
 
 .SUFFIXES: .cc .cpp .o .x
 
-all: $(addprefix /home/Tiago/tools/archc/include/archc/, $(ACFILESHEAD)) $(ACHEAD) $(ACFILES) $(EXE)
+all: $(addprefix /usr/local/include/archc/, $(ACFILESHEAD)) $(ACHEAD) $(ACFILES) $(EXE)
 
 $(EXE): $(OBJS) $(SYSTEMC)/lib-$(TARGET_ARCH)/libsystemc.a
 	$(CC) $(CFLAGS) $(INC_DIR) $(LIB_DIR) -o $@ $(OBJS) $(LIBS) 2>&1 | c++filt
