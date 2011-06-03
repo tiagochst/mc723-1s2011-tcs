@@ -10,8 +10,8 @@ int start_address;
 
 //Initialize special registers for simulation
 void ac_behavior ( begin ) {
-    CCR = 0x00;
-    start_address = ac_start_addr;
+  CCR = 0x00;
+  start_address = ac_start_addr;
 }
 
 void ac_behavior ( end ) {
@@ -19,20 +19,20 @@ void ac_behavior ( end ) {
 
 //!Generic instruction behavior method.
 void ac_behavior ( instruction ) {
-    int a;
-    char *name;
-    sc_uint<16> sp;
-    sc_uint<2> ccr;
-    sc_uint<8> reg_A;
+  int a;
+  char *name;
+  sc_uint<16> sp;
+  sc_uint<2> ccr;
+  sc_uint<8> reg_A;
   
-    sp.range(7,0) = SPC.SPCL;
-    sp.range(13,8) = SPC.SPCL;
-    ccr[0] = CCR.C;
-    ccr[1] = CCR.Z;
-    reg_A = A;
-    pc = ac_pc;
-    PC.PCH = pc.range(13,8);
-    PC.PCL = pc.range(7,0);
+  sp.range(7,0) = SPC.SPCL;
+  sp.range(13,8) = SPC.SPCL;
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+  reg_A = A;
+  pc = ac_pc;
+  PC.PCH = pc.range(13,8);
+  PC.PCL = pc.range(7,0);
 }
  
 //! Instruction Format behavior methods.
@@ -44,7 +44,7 @@ void ac_behavior( Type_DD ) {}
 void ac_behavior( Type_INH ) {}
 void ac_behavior( Type_EXT ) {}
 void ac_behavior( Type_REL ) {
-     rel = addr2;
+  rel = addr2;
 }
   
 /* Immediate addressing mode instructions */
@@ -88,15 +88,10 @@ void ac_behavior ( addi ) {
   sc_uint<8> imm;   /*Imediato */
   sc_uint<2> ccr;   /* ccr[0]= Carry,ccr[1]= Zero */
   
-  //  ccr = CCR;
-
-  ccr[0] = CCR.C;
-  ccr[1] = CCR.Z;
-
   imm = byte2;
   reg_A = A;
   
-  ccr = ccr & 0x00;  /* zerando flags*/
+  ccr = 0;  /* zerando flags*/
   
   sum = reg_A + imm ;/* Soma sem carry*/
   
@@ -114,35 +109,31 @@ void ac_behavior ( addi ) {
 
 }
 
-/*TO DO*/
-void ac_behavior ( andi ) {} /* Douglas P2*/
-
 void ac_behavior ( cmpi ) {
-    sc_uint<8> ccr;
-    sc_uint<8> imm;
-    sc_uint<8> reg_A;
-    sc_uint<9> sub;
+  sc_uint<8> ccr;
+  sc_uint<8> imm;
+  sc_uint<8> reg_A;
+  sc_uint<9> sub;
 
-    ccr = 0;
-    reg_A = A;
-    imm = byte2;
-    sub = reg_A - byte2;
+  ccr = 0;
+  reg_A = A;
+  imm = byte2;
+  sub = reg_A - byte2;
 
-    /*zero*/
-    if ( !sub ) {
-      ccr[1] = 1;
-    }
-    /*carry*/
-    if ( ((!reg_A[7])&imm[7])|(imm[7]&sub[7])|(sub[7]&(!reg_A[7])) ) {
-      ccr[0] = 1;
-    }
+  /*zero*/
+  if ( !sub ) {
+    ccr[1] = 1;
+  }
+  /*carry*/
+  if ( ((!reg_A[7])&imm[7])|(imm[7]&sub[7])|(sub[7]&(!reg_A[7])) ) {
+    ccr[0] = 1;
+  }
 
   CCR.Z = ccr[1];
   CCR.C = ccr[0];
 
 }
 
-void ac_behavior ( eori ) {} /* Vitor P2 */
 
 void ac_behavior ( ldai ) {
   sc_uint<8> ccr;
@@ -167,27 +158,26 @@ void ac_behavior ( ldai ) {
 }
 
 void ac_behavior ( orai ) { /* Tiago P2 */
-    sc_uint<8> ccr;
-    sc_uint<8> reg_A;
+  sc_uint<8> ccr;
+  sc_uint<8> reg_A;
 
 
-    ccr[0] = CCR.C;
-    ccr[1] = CCR.Z;
-    ccr = ccr & 0x01;
-    reg_A = A | byte2;
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+  ccr = ccr & 0x01;
+  reg_A = A | byte2;
 
-    /*zero*/
-    if ( !reg_A ) {
-      ccr[1] = 1;
-    }
+  /*zero*/
+  if ( !reg_A ) {
+    ccr[1] = 1;
+  }
 
-    A = reg_A;
-    //    CCR = ccr;
-    CCR.Z = ccr[1];
-    CCR.C = ccr[0];
+  A = reg_A;
+  //    CCR = ccr;
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
 
 }
-void ac_behavior ( subi ) {} /* Vitor P2 */
 
 void ac_behavior ( movi ) {
   sc_uint<8> ccr;
@@ -264,9 +254,6 @@ void ac_behavior ( cmp ) {
 } 
 
 
-void ac_behavior ( clr ) {} /* Douglas P2 */
-void ac_behavior ( and ) {} /* Douglas P2 */
-
 void ac_behavior ( ora ) {  /* Tiago P2 */
   sc_uint<8> reg_A;
   sc_uint<8> ccr;
@@ -291,9 +278,49 @@ void ac_behavior ( ora ) {  /* Tiago P2 */
 }
 
 
-void ac_behavior ( eor ) {} /* Vitor P2*/
-void ac_behavior ( lda ) {}
-void ac_behavior ( sta ) {} 
+
+void ac_behavior ( lda ) {
+  sc_uint<8> reg_A;
+  sc_uint<8> ccr;
+
+  reg_A = RAM.read(addr2);
+    
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+  ccr = ccr & 0x01;
+  
+  /*zero*/
+  if ( !reg_A ) {
+    ccr[1] = 1;
+  }
+    
+  A = reg_A;
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+
+}
+
+
+void ac_behavior ( sta ) {
+    sc_uint<8> reg_A;
+    sc_uint<8> ccr;
+
+    ccr[0] = CCR.C;
+    ccr[1] = CCR.Z;
+    ccr = ccr & 0x01;
+ 
+    reg_A = A;
+    RAM.write(addr2, reg_A);
+
+    /*zero*/
+    if ( !reg_A ) {
+      ccr[1] = 1;
+    }
+
+    CCR.Z = ccr[1];
+    CCR.C = ccr[0];
+    
+} 
 
 
 void ac_behavior ( mov ) {
@@ -318,24 +345,6 @@ void ac_behavior ( mov ) {
 
 }
 
-void ac_behavior ( beq ) {}
-void ac_behavior ( lsra ) {}
-void ac_behavior ( lsla ) {}
-void ac_behavior ( rola ) {}
-void ac_behavior ( rora ) {}
-
-void ac_behavior ( jmp ) {
-  //ac_pc = addr;
-  //pc = ac_pc;
-  //PCH = pc.range(15,8);
-  //PCL = pc.range(7,0);
-
-}
-
-void ac_behavior ( add ) {} /* Douglas P2*/
-void ac_behavior ( sub ) {} /* Vitor P2*/
-void ac_behavior ( adc ) {} /* Douglas P2*/
-
 void ac_behavior ( dec ) { /* Tiago P2*/
   sc_uint<9> sum;
   sc_uint<8> ccr;
@@ -359,3 +368,26 @@ void ac_behavior ( dec ) { /* Tiago P2*/
   RAM.write( addr2, sum.range(7,0) );
   
 } 
+
+
+/*TO DO*/
+void ac_behavior ( andi ) {} /* Douglas P2*/
+void ac_behavior ( eori ) {} /* Vitor P2 */
+void ac_behavior ( subi ) {} /* Vitor P2 */
+void ac_behavior ( clr ) {} /* Douglas P2 */
+void ac_behavior ( and ) {} /* Douglas P2 */
+void ac_behavior ( eor ) {} /* Vitor P2*/
+void ac_behavior ( beq ) {}
+void ac_behavior ( lsra ) {}
+void ac_behavior ( lsla ) {}
+void ac_behavior ( rola ) {}
+void ac_behavior ( rora ) {}
+void ac_behavior ( add ) {} /* Douglas P2*/
+void ac_behavior ( sub ) {} /* Vitor P2*/
+void ac_behavior ( adc ) {} /* Douglas P2*/
+void ac_behavior ( jmp ) {
+  //ac_pc = addr;
+  //pc = ac_pc;
+  //PCH = pc.range(15,8);
+  //PCL = pc.range(7,0);
+}
