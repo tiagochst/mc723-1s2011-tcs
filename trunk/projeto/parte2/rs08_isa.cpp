@@ -110,34 +110,137 @@ void ac_behavior ( addi ) {
     ccr[1] = 1;
   }
   CCR.Z = ccr[1];
-  CCR.C = ccr[1];
+  CCR.C = ccr[0];
 
 }
 
 /*TO DO*/
-void ac_behavior ( andi ) {}
+void ac_behavior ( andi ) {} /* Douglas P2*/
 void ac_behavior ( cmpi ) {}
-void ac_behavior ( eori ) {}
+void ac_behavior ( eori ) {} /* Vitor P2 */
 void ac_behavior ( ldai ) {}
-void ac_behavior ( orai ) {}
-void ac_behavior ( subi ) {}
+
+void ac_behavior ( orai ) { /* Tiago P2 */
+    sc_uint<8> ccr;
+    sc_uint<8> reg_A;
+
+
+    ccr[0] = CCR.C;
+    ccr[1] = CCR.Z;
+    ccr = ccr & 0x01;
+    reg_A = A | byte2;
+
+    /*zero*/
+    if ( !reg_A ) {
+      ccr[1] = 1;
+    }
+
+    A = reg_A;
+    //    CCR = ccr;
+    CCR.Z = ccr[1];
+    CCR.C = ccr[0];
+
+}
+void ac_behavior ( subi ) {} /* Vitor P2 */
 void ac_behavior ( movi ) {}
-void ac_behavior ( inc ) {}
-void ac_behavior ( cmp ) {}
-void ac_behavior ( clr ) {}
-void ac_behavior ( and ) {}
-void ac_behavior ( ora ) {}
-void ac_behavior ( eor ) {}
+
+
+/* Tiago P2 */
+void ac_behavior ( inc ) {
+  sc_uint<9> sum;
+  sc_uint<8> ccr;
+  sc_uint<8> byte;
+
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+
+  ccr = ccr & 0x01;
+  byte = RAM.read(addr2);
+  sum = byte + 1;
+  
+  /*zero*/
+  if ( !sum ) {
+    ccr[1] = 1;    
+  }
+  
+  // CCR = ccr;
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+
+  RAM.write( addr2, sum.range(7,0) );
+    
+}
+
+void ac_behavior ( cmp ) {} 
+void ac_behavior ( clr ) {} /* Douglas P2 */
+void ac_behavior ( and ) {} /* Douglas P2 */
+
+void ac_behavior ( ora ) {  /* Tiago P2 */
+  sc_uint<8> reg_A;
+  sc_uint<8> ccr;
+
+  reg_A = A | RAM.read(addr2);
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+
+  ccr = ccr & 0x01;
+  
+  /*zero*/
+  if ( !reg_A ) {
+    ccr[1] = 1;
+  }
+  
+  A = reg_A;
+
+  //CCR = ccr;
+
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+}
+
+
+void ac_behavior ( eor ) {} /* Vitor P2*/
 void ac_behavior ( lda ) {}
-void ac_behavior ( sta ) {}
+void ac_behavior ( sta ) {} 
 void ac_behavior ( mov ) {}
 void ac_behavior ( beq ) {}
 void ac_behavior ( lsra ) {}
 void ac_behavior ( lsla ) {}
 void ac_behavior ( rola ) {}
 void ac_behavior ( rora ) {}
-void ac_behavior ( jmp ) {}
-void ac_behavior ( add ) {}
-void ac_behavior ( sub ) {}
-void ac_behavior ( adc ) {}
-void ac_behavior ( dec ) {}
+
+void ac_behavior ( jmp ) {
+  //ac_pc = addr;
+  //pc = ac_pc;
+  //PCH = pc.range(15,8);
+  //PCL = pc.range(7,0);
+
+}
+
+void ac_behavior ( add ) {} /* Douglas P2*/
+void ac_behavior ( sub ) {} /* Vitor P2*/
+void ac_behavior ( adc ) {} /* Douglas P2*/
+
+void ac_behavior ( dec ) { /* Tiago P2*/
+  sc_uint<9> sum;
+  sc_uint<8> ccr;
+  sc_uint<8> byte;
+  
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+  ccr = ccr & 0x01;
+
+  byte = RAM.read(addr2);
+  sum = byte - 1;
+  
+  /*zero*/
+  if ( !sum ) {
+    ccr[1] = 1;    
+  }
+  
+  //CCR = ccr;
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+  RAM.write( addr2, sum.range(7,0) );
+  
+} 
