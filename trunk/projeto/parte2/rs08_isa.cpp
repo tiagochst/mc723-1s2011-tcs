@@ -116,9 +116,55 @@ void ac_behavior ( addi ) {
 
 /*TO DO*/
 void ac_behavior ( andi ) {} /* Douglas P2*/
-void ac_behavior ( cmpi ) {}
+
+void ac_behavior ( cmpi ) {
+    sc_uint<8> ccr;
+    sc_uint<8> imm;
+    sc_uint<8> reg_A;
+    sc_uint<9> sub;
+
+    ccr = 0;
+    reg_A = A;
+    imm = byte2;
+    sub = reg_A - byte2;
+
+    /*zero*/
+    if ( !sub ) {
+      ccr[1] = 1;
+    }
+    /*carry*/
+    if ( ((!reg_A[7])&imm[7])|(imm[7]&sub[7])|(sub[7]&(!reg_A[7])) ) {
+      ccr[0] = 1;
+    }
+
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+
+}
+
 void ac_behavior ( eori ) {} /* Vitor P2 */
-void ac_behavior ( ldai ) {}
+
+void ac_behavior ( ldai ) {
+  sc_uint<8> ccr;
+  sc_uint<8> reg_A;
+  
+
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+  ccr = ccr & 0x01;
+  
+  reg_A = byte2;
+  
+  /*zero*/
+  if ( !reg_A ) {
+    ccr[1] = 1;
+  }
+  
+  A = reg_A;
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+  
+}
 
 void ac_behavior ( orai ) { /* Tiago P2 */
     sc_uint<8> ccr;
@@ -142,7 +188,28 @@ void ac_behavior ( orai ) { /* Tiago P2 */
 
 }
 void ac_behavior ( subi ) {} /* Vitor P2 */
-void ac_behavior ( movi ) {}
+
+void ac_behavior ( movi ) {
+  sc_uint<8> ccr;
+  sc_uint<8> imm;
+  
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+  ccr = ccr & 0x01;
+  
+  imm = byte2;
+  
+  RAM.write(addr3, imm);
+  
+  /*zero*/
+  if ( !imm ) {
+    ccr[1] = 1;
+  }
+  
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+  
+}
 
 
 /* Tiago P2 */
@@ -171,7 +238,32 @@ void ac_behavior ( inc ) {
     
 }
 
-void ac_behavior ( cmp ) {} 
+void ac_behavior ( cmp ) {
+  sc_uint<8> ccr;
+  sc_uint<8> byte;
+  sc_uint<8> reg_A;
+  sc_uint<9> sub;
+
+  ccr = 0;
+  byte = RAM.read(addr2);
+  reg_A = A;
+  sub = reg_A - byte;
+  
+  /*zero*/
+  if ( !sub ) {
+    ccr[1] = 1;
+  }
+  
+  /*carry*/
+  if ( ((!reg_A[7])&byte[7])|(byte[7]&sub[7])|(sub[7]&(!reg_A[7])) ) {
+    ccr[0] = 1;
+  }
+  
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+} 
+
+
 void ac_behavior ( clr ) {} /* Douglas P2 */
 void ac_behavior ( and ) {} /* Douglas P2 */
 
@@ -202,7 +294,30 @@ void ac_behavior ( ora ) {  /* Tiago P2 */
 void ac_behavior ( eor ) {} /* Vitor P2*/
 void ac_behavior ( lda ) {}
 void ac_behavior ( sta ) {} 
-void ac_behavior ( mov ) {}
+
+
+void ac_behavior ( mov ) {
+  sc_uint<8> ccr;
+  sc_uint<8> imm;
+
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+  ccr = ccr & 0x01;
+  
+  imm = RAM.read(byte2);
+  
+  RAM.write(byte3, imm);
+  
+  /*zero*/
+  if ( !imm ) {
+    ccr[1] = 1;
+  }
+  
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+
+}
+
 void ac_behavior ( beq ) {}
 void ac_behavior ( lsra ) {}
 void ac_behavior ( lsla ) {}
