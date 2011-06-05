@@ -3,6 +3,48 @@
 #include "rs08_bhv_macros.H"
 #include <systemc.h>
 
+
+
+/* Auxiliary contents */
+typedef struct {
+    char name[10];
+    int amount;    
+} ac_statistic;
+
+struct statistc_instruction {
+    ac_statistic vector[310];
+    int size;
+} statistc_instr;
+
+struct statistc_addressing_mode {
+    ac_statistic vector[12];
+    int size;
+} statistc_addr_mode;
+
+int cmpstr(const void *a, const void *b ) {
+   return strcmp( (char *)a, (char *)b );
+}
+
+int compare(const void *a, const void *b ) {
+   return ( ((ac_statistic *)a)->amount - ((ac_statistic *)b)->amount);
+}
+
+/* Execute a search in ac_statistic vectors */
+int search_vector ( ac_statistic *v, char *w, int *s ) {
+    ac_statistic *a;
+
+    a = (ac_statistic *)bsearch(w, v, *s, sizeof(ac_statistic), cmpstr);
+    if (a) {
+       a->amount++;
+    } else {
+       strcpy(v[*s].name,w);
+       v[*s].amount++;
+       (*s)++;
+       qsort(v, *s, sizeof(ac_statistic), cmpstr);
+    }
+}
+/* end-Auxiliary contents */
+
 //global var declarations
 sc_uint<16> pc;
 sc_int<8> rel;
@@ -15,6 +57,50 @@ void ac_behavior ( begin ) {
 }
 
 void ac_behavior ( end ) {
+    int a, aux, sv, st;
+
+    fprintf(stderr, "\nInternal RAM\n-------------------");
+
+    for (a = 0x0020; a <= 0x0040; a++) {
+       if (!(a % 4)) {
+          fprintf (stderr,"\n");
+       }
+       fprintf(stderr, "[%04X] = [%02X]\t", a, RAM.read(a));
+    }
+    
+    fprintf(stderr, "\nExternal RAM\n-------------------");
+    
+    for (a = 0x3800; a <= 0x38080; a++) {
+       if (!(a % 4)) {
+          fprintf (stderr,"\n");
+       }
+       fprintf(stderr, "[%04X] = [%02X]\t", a, RAM.read(a));
+    }
+
+    st = statistc_instr.size;
+    qsort(statistc_instr.vector, st, sizeof(ac_statistic), compare);
+    sv = (st > 10)?10:st;
+
+    fprintf(stderr, "\nStatistics for Instructions\n-----------------------------\n");
+
+    for (a = 0; a < sv; a++) {
+       aux = st-a-1;
+       fprintf(stderr, " Instr = %15s\tExec = %5d\n", statistc_instr.vector[aux].name, statistc_instr.vector[aux].amount);
+    }
+
+    st = statistc_addr_mode.size;
+    qsort(statistc_addr_mode.vector, st, sizeof(ac_statistic), compare);
+    sv = (st > 5)?5:st;
+
+    fprintf(stderr, "\nStatistics for Addressing Modes\n-----------------------------\n");
+
+    for (a = 0; a < sv; a++) {
+        aux = st-a-1;
+       fprintf(stderr, " Addr-Mode = %11s\tExec = %5d\n", statistc_addr_mode.vector[aux].name, statistc_addr_mode.vector[aux].amount);
+    }
+
+    fprintf(stderr, "\n ac_heap = %4x\n", ac_heap_ptr);
+    fprintf(stderr, "\n----------------over simulation-----------------\n");
 }
 
 //!Generic instruction behavior method.
@@ -52,7 +138,7 @@ void ac_behavior ( adci ) {
 
   sc_uint<9> sum;   /* 1 bit a mais para verificar carry*/
   sc_uint<8> reg_A; /* Acumulador */
-  sc_uint<8> imm;   /*Imediato */
+  sc_uint<8> imm;   /* Imediato */
   sc_uint<2> ccr;   /* ccr[0]= Carry,ccr[1]= Zero */
   
   ccr[0] = CCR.C;
@@ -369,25 +455,292 @@ void ac_behavior ( dec ) { /* Tiago P2*/
   
 } 
 
+/* Douglas P2*/
+void ac_behavior ( andi ) {
+
+  sc_uint<8> ccr;
+  sc_uint<8> reg_A;
+
+
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+  ccr = ccr & 0x01;
+  reg_A = A & byte2;
+
+  /*zero*/
+  if ( !reg_A ) {
+    ccr[1] = 1;
+  }
+
+  A = reg_A;
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+
+}
+
+/* Douglas P2 */
+void ac_behavior ( clr ) {
+
+  A  = A & 0x0;
+  RAM.write(addr2, 0);
+  CCR.C = CCR.C & 0x0;
+  CCR.Z = CCR.Z & 0x0;
+
+}
+
+/* Douglas P2 */
+void ac_behavior ( and ) {
+
+  sc_uint<8> ccr;
+  sc_uint<8> reg_A;
+  sc_uint<8> byte;
+
+
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+  ccr = ccr & 0x01;
+
+  byte = RAM.read(addr2);
+  reg_A = A & byte;
+
+  /* Zero */
+  if ( !reg_A ) {
+    ccr[1] = 1;
+  }
+
+  A = reg_A;
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+
+}
+
+/* Douglas P2*/
+void ac_behavior ( add ) {
+
+  sc_uint<9> sum;   /* 1 bit a mais para verificar carry*/
+  sc_uint<8> reg_A;
+  sc_uint<8> byte;
+  sc_uint<2> ccr;   /* ccr[0]= Carry,ccr[1]= Zero */
+  
+  byte = RAM.read(addr2);
+  reg_A = A;
+  
+  ccr = 0;  /* zerando flags*/
+  
+  sum = reg_A + byte ;
+  
+  A = sum.range(7,0);
+  /* Carry */
+  if ( sum[8] ) {
+    ccr[0] = 1;
+  }
+  /* Zero */
+  if ( !A ) {
+    ccr[1] = 1;
+  }
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+
+}
+
+/* Douglas P2*/
+void ac_behavior ( adc ) {
+
+  sc_uint<9> sum;   /* 1 bit a mais para verificar carry*/
+  sc_uint<8> reg_A;
+  sc_uint<8> byte;
+  sc_uint<2> ccr;   /* ccr[0]= Carry,ccr[1]= Zero */
+  
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+
+  byte = RAM.read(addr2);
+  reg_A = A;
+  
+  ccr = ccr & 0x01;
+  
+  sum = reg_A + byte + ccr[0];
+  
+  A = sum.range(7,0);
+  /* Carry */
+  if ( sum[8] ) {
+    ccr[0] = 1;
+  }
+  /* Zero */
+  if ( !A ) {
+    ccr[1] = 1;
+  }
+
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+
+}
+
+void ac_behavior ( jmp ) {
+  ac_pc = addr;
+  pc = ac_pc;
+  PC.PCH = pc.range(13,8);
+  PC.PCL = pc.range(7,0);
+}
+
+void ac_behavior ( eori ) {
+	
+  sc_uint<8> reg_A; 
+  sc_uint<8> imm;   
+  sc_uint<2> ccr;   
+  
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+
+  imm = byte2;
+  reg_A = A;
+  
+  reg_A = reg_A ^ imm;
+  
+  A = reg_A;
+  
+  if ( !A && !ccr[1] ) {
+    ccr[1] = 1;
+  }
+  
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+
+} 
+ 
+void ac_behavior ( eor ) {
+
+  sc_uint<8> reg_A;
+  sc_uint<8> ccr;
+  sc_uint<2> byte;
+
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+  reg_A = A;
+  
+  byte = RAM.read(addr2);
+  reg_A = reg_A ^ byte;
+  
+  A = reg_A;
+  
+  if ( !A && !ccr[1] ) {
+    ccr[1] = 1;    
+  }
+  
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+
+}
+
+void ac_behavior ( lsra ) {
+
+  sc_uint<8> reg_A;
+  sc_uint<2> ccr;
+
+  reg_A = A;
+
+  ccr[0] = reg_A[0];
+
+  reg_A >>= 1;
+  reg_A[7] = 0;
+
+  A = reg_A;
+  
+  if ( !A && !ccr[1] ) {
+    ccr[1] = 1;    
+  }
+
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+	
+}
+
+void ac_behavior ( lsla ) {
+
+  sc_uint<8> reg_A;
+  sc_uint<2> ccr;
+
+  reg_A = A;
+
+  ccr[0] = reg_A[7];
+
+  reg_A <<= 1;
+  reg_A[0] = 0;
+
+  A = reg_A;
+  
+  if ( !A && !ccr[1] ) {
+    ccr[1] = 1;    
+  }
+
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+  
+}
+
+void ac_behavior ( rola ) {
+  
+  sc_uint<9> reg_A;
+  sc_uint<2> ccr;
+	
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+  
+  reg_A = A;
+  reg_A <<= 1;
+  
+  reg_A[0] = ccr[0];
+  ccr[0] = reg_A[8]; 
+  
+  A = reg_A.range(7,0);
+  
+  if ( !A && !ccr[1] ) {
+    ccr[1] = 1;    
+  }
+
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+  
+}
+
+void ac_behavior ( rora ) {
+  
+  sc_uint<9> reg_A;
+  sc_uint<2> ccr;
+	
+  ccr[0] = CCR.C;
+  ccr[1] = CCR.Z;
+  
+  reg_A.range(8,1) = A;
+  reg_A >>= 1;
+  
+  reg_A[8] = ccr[0];
+  ccr[0] = reg_A[0];
+	
+  A = reg_A.range(8,1);
+  
+  if ( !A && !ccr[1] ) {
+    ccr[1] = 1;    
+  }
+
+  CCR.Z = ccr[1];
+  CCR.C = ccr[0];
+  
+}
 
 /*TO DO*/
-void ac_behavior ( andi ) {} /* Douglas P2*/
-void ac_behavior ( eori ) {} /* Vitor P2 */
-void ac_behavior ( subi ) {} /* Vitor P2 */
-void ac_behavior ( clr ) {} /* Douglas P2 */
-void ac_behavior ( and ) {} /* Douglas P2 */
-void ac_behavior ( eor ) {} /* Vitor P2*/
-void ac_behavior ( beq ) {}
-void ac_behavior ( lsra ) {}
-void ac_behavior ( lsla ) {}
-void ac_behavior ( rola ) {}
-void ac_behavior ( rora ) {}
-void ac_behavior ( add ) {} /* Douglas P2*/
-void ac_behavior ( sub ) {} /* Vitor P2*/
-void ac_behavior ( adc ) {} /* Douglas P2*/
-void ac_behavior ( jmp ) {
-  //ac_pc = addr;
-  //pc = ac_pc;
-  //PCH = pc.range(15,8);
-  //PCL = pc.range(7,0);
+void ac_behavior ( beq ) {
+  sc_uint<2> ccr;
+  ccr = CCR.Z;
+  ccr = CCR.C;
+  ccr = ccr & 0x02;
+
+  if (ccr) {
+    ac_pc += rel;
+    pc = ac_pc;
+    PC.PCH = pc.range(13,8);
+    PC.PCL = pc.range(7,0);
+  }
 }
+void ac_behavior ( subi ) {}
+void ac_behavior ( sub ) {} 

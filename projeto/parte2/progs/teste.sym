@@ -1,0 +1,51 @@
+ASxxxx Assembler V01.70 + NoICE + SDCC mods + Flat24 Feb-1999  (Motorola 68HC08), page 1.
+
+Symbol Table
+
+    __sdcc_external_startup                                        **** GX
+  2 __sdcc_gs_init_startup                                         0000 GR
+  2 __sdcc_init_data                                               000C GR
+  5 __sdcc_program_startup                                         0000 GR
+  5 _main                                                          0006 GR
+    l_XINIT                                                        **** GX
+    s_XINIT                                                        **** GX
+    s_XISEG                                                        **** GX
+  5 teste.103                                                      0006 GR
+  5 teste.104                                                      0007 GR
+  5 teste.106                                                      0008 GR
+  2 teste.27                                                       0000 GR
+  2 teste.28                                                       0003 GR
+  2 teste.29                                                       0004 GR
+  2 teste.30                                                       0007 GR
+  2 teste.31                                                       0009 GR
+  2 teste.34                                                       000C GR
+  2 teste.36                                                       000F GR
+  2 teste.37                                                       0012 GR
+  2 teste.38                                                       0014 GR
+  2 teste.39                                                       0017 GR
+  2 teste.40                                                       001A GR
+  2 teste.41                                                       001C GR
+  4 teste.45                                                       0000 GR
+  5 teste.49                                                       0000 GR
+  5 teste.50                                                       0003 GR
+
+ASxxxx Assembler V01.70 + NoICE + SDCC mods + Flat24 Feb-1999  (Motorola 68HC08), page 2.
+
+Area Table
+
+   0 _CODE                                                                              size    0   flags 0
+   1 HOME                                                                               size    0   flags 20
+   2 GSINIT0                                                                            size   1E   flags 20
+   3 GSINIT                                                                             size    0   flags 20
+   4 GSFINAL                                                                            size    3   flags 20
+   5 CSEG                                                                               size    9   flags 20
+   6 XINIT                                                                              size    0   flags 0
+   7 CONST                                                                              size    0   flags 20
+   8 DSEG                                                                               size    0   flags 0
+   9 OSEG                                                                               size    0   flags 4
+   A BSEG                                                                               size    0   flags 0
+   B XSEG                                                                               size    0   flags 0
+   C XISEG                                                                              size    0   flags 0
+   D CODEIVT                                                                            size    2   flags 8
+   E XABS                                                                               size FFFF0002   flags 8
+   F CABS                                                                               size FFFF0002   flags 28

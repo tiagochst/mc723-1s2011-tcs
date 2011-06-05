@@ -1,0 +1,138 @@
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+CABS                               0000   FFFF0002 = 4294901762. bytes (ABS,CON,CODE)
+
+      Value  Global
+   --------  --------------------------------
+  0C:FFFF0002    l_CABS
+  0C:FFFF0002    l_XABS
+  0C:0000    l_BSEG
+  0C:0000    l_BSEG_BYTES
+  0C:0000    l_CONST
+  0C:0000    l_DSEG
+  0C:0000    l_GSINIT
+  0C:0000    l_HOME
+  0C:0000    l_OSEG
+  0C:0000    l_REG_BANK_0
+  0C:0000    l_REG_BANK_1
+  0C:0000    l_REG_BANK_2
+  0C:0000    l_REG_BANK_3
+  0C:0000    l_XINIT
+  0C:0000    l_XISEG
+  0C:0000    l_XSEG
+  0C:0000    l__CODE
+  0C:0000    s_BSEG
+  0C:0000    s_CABS
+  0C:0000    s_CODEIVT
+  0C:0000    s_REG_BANK_0
+  0C:0000    s_XABS
+  0C:0000    s__CODE
+  0C:0002    l_CODEIVT
+  0C:0003    l_GSFINAL
+  0C:0008    s_REG_BANK_1
+  0C:000B    l_CSEG
+  0C:0010    s_REG_BANK_2
+  0C:0018    s_REG_BANK_3
+  0C:001E    l_GSINIT0
+  0C:0020    s_BSEG_BYTES
+  0C:0020    s_DSEG
+  0C:0020    s_OSEG
+  0C:0020    s_XISEG
+  0C:0020    s_XSEG
+  0C:8000    s_GSINIT0
+  0C:8000    s_HOME
+  0C:801E    s_GSFINAL
+  0C:801E    s_GSINIT
+  0C:8021    s_CSEG
+  0C:802C    s_CONST
+  0C:802C    s_XINIT
+
+
+
+
+
+
+
+
+
+
+
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+GSINIT0                            8000   001E =     30. bytes (REL,CON,CODE)
+
+      Value  Global
+   --------  --------------------------------
+  0C:8000    __sdcc_gs_init_startup
+  0C:8000    teste.27
+  0C:8003    teste.28
+  0C:8004    teste.29
+  0C:8007    teste.30
+  0C:8009    teste.31
+  0C:800C    __sdcc_init_data
+  0C:800C    teste.34
+  0C:800F    teste.36
+  0C:8012    teste.37
+  0C:8014    teste.38
+  0C:8017    teste.39
+  0C:801A    teste.40
+  0C:801C    teste.41
+
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+GSFINAL                            801E   0003 =      3. bytes (REL,CON,CODE)
+
+      Value  Global
+   --------  --------------------------------
+  0C:801E    teste.45
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+CSEG                               8021   000B =     11. bytes (REL,CON,CODE)
+
+      Value  Global
+   --------  --------------------------------
+  0C:8021    __sdcc_program_startup
+  0C:8021    teste.49
+  0C:8024    teste.50
+  0C:8027    _main
+  0C:8027    teste.103
+  0C:8028    teste.104
+  0C:8029    teste.106
+  0C:802A    __sdcc_external_startup
+
+
+
+
+
+
+ASxxxx Linker V01.75 + NoICE + SDCC Feb 1999,  page 1.
+
+Files Linked      [ module(s) ]
+
+teste.rel       
+
+Libraries Linked                    [   object  file   ]
+
+/usr/local/share/sdcc/lib/hc08/hc08.lib    [     _startup.rel ]
+
+ASxxxx Linker V01.75 + NoICE + SDCC Feb 1999,  page 2.
+
+User Base Address Definitions
+
+HOME = 0x8000
+DSEG = 0x0020
+BSEG = 0x0000
+
+

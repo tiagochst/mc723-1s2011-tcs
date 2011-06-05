@@ -3,7 +3,6 @@ AC_ARCH(rs08){
   ac_mem   RAM:16K;
   ac_wordsize 8;
 
-
   ac_format Fmt_CCR =
               "%Z:1 %C:1" ;
 

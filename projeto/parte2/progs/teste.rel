@@ -1,0 +1,81 @@
+;!FILE teste.asm
+XH
+H 10 areas 1A global symbols
+M teste
+O -mhc08
+S __sdcc_external_startup Ref0000
+S s_XISEG Ref0000
+S l_XINIT Ref0000
+S s_XINIT Ref0000
+A _CODE size 0 flags 0 addr 0
+A HOME size 0 flags 20 addr 0
+A GSINIT0 size 1E flags 20 addr 0
+S __sdcc_gs_init_startup Def0000
+S __sdcc_init_data Def000C
+S teste.30 Def0007
+S teste.40 Def001A
+S teste.31 Def0009
+S teste.41 Def001C
+S teste.34 Def000C
+S teste.36 Def000F
+S teste.27 Def0000
+S teste.37 Def0012
+S teste.28 Def0003
+S teste.38 Def0014
+S teste.29 Def0004
+S teste.39 Def0017
+A GSINIT size 0 flags 20 addr 0
+A GSFINAL size 3 flags 20 addr 0
+S teste.45 Def0000
+A CSEG size 9 flags 20 addr 0
+S teste.49 Def0000
+S _main Def0006
+S __sdcc_program_startup Def0000
+S teste.103 Def0006
+S teste.104 Def0007
+S teste.106 Def0008
+S teste.50 Def0003
+A XINIT size 0 flags 0 addr 0
+A CONST size 0 flags 20 addr 0
+A DSEG size 0 flags 0 addr 0
+A OSEG size 0 flags 4 addr 0
+A BSEG size 0 flags 0 addr 0
+A XSEG size 0 flags 0 addr 0
+A XISEG size 0 flags 0 addr 0
+A CODEIVT size 2 flags 8 addr FFFE
+A XABS size FFFF0002 flags 8 addr FFFE
+A CABS size FFFF0002 flags 28 addr FFFE
+T FF FE
+R 00 00 00 0D
+T FF FE 00 00
+R 00 00 00 0D 00 02 00 02
+T 00 00
+R 00 00 00 02
+T 00 00 45 80 00 94 CD 00 00 27 03 CC 00 00
+R 00 00 00 02 02 07 00 00 00 0C 00 05
+T 00 0C
+R 00 00 00 02
+T 00 0C 45 00 00
+R 00 00 00 02
+T 00 0F
+R 00 00 00 02
+T 00 0F 65 00 00 27 0A D6 00 00 D7
+R 00 00 00 02 02 03 00 02 02 08 00 03
+T 00 18 00 00 AF 01 20 F1
+R 00 00 00 02 02 02 00 01
+T 00 1E
+R 00 00 00 02
+T 00 00 CC 00 00
+R 00 00 00 04 00 03 00 05
+T 00 00
+R 00 00 00 05
+T 00 00 CD 00 06 CC 00 00
+R 00 00 00 05 00 03 00 05
+T 00 06
+R 00 00 00 05
+T 00 06 5F 4F
+R 00 00 00 05
+T 00 08
+R 00 00 00 05
+T 00 08 81
+R 00 00 00 05
