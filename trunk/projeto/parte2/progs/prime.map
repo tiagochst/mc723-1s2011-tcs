@@ -1,0 +1,216 @@
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+CABS                               0000   FFFF0002 = 4294901762. bytes (ABS,CON,CODE)
+
+      Value  Global
+   --------  --------------------------------
+  0C:FFFF0002    l_CABS
+  0C:FFFF0002    l_XABS
+  0C:0000    l_BSEG
+  0C:0000    l_BSEG_BYTES
+  0C:0000    l_CONST
+  0C:0000    l_GSINIT
+  0C:0000    l_HOME
+  0C:0000    l_REG_BANK_0
+  0C:0000    l_REG_BANK_1
+  0C:0000    l_REG_BANK_2
+  0C:0000    l_REG_BANK_3
+  0C:0000    l_XINIT
+  0C:0000    l_XISEG
+  0C:0000    l__CODE
+  0C:0000    s_BSEG
+  0C:0000    s_CABS
+  0C:0000    s_CODEIVT
+  0C:0000    s_REG_BANK_0
+  0C:0000    s_XABS
+  0C:0000    s__CODE
+  0C:0002    l_CODEIVT
+  0C:0002    l_OSEG
+  0C:0003    l_GSFINAL
+  0C:0008    l_DSEG
+  0C:0008    s_REG_BANK_1
+  0C:000D    l_XSEG
+  0C:0010    s_REG_BANK_2
+  0C:0018    s_REG_BANK_3
+  0C:001E    l_GSINIT0
+  0C:0020    s_BSEG_BYTES
+  0C:0020    s_DSEG
+  0C:0028    s_OSEG
+  0C:0169    l_CSEG
+  0C:3800    s_GSINIT0
+  0C:3800    s_HOME
+  0C:381E    s_GSFINAL
+  0C:381E    s_GSINIT
+  0C:3821    s_CSEG
+  0C:398A    s_CONST
+  0C:398A    s_XINIT
+  0C:3FFD    s_XSEG
+  0C:400A    s_XISEG
+
+
+
+
+
+
+
+
+
+
+
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+GSINIT0                            3800   001E =     30. bytes (REL,CON,CODE)
+
+      Value  Global
+   --------  --------------------------------
+  0C:3800    __sdcc_gs_init_startup
+  0C:3800    prime.27
+  0C:3803    prime.28
+  0C:3804    prime.29
+  0C:3807    prime.30
+  0C:3809    prime.31
+  0C:380C    __sdcc_init_data
+  0C:380C    prime.34
+  0C:380F    prime.36
+  0C:3812    prime.37
+  0C:3814    prime.38
+  0C:3817    prime.39
+  0C:381A    prime.40
+  0C:381C    prime.41
+
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+GSFINAL                            381E   0003 =      3. bytes (REL,CON,CODE)
+
+      Value  Global
+   --------  --------------------------------
+  0C:381E    prime.45
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+CSEG                               3821   0169 =    361. bytes (REL,CON,CODE)
+
+      Value  Global
+   --------  --------------------------------
+  0C:3821    __sdcc_program_startup
+  0C:3821    prime.49
+  0C:3824    prime.50
+  0C:3827    _prime
+  0C:3827    prime.110
+  0C:382A    prime.111
+  0C:382D    prime.113
+  0C:382F    prime.114
+  0C:3832    prime.116
+  0C:3834    prime.117
+  0C:3837    prime.118
+  0C:3839    prime.119
+  0C:383C    prime.120
+  0C:383E    prime.122
+  0C:3840    prime.123
+  0C:3843    prime.124
+  0C:3845    prime.125
+  0C:3848    prime.126
+  0C:384B    prime.127
+  0C:384E    prime.128
+  0C:3851    prime.129
+  0C:3852    prime.130
+  0C:3854    prime.131
+  0C:3855    prime.133
+  0C:3857    prime.136
+  0C:3859    prime.137
+  0C:385B    prime.138
+  0C:385D    prime.139
+  0C:385F    prime.142
+  0C:3861    prime.143
+  0C:3863    prime.145
+  0C:3864    _main
+  0C:3864    prime.159
+  0C:3866    prime.160
+  0C:3868    prime.161
+  0C:386B    prime.162
+  0C:386E    prime.163
+  0C:3871    prime.165
+  0C:3874    prime.166
+  0C:3876    prime.167
+  0C:3878    prime.168
+  0C:387B    prime.169
+  0C:387D    prime.170
+  0C:387F    prime.172
+  0C:3880    prime.173
+  0C:3882    prime.175
+  0C:3884    prime.178
+  0C:3885    prime.179
+  0C:3886    prime.181
+  0C:3887    __sdcc_external_startup
+  0C:3889    __modsint
+  0C:38FD    __moduint
+
+
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+DSEG                               0020   0008 =      8. bytes (REL,CON)
+
+      Value  Global
+   --------  --------------------------------
+     0020    _prime_sloc0_1_0
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+OSEG                               0028   0002 =      2. bytes (REL,OVR)
+
+      Value  Global
+   --------  --------------------------------
+     0028    __moduint_sloc0_1_0
+     0029    __moduint_sloc1_1_0
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+XSEG                               3FFD   000D =     13. bytes (REL,CON)
+
+      Value  Global
+   --------  --------------------------------
+     3FFD    _prime_n_1_1
+     3FFF    _main_b_1_1
+     4001    __modsint_PARM_2
+     4005    __moduint_PARM_2
+
+ASxxxx Linker V01.75 + NoICE + SDCC Feb 1999,  page 1.
+
+Files Linked      [ module(s) ]
+
+prime.rel       
+
+Libraries Linked                    [   object  file   ]
+
+/usr/local/share/sdcc/lib/hc08/hc08.lib    [     _startup.rel ]
+/usr/local/share/sdcc/lib/hc08/hc08.lib    [     _modsint.rel ]
+/usr/local/share/sdcc/lib/hc08/hc08.lib    [     _moduint.rel ]
+
+ASxxxx Linker V01.75 + NoICE + SDCC Feb 1999,  page 2.
+
+User Base Address Definitions
+
+HOME = 0x3800
+DSEG = 0x0020
+XSEG = 0x3ffd
+BSEG = 0x0000
+
+

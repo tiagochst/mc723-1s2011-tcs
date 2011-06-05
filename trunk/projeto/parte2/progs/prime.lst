@@ -1,0 +1,201 @@
+ASxxxx Assembler V01.70 + NoICE + SDCC mods + Flat24 Feb-1999  (Motorola 68HC08), page 1.
+
+
+
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 2.8.0 #5117 (Mar 23 2008) (UNIX)
+                              4 ; This file was generated Sat Jun  4 20:41:44 2011
+                              5 ;--------------------------------------------------------
+                              6 	.module prime
+                              7 	.optsdcc -mhc08
+                              8 	
+                              9 	.area HOME (CODE)
+                             10 	.area GSINIT0 (CODE)
+                             11 	.area GSINIT (CODE)
+                             12 	.area GSFINAL (CODE)
+                             13 	.area CSEG (CODE)
+                             14 	.area XINIT
+                             15 	.area CONST   (CODE)
+                             16 	.area DSEG
+                             17 	.area OSEG    (OVR)
+                             18 	.area BSEG
+                             19 	.area XSEG
+                             20 	.area XISEG
+                             21 	.area	CODEIVT (ABS)
+   FFFE                      22 	.org	0xfffe
+   FFFE`00`00                23 	.dw	__sdcc_gs_init_startup
+                             24 
+                             25 	.area GSINIT0
+   0000                      26 __sdcc_gs_init_startup:
+   0000 45 38 01             27 	ldhx	#0x3801
+   0003 94                   28 	txs
+   0004 CD`00`00             29 	jsr	__sdcc_external_startup
+   0007 27 03                30 	beq	__sdcc_init_data
+   0009 CC`00`00             31 	jmp	__sdcc_program_startup
+   000C                      32 __sdcc_init_data:
+                             33 ; _hc08_genXINIT() start
+   000C 45 00 00             34         ldhx #0
+   000F                      35 00001$:
+   000F 65`00`00             36         cphx #l_XINIT
+   0012 27 0A                37         beq  00002$
+   0014 D6`00`00             38         lda  s_XINIT,x
+   0017 D7`00`00             39         sta  s_XISEG,x
+   001A AF 01                40         aix  #1
+   001C 20 F1                41         bra  00001$
+   001E                      42 00002$:
+                             43 ; _hc08_genXINIT() end
+                             44 	.area GSFINAL
+   0000 CC`00`00             45 	jmp	__sdcc_program_startup
+                             46 
+                             47 	.area CSEG
+   0000                      48 __sdcc_program_startup:
+   0000 CD`00`43             49 	jsr	_main
+   0003 CC 00 00             50 	jmp	0x0000
+                             51 ;--------------------------------------------------------
+                             52 ; Public variables in this module
+                             53 ;--------------------------------------------------------
+                             54 	.globl _main
+                             55 	.globl _prime
+                             56 ;--------------------------------------------------------
+ASxxxx Assembler V01.70 + NoICE + SDCC mods + Flat24 Feb-1999  (Motorola 68HC08), page 2.
+
+
+
+                             57 ;  ram data
+                             58 ;--------------------------------------------------------
+                             59 	.area DSEG
+   0000                      60 _prime_sloc0_1_0:
+   0000                      61 	.ds 2
+                             62 ;--------------------------------------------------------
+                             63 ; overlayable items in  ram 
+                             64 ;--------------------------------------------------------
+                             65 	.area OSEG    (OVR)
+                             66 ;--------------------------------------------------------
+                             67 ; absolute external ram data
+                             68 ;--------------------------------------------------------
+                             69 	.area XABS    (ABS)
+                             70 ;--------------------------------------------------------
+                             71 ; external initialized ram data
+                             72 ;--------------------------------------------------------
+                             73 	.area XISEG
+                             74 ;--------------------------------------------------------
+                             75 ; extended address mode data
+                             76 ;--------------------------------------------------------
+                             77 	.area XSEG
+   0000                      78 _prime_n_1_1:
+   0000                      79 	.ds 2
+   0002                      80 _main_b_1_1:
+   0002                      81 	.ds 2
+                             82 ;--------------------------------------------------------
+                             83 ; global & static initialisations
+                             84 ;--------------------------------------------------------
+                             85 	.area HOME (CODE)
+                             86 	.area GSINIT (CODE)
+                             87 	.area GSFINAL (CODE)
+                             88 	.area GSINIT (CODE)
+                             89 ;--------------------------------------------------------
+                             90 ; Home
+                             91 ;--------------------------------------------------------
+                             92 	.area HOME (CODE)
+                             93 	.area HOME (CODE)
+                             94 ;--------------------------------------------------------
+                             95 ; code
+                             96 ;--------------------------------------------------------
+                             97 	.area CSEG (CODE)
+                             98 ;------------------------------------------------------------
+                             99 ;Allocation info for local variables in function 'prime'
+                            100 ;------------------------------------------------------------
+                            101 ;sloc0                     Allocated with name '_prime_sloc0_1_0'
+                            102 ;n                         Allocated with name '_prime_n_1_1'
+                            103 ;i                         Allocated to registers 
+                            104 ;------------------------------------------------------------
+                            105 ;prime.c:1: int prime(int n) {
+                            106 ;	-----------------------------------------
+                            107 ;	 function prime
+                            108 ;	-----------------------------------------
+   0006                     109 _prime:
+   0006 C7`00`01            110 	sta	(_prime_n_1_1 + 1)
+   0009 CF`00`00            111 	stx	_prime_n_1_1
+                            112 ;prime.c:3: while ( (i < n) && (n % i) ) {
+ASxxxx Assembler V01.70 + NoICE + SDCC mods + Flat24 Feb-1999  (Motorola 68HC08), page 3.
+
+
+
+   000C 3F`00               113 	clr	*_prime_sloc0_1_0
+   000E 6E 02`01            114 	mov	#0x02,*(_prime_sloc0_1_0 + 1)
+   0011                     115 00102$:
+   0011 B6`01               116 	lda	*(_prime_sloc0_1_0 + 1)
+   0013 C0`00`01            117 	sub	(_prime_n_1_1 + 1)
+   0016 B6`00               118 	lda	*_prime_sloc0_1_0
+   0018 C2`00`00            119 	sbc	_prime_n_1_1
+   001B 90 21               120 	bge	00104$
+   001D                     121 00111$:
+   001D B6`00               122 	lda	*_prime_sloc0_1_0
+   001F C7`00`00            123 	sta	__modsint_PARM_2
+   0022 B6`01               124 	lda	*(_prime_sloc0_1_0 + 1)
+   0024 C7`00`01            125 	sta	(__modsint_PARM_2 + 1)
+   0027 CE`00`00            126 	ldx	_prime_n_1_1
+   002A C6`00`01            127 	lda	(_prime_n_1_1 + 1)
+   002D CD`00`00            128 	jsr	__modsint
+   0030 4D                  129 	tsta
+   0031 26 01               130 	bne	00112$
+   0033 5D                  131 	tstx
+   0034                     132 00112$:
+   0034 27 08               133 	beq	00104$
+   0036                     134 00113$:
+                            135 ;prime.c:4: i++;
+   0036 55`00               136 	ldhx	*_prime_sloc0_1_0
+   0038 AF 01               137 	aix	#1
+   003A 35`00               138 	sthx	*_prime_sloc0_1_0
+   003C 20 D3               139 	bra	00102$
+   003E                     140 00104$:
+                            141 ;prime.c:6: return i;
+   003E BE`00               142 	ldx	*_prime_sloc0_1_0
+   0040 B6`01               143 	lda	*(_prime_sloc0_1_0 + 1)
+   0042                     144 00105$:
+   0042 81                  145 	rts
+                            146 ;------------------------------------------------------------
+                            147 ;Allocation info for local variables in function 'main'
+                            148 ;------------------------------------------------------------
+                            149 ;a                         Allocated to registers 
+                            150 ;b                         Allocated with name '_main_b_1_1'
+                            151 ;c                         Allocated to registers 
+                            152 ;------------------------------------------------------------
+                            153 ;prime.c:9: int main (void) {
+                            154 ;	-----------------------------------------
+                            155 ;	 function main
+                            156 ;	-----------------------------------------
+   0043                     157 _main:
+                            158 ;prime.c:14: b = prime(a);
+   0043 AE 02               159 	ldx	#0x02
+   0045 A6 CF               160 	lda	#0xCF
+   0047 CD`00`06            161 	jsr	_prime
+   004A C7`00`03            162 	sta	(_main_b_1_1 + 1)
+   004D CF`00`02            163 	stx	_main_b_1_1
+                            164 ;prime.c:16: if (a == b) {
+   0050 C6`00`03            165 	lda	(_main_b_1_1 + 1)
+   0053 A1 CF               166 	cmp	#0xCF
+   0055 26 07               167 	bne	00107$
+   0057 C6`00`02            168 	lda	_main_b_1_1
+ASxxxx Assembler V01.70 + NoICE + SDCC mods + Flat24 Feb-1999  (Motorola 68HC08), page 4.
+
+
+
+   005A A1 02               169 	cmp	#0x02
+   005C 27 03               170 	beq	00109$
+   005E                     171 00107$:
+   005E 4F                  172 	clra
+   005F 20 02               173 	bra	00108$
+   0061                     174 00109$:
+   0061 A6 01               175 	lda	#0x01
+   0063                     176 00108$:
+                            177 ;prime.c:24: return 0;
+   0063 5F                  178 	clrx
+   0064 4F                  179 	clra
+   0065                     180 00104$:
+   0065 81                  181 	rts
+                            182 	.area CSEG (CODE)
+                            183 	.area CONST   (CODE)
+                            184 	.area XINIT
+                            185 	.area CABS    (ABS,CODE)

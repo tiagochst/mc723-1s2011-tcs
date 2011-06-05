@@ -1,0 +1,98 @@
+ASxxxx Assembler V01.70 + NoICE + SDCC mods + Flat24 Feb-1999  (Motorola 68HC08), page 1.
+
+Symbol Table
+
+    __modsint                                                      **** GX
+    __modsint_PARM_2                                               **** GX
+    __sdcc_external_startup                                        **** GX
+  2 __sdcc_gs_init_startup                                         0000 GR
+  2 __sdcc_init_data                                               000C GR
+  5 __sdcc_program_startup                                         0000 GR
+  5 _main                                                          0043 GR
+  B _main_b_1_1                                                    0002 GR
+  5 _prime                                                         0006 GR
+  B _prime_n_1_1                                                   0000 GR
+  8 _prime_sloc0_1_0                                               0000 GR
+    l_XINIT                                                        **** GX
+  5 prime.110                                                      0006 GR
+  5 prime.111                                                      0009 GR
+  5 prime.113                                                      000C GR
+  5 prime.114                                                      000E GR
+  5 prime.116                                                      0011 GR
+  5 prime.117                                                      0013 GR
+  5 prime.118                                                      0016 GR
+  5 prime.119                                                      0018 GR
+  5 prime.120                                                      001B GR
+  5 prime.122                                                      001D GR
+  5 prime.123                                                      001F GR
+  5 prime.124                                                      0022 GR
+  5 prime.125                                                      0024 GR
+  5 prime.126                                                      0027 GR
+  5 prime.127                                                      002A GR
+  5 prime.128                                                      002D GR
+  5 prime.129                                                      0030 GR
+  5 prime.130                                                      0031 GR
+  5 prime.131                                                      0033 GR
+  5 prime.133                                                      0034 GR
+  5 prime.136                                                      0036 GR
+  5 prime.137                                                      0038 GR
+  5 prime.138                                                      003A GR
+  5 prime.139                                                      003C GR
+  5 prime.142                                                      003E GR
+  5 prime.143                                                      0040 GR
+  5 prime.145                                                      0042 GR
+  5 prime.159                                                      0043 GR
+  5 prime.160                                                      0045 GR
+  5 prime.161                                                      0047 GR
+  5 prime.162                                                      004A GR
+  5 prime.163                                                      004D GR
+  5 prime.165                                                      0050 GR
+  5 prime.166                                                      0053 GR
+  5 prime.167                                                      0055 GR
+  5 prime.168                                                      0057 GR
+  5 prime.169                                                      005A GR
+  5 prime.170                                                      005C GR
+  5 prime.172                                                      005E GR
+  5 prime.173                                                      005F GR
+  5 prime.175                                                      0061 GR
+  5 prime.178                                                      0063 GR
+  5 prime.179                                                      0064 GR
+  5 prime.181                                                      0065 GR
+  2 prime.27                                                       0000 GR
+  2 prime.28                                                       0003 GR
+  2 prime.29                                                       0004 GR
+  2 prime.30                                                       0007 GR
+  2 prime.31                                                       0009 GR
+  2 prime.34                                                       000C GR
+  2 prime.36                                                       000F GR
+  2 prime.37                                                       0012 GR
+  2 prime.38                                                       0014 GR
+  2 prime.39                                                       0017 GR
+  2 prime.40                                                       001A GR
+  2 prime.41                                                       001C GR
+  4 prime.45                                                       0000 GR
+  5 prime.49                                                       0000 GR
+  5 prime.50                                                       0003 GR
+    s_XINIT                                                        **** GX
+    s_XISEG                                                        **** GX
+
+ASxxxx Assembler V01.70 + NoICE + SDCC mods + Flat24 Feb-1999  (Motorola 68HC08), page 2.
+
+Area Table
+
+   0 _CODE                                                                              size    0   flags 0
+   1 HOME                                                                               size    0   flags 20
+   2 GSINIT0                                                                            size   1E   flags 20
+   3 GSINIT                                                                             size    0   flags 20
+   4 GSFINAL                                                                            size    3   flags 20
+   5 CSEG                                                                               size   66   flags 20
+   6 XINIT                                                                              size    0   flags 0
+   7 CONST                                                                              size    0   flags 20
+   8 DSEG                                                                               size    2   flags 0
+   9 OSEG                                                                               size    0   flags 4
+   A BSEG                                                                               size    0   flags 0
+   B XSEG                                                                               size    4   flags 0
+   C XISEG                                                                              size    0   flags 0
+   D CODEIVT                                                                            size    2   flags 8
+   E XABS                                                                               size FFFF0002   flags 8
+   F CABS                                                                               size FFFF0002   flags 28
